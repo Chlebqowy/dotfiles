@@ -1,0 +1,42 @@
+format = """
+[█](fg:#75ff98 bg:#b0b0b0)\
+[$username](bg:#b0b0b0 fg:#fafcfb)\
+[](fg:#b0b0b0 bg:#66f28b)\
+[█](bg:#b0b0b0 fg:#66f28b)\
+[$hostname$nix_shell](bg:#b0b0b0 fg:#fafcfb)\
+[](fg:#b0b0b0 bg:#3fcc65)\
+[█](bg:#b0b0b0 fg:#3fcc65)\
+[$directory](bg:#b0b0b0 fg:#fafcfb)\
+[](fg:#b0b0b0 bg:#3ab55b)\
+[█](bg:#b0b0b0 fg:#3ab55b)\
+[$time](bg:#b0b0b0 fg:#32a852)\
+[](fg:#b0b0b0 bg:#298c43)\
+[█](fg:#298c43)\
+"""
+
+[directory]
+style = 'bg:#b0b0b0 fg:#fafcfb'
+format = '[  $path ]($style)'
+truncation_length = 3
+truncation_symbol = ''
+
+[time]
+disabled = false
+time_format = '%R' # Hour:Minute Format
+style = 'bg:#b0b0b0 fg:#fafcfb'
+format = '[  $time ]($style)'
+
+[hostname]
+format = '[  $hostname ]($style)'
+style = 'bg:#b0b0b0 fg:#fafcfb'
+ssh_only = false
+
+[username]
+format = '[ 󰙍 $user ]($style)'
+style_user = 'bg:#b0b0b0 fg:#fafcfb'
+style_root = 'bg:#aa0000 fg:#ff0000'
+show_always = true
+
+[nix_shell]
+format = '[  nix-shell ](style)'
+style = 'bg:#b0b0b0 fg:#fafcfb'
