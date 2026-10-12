@@ -1,0 +1,135 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: "Departuremono Nerd Font", monospace;
+    font-size: 15px;
+}
+
+window#waybar {
+    background: radial-gradient(rgba(0, 0, 0, 0.3), rgba(30, 50, 30, 1));
+    color: #ffffff;
+    padding: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-color: #7fffb2;
+    border-bottom-width: 4px;
+    border-style: solid;
+    border-top-left-radius: 0px ;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+window#waybar * {
+    margin-left: 5px;
+    margin-right: 5px;
+    border-color: #7fffb2;
+    border-width: 1px;
+    border-radius: 3px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+#clock {
+    font-feature-settings: "smcp";
+    padding-left: 5px;
+    padding-right: 5px;
+    border-color: #7fffb2;
+    border-width: 1px;
+    border-bottom-width: 4px;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding-bottom: 0px;
+    box-shadow: 5px 5px 100px 0px rgba(0, 0, 0, 0.8), 5px 5px 30px rgba(200, 255, 220, 0.8) inset;
+}
+
+#window {
+    font-feature-settings: "smcp";
+    padding-left: 5px;
+    padding-right: 5px;
+    border-color: #7fffb2;
+    border-width: 1px;
+    border-bottom-width: 4px;
+    background-color: rgba(0, 108, 61, 0.2);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8), 5px 5px 15px rgba(200, 255, 220, 0.4) inset;
+}
+#cpu {
+    font-feature-settings: "c2sc";
+    padding-left: 5px;
+    padding-right: 5px;
+    border-color: #7fffb2;
+    border-width: 1px;
+    border-bottom-width: 4px;
+    background-color: rgba(0, 108, 61, 0.2);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8), 5px 5px 15px rgba(200, 255, 220, 0.4) inset;
+}
+#custom-zypper {
+    font-feature-settings: "c2sc";
+    padding-left: 5px;
+    padding-right: 5px;
+    border-color: #7fffb2;
+    border-width: 1px;
+    border-bottom-width: 4px;
+    background-color: rgba(0, 108, 61, 0.2);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8), 5px 5px 15px rgba(200, 255, 220, 0.4) inset;
+}
+#temperature {
+    font-feature-settings: "c2sc";
+    padding-left: 5px;
+    padding-right: 5px;
+    border-color: #7fffb2;
+    border-width: 1px;
+    border-bottom-width: 4px;
+    background-color: rgba(0, 108, 61, 0.2);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8), 5px 5px 15px rgba(200, 255, 220, 0.4) inset;
+}
+#memory {
+    font-feature-settings: "c2sc";
+    padding-left: 5px;
+    padding-right: 5px;
+    border-color: #7fffb2;
+    border-width: 1px;
+    border-bottom-width: 4px;
+    background-color: rgba(0, 108, 61, 0.2);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8), 5px 5px 15px rgba(200, 255, 220, 0.4) inset;
+}
+#pulseaudio {
+    font-feature-settings: "c2sc";
+    padding-left: 5px;
+    padding-right: 5px;
+    border-color: #7fffb2;
+    border-width: 1px;
+    border-bottom-width: 4px;
+    background-color: rgba(0, 108, 61, 0.2);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8), 5px 5px 15px rgba(200, 255, 220, 0.4) inset;
+}
+#disk {
+    font-feature-settings: "c2sc";
+    padding-left: 5px;
+    padding-right: 5px;
+    border-color: #7fffb2;
+    border-width: 1px;
+    border-bottom-width: 4px;
+    background-color: rgba(0, 108, 61, 0.2);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8), 5px 5px 15px rgba(200, 255, 220, 0.4) inset;
+}
+#custom-gpu {
+    font-feature-settings: "c2sc";
+    padding-left: 5px;
+    padding-right: 5px;
+    border-color: #7fffb2;
+    border-width: 1px;
+    border-bottom-width: 4px;
+    background-color: rgba(0, 108, 61, 0.2);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8), 5px 5px 15px rgba(200, 255, 220, 0.4) inset;
+}
+#workspace * {
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding: 0px;
+    background-color: rgba(0, 108, 61, 0.2);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8), 5px 5px 15px rgba(200, 255, 220, 0.4) inset;
+}
+#workspace button:hover {
+    background-color: rgba(0, 108, 61, 0.2);
+    border: inherit;
+    padding: inherit;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8), 5px 5px 15px rgba(200, 255, 220, 0.4) inset;
+}
