@@ -17,3 +17,5 @@ definitely will break. but if you open an issue, I will probably fix that
 
 also I only included apps that I feel like I've fully riced and the rice
 is up to date enough or has roughly the same style as my other apps.
+
+also most setting aren't perfect because I don't have much time for ricing
