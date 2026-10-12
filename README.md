@@ -1,1 +1,1 @@
-run install.sh
+currently includes niri, waybar and starship
