@@ -11,3 +11,9 @@ currently includes:
 - swaybg
 
 the bashrc is for starship to apply
+
+btw the dots are made specifically for my setup so something
+definitely will break. but if you open an issue, I will probably fix that
+
+also I only included apps that I feel like I've fully riced and the rice
+is up to date enough or has roughly the same style as my other apps.
