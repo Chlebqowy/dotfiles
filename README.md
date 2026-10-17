@@ -51,9 +51,8 @@ Add the bashrc contents to your .bashrc
 
 __The bashrc is needed for starship to apply__
 
-_I only included apps that I feel like I've fully riced and the rice
-is up to date enough or has roughly the same style as my other apps._
-
-Also most settings aren't perfect because I don't have much time for ricing.
-
-I am planning to add a code editor and rofi and update the spf config.
+> [!NOTE]
+> I only included apps that I feel like I've fully riced and the rice
+> is up to date enough or has roughly the same style as my other apps._
+> Also most settings aren't perfect because I don't have much time for ricing.
+> I am planning to add a code editor and rofi and update the spf config in the future.
