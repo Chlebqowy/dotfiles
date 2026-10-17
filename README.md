@@ -1,5 +1,8 @@
 # Chlebqowy Dotfiles
 
+<img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/d3411e8a-8b31-44ad-885e-9d75b0a008ae" />
+// add niri ss
+
 ## Currently includes:
 - niri, waybar
 - i3wm, picom, polybar
@@ -7,12 +10,16 @@
 - dmenu
 - swaybg/feh
 
+-------
+
 ## How to install:
 Put all contents of x11 or wayland and cross-platform into .config
 Put scripts into /home/user/scripts
 Put all contents of bin/ into /usr/bin/
 Put all pictures into /home/user/Pictures/Important/
 Add the bashrc contents to your .bashrc
+
+-------
 
 ## Features:
 
