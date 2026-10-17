@@ -28,12 +28,13 @@ Add the bashrc contents to your .bashrc
 - Clean notifications
 - Semi-minimalist vibe with a lot of roundness, thick borders, some transparency and blur
 - Nice green color scheme (maybe add more in the future)
+- Dotfiles that are easy to modify
 -------
 ### X11:
 - Nice, quick and smooth custom animations
 - i3wm config that's nice to use
-- 2 top bars that display some data that's always useful
-- Workspace bar
+- A top bars that display some data that's always useful
+- A seperate workspace bar with named workspaces
 - Wallpapers depending on the time of day
 - Polybar module that list packages to upgrade
 - Custom scripts and dmenu modifications
@@ -47,9 +48,14 @@ Add the bashrc contents to your .bashrc
 - Nice nature wallpapers
 -----
 
-### Please open an issue if something is broken.
+### Configuration
+You have to modify the config files manually, although they are fairly simple.
+Some resources I'd recommend are the wikis for each project and the i3wm manual.
 
-__The bashrc is needed for starship to apply__
+### Please open an issue if something is broken.
+__I don't accept pull requests__
+
+_The bashrc is needed for starship to apply_
 
 > [!NOTE]
 > I only included apps that I feel like I've fully riced and the rice
