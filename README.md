@@ -1,6 +1,6 @@
 # Chlebqowy Dotfiles
 
-<img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/d3411e8a-8b31-44ad-885e-9d75b0a008ae" />
+<img width="2560" height="1440" alt="i3 setup" src="https://github.com/user-attachments/assets/d3411e8a-8b31-44ad-885e-9d75b0a008ae" />
 // add niri ss
 
 ## Currently includes:
