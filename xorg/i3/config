@@ -79,27 +79,39 @@ bindsym $mod+z focus child
 
 set $wsn workspace number
 set $mct move container to
-bindsym $mod+1 $wsn 1
-bindsym $mod+2 $wsn 2
-bindsym $mod+3 $wsn 3
-bindsym $mod+4 $wsn 4
-bindsym $mod+5 $wsn 5
-bindsym $mod+6 $wsn 6
-bindsym $mod+7 $wsn 7
-bindsym $mod+8 $wsn 8
-bindsym $mod+9 $wsn 9
-bindsym $mod+0 $wsn 10
 
-bindsym $mod+Shift+1 $mct $wsn 1
-bindsym $mod+Shift+2 $mct $wsn 2
-bindsym $mod+Shift+3 $mct $wsn 3
-bindsym $mod+Shift+4 $mct $wsn 4
-bindsym $mod+Shift+5 $mct $wsn 5
-bindsym $mod+Shift+6 $mct $wsn 6
-bindsym $mod+Shift+7 $mct $wsn 7
-bindsym $mod+Shift+8 $mct $wsn 8
-bindsym $mod+Shift+9 $mct $wsn 9
-bindsym $mod+Shift+0 $mct $wsn 10
+set $ws1 "1: Game/Main"
+set $ws2 "2: Yt/Firefox"
+set $ws3 "3: Code"
+set $ws4 "4: Extra Docs"
+set $ws5 "5: Discord"
+set $ws6 "6: Work/Learning"
+set $ws7 "7: Other"
+set $ws8 "8: Discord Main"
+set $ws9 "9: Trash"
+set $ws0 "0: Yt/firefox Main"
+
+bindsym $mod+1 $wsn $ws1
+bindsym $mod+2 $wsn $ws2
+bindsym $mod+3 $wsn $ws3
+bindsym $mod+4 $wsn $ws4
+bindsym $mod+5 $wsn $ws5
+bindsym $mod+6 $wsn $ws6
+bindsym $mod+7 $wsn $ws7
+bindsym $mod+8 $wsn $ws8
+bindsym $mod+9 $wsn $ws9
+bindsym $mod+0 $wsn $ws0
+
+bindsym $mod+Shift+1 $mct $wsn $ws1
+bindsym $mod+Shift+2 $mct $wsn $ws2
+bindsym $mod+Shift+3 $mct $wsn $ws3
+bindsym $mod+Shift+4 $mct $wsn $ws4
+bindsym $mod+Shift+5 $mct $wsn $ws5
+bindsym $mod+Shift+6 $mct $wsn $ws6
+bindsym $mod+Shift+7 $mct $wsn $ws7
+bindsym $mod+Shift+8 $mct $wsn $ws8
+bindsym $mod+Shift+9 $mct $wsn $ws9
+bindsym $mod+Shift+0 $mct $wsn $ws0
 
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
@@ -115,24 +127,9 @@ bindsym $mod+shift+minus resize shrink height 100 px
 bindsym $mod+ctrl+minus resize shrink width 20 px
 bindsym $mod+ctrl+shift+minus resize shrink height 20 px
 
-exec "bash /home/user/.config/i3/screens.sh"
 gaps inner 20
 gaps outer 5
 # make sure it's the same as in lock-in-mode
-
-workspace 1 output HDMI-0
-workspace 2 output DP-2
-workspace 9 output HDMI-1
-workspace 9 gaps inner 10
-workspace 9 gaps outer 3
-
-$exec-noid "kitty cava --name cava"
-$exec-noid "kitty tty-clock --name tty-clock"
-assign [class="^kitty$" instance="^cava$"] → 9
-assign [class="^kitty$" instance="^tty-clock$"] → 9
-
-$exec-noid "discord"
-assign [class="^Discord$"] → 1
 
 smart_gaps off
 #smart_borders on
@@ -143,11 +140,15 @@ $exec-noid "setxkbmap pl"
 
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
+# exec "bash /home/user/.config/i3/screens.sh horizontal"
+
+$exec-noid "xrandr --output HDMI-0 --mode 2560x1440 --rate 120 --pos 0x0 --rotate normal --output DP-2 --mode 2560x1440 --rate 240 --pos 2560x0 --rotate normal --primary"
+
 $exec-noid "/home/user/activitywatch/aw_qt"
 $exec-noid "bash /home/user/scripts/fehpaperdyn.sh"
 
 $exec-noid "picom"
-$exec-noid "polybar example-main"
+$exec-noid "polybar"
 $exec-noid "dunst"
 
 title_align center
@@ -157,6 +158,45 @@ client.focused #339955 #227744 #ffffff #222222 #3f8f62
 client.unfocused #333333 #222826 #888888 #222222 #5b5757
 client.focused_inactive #336644 #335544 #eeeeee #222222 #5b5757
 for_window [class="dunst"] border pixel 0
+
+workspace $ws1 output DP-2
+workspace $ws2 output HDMI-0
+workspace $ws3 output DP-2
+workspace $ws4 output HDMI-0
+workspace $ws5 output HDMI-0
+workspace $ws6 output DP-2
+workspace $ws7 output DP-2
+workspace $ws8 output DP-2
+workspace $ws9 output DP-2
+workspace $ws0 output DP-2
+
+assign [class="(?i)steam"] $ws1
+assign [class="(?i)prismlauncher"] $ws1
+assign [class="(?i)code"] $ws2
+assign [class="(?i)discord"] $ws5
+$exec-noid discord
+
+$exec-noid i3-msg 'workspace $ws2; workspace $ws1'
+
+bar {
+  workspace_buttons no
+  tray_output none
+  #position bottom
+  position top
+  #output primary
+  output HDMI-0
+  id 1
+  #font pango:DepartureMono Nerd Font 12
+  font pango:DepartureMono Nerd Font 11
+  status_command "~/scripts/workspace-bar"
+  colors {
+    background #222222aa
+  }
+  height 32
+  # inconsistent with polybar because it felt bigger. probably because of shadows
+  #height 36
+  # padding 9px # 6 pt at 107 dpi, polybar is 24 pt and font size is 12 pt so I wanted to make them equal. divide that by 2.
+}
 
 exec "systemctl --user start i3-session.target"
 $exec-noid "/usr/libexec/xdg-desktop-portal-gtk &"
