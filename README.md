@@ -16,12 +16,13 @@ Add the bashrc contents to your .bashrc
 
 ## Features:
 
-###Cross-platform
+### Cross-platform
 - Cool terminal and prompt that shows all important data in a nice way
 - Clean notifications
 - Semi-minimalist vibe with a lot of roundness, thick borders, some transparency and blur
 - Nice green color scheme (maybe add more in the future)
-###X11:
+-------
+### X11:
 - Nice, quick and smooth custom animations
 - i3wm config that's nice to use
 - 2 top bars that display some data that's always useful
@@ -30,12 +31,14 @@ Add the bashrc contents to your .bashrc
 - Polybar module that list packages to upgrade
 - Custom scripts and dmenu modifications
 - Nice nature wallpapers
-###Wayland:
+-----
+### Wayland:
 - Sensible niri keybinds, usable with both hands or the keyboard or one on the mouse
 - Good smooth shadows
 - Wallpapers depending on the time of day
 - Bar with an interesting design style and the same information as x11
 - Nice nature wallpapers
+-----
 
 ### Please open an issue if something is broken.
 
