@@ -4,77 +4,98 @@
 // add niri ss
 
 ## Currently includes:
-- niri, waybar
-- i3wm, picom, polybar
-- starship, kitty, dunst
+- starship
+- kitty
+- dunst
 - dmenu
-- swaybg/feh
 
--------
+|X11|Wayland|
+|---|---|
+|i3|niri|
+|polybar|waybar|
+|dmenu|rofi|
+|feh|swaybg|
+|picom|built-in|
+
+---
 
 ## Features:
 
 ### Cross-platform
-- Cool terminal and prompt that shows all important data in a nice way
-- Clean notifications
-- Semi-minimalist vibe with a lot of roundness, thick borders, some transparency and blur
-- Nice green color scheme (maybe add more in the future)
-- Dotfiles that are easy to modify
--------
+- Semi-minimalist style with a lot of roundness, thick borders, some transparency and blur
+- Fresh green color scheme with many shades.
+- Config files that are easy to modify
+- Nice wallpapers of nature that change depending on the time of day (From unsplash)
+---
 ### X11:
-- Nice, quick and smooth custom animations
-- i3wm config that's nice to use
-- A top bars that display some data that's always useful
-- A seperate workspace bar with named workspaces
-- Wallpapers depending on the time of day
-- Polybar module that list packages to upgrade
-- Custom scripts and dmenu modifications
-- Nice nature wallpapers
------
+- Quick and clean custom animations
+- Compositor shadows, blur and transparency
+- Top bar with system info created using polybar
+- Polybar module that list the amount of packages to upgrade
+- A seperate bar for workspaces on the second screen made with a custom program
+- Many custom scripts
+- Modified version of dmenu
+---
 ### Wayland:
-- Sensible niri keybinds, usable with both hands or the keyboard or one on the mouse
-- Good smooth shadows
-- Wallpapers depending on the time of day
-- Bar with an interesting design style and the same information as x11
-- Nice nature wallpapers
------
+- Smooth shadows, blur, transparency and animations
+- Bar with an experimental design style and the same information as x11
+---
+
+## Keybinds
+- All keybinds follow clear patterns that are easy to learn.
+- All system shortcuts start with super.
+- The Niri keybinds are made so that they can work if you have a
+single hand on the keyboard and the other on the mouse
+Or both hands on the keyboard.
+### Essential shortcuts:
+- Windows can be moved or focused with super + arrow keys or wasd.
+- Resizing is done with Super++/- and Super+Shift++/-
+- The terminal is opened with Super+Enter, firefox with
+Super+Shift+Enter and the launcher with Super+i
+- You can focus on the left monitor with Ctrl+Super+Left and on the right with Ctrl+Super+Right
+Please read the [`Niri`](wayland/niri/config.kdl) or [`i3`](x11/i3/config) configs to learn more
+---
 ## How to install:
 > [!WARNING]
 > Back up your existing `~/.config` and `/etc/fonts` first.
 
-__A nerd font is heavily recommended.__ You can find some at https://www.nerdfonts.com/font-downloads.
-_Your main font needs to be monospace_
-I personally use and recommend Departuremono but it is a pixel font.
-Put the nerd font into /etc/fonts/font-name
-Optionally, copy the local.conf to /etc/fonts/local.conf (REQUIRES SUDO)
-(This assumes you are using departuremono, otherwise you have to modify the file)
+__A nerd font is heavily recommended.__ You can find some at https://www.nerdfonts.com/font-downloads.  
+_Your main font needs to be monospace_   
+I personally use and recommend Departuremono but it is a pixel font.  
+Put the nerd font into /etc/fonts/font-name  
+Optionally, copy the local.conf to /etc/fonts/local.conf (REQUIRES SUDO)  
+(This assumes you are using departuremono, otherwise you have to modify the file)  \
 
-Copy all of the contents of the cross-platform directory into ~/.config
-If you want to use x11, also copy all of the contents of the x11 directory into ~/.config
-If you want to use wayland, also copy all of the contents of the x11 directory into ~/.config
+> [!NOTE]
+> I recommend modifying niri and i3 files to reflect your monitor setup
 
-Put scripts into ~/scripts
-Copy all contents of the bin/ directory into /usr/bin/ (REQUIRES SUDO) or .local/bin
-Put the contents of pictures/ into ~/Pictures/Important/
-Add the contents of .bashrc to your .bashrc
-(For other shells follow https://starship.rs/guide/#step-2-set-up-your-shell-to-use-starship)
+Copy all of the contents of the cross-platform directory into ~/.config  
+If you want to use x11, also copy all of the contents of the xorg directory into ~/.config  
+If you want to use wayland, also copy all of the contents of the x11 directory into ~/.config  
+
+Put scripts into ~/scripts  
+Copy all contents of the bin/ directory into /usr/bin/ (REQUIRES SUDO) or .local/bin  
+Put the contents of pictures/ into ~/Pictures/Important/  
+Add the contents of .bashrc to your .bashrc (needed for the command prompt to work)
+(For other shells follow https://starship.rs/guide/#step-2-set-up-your-shell-to-use-starship)  
 ---
 ## Dependencies
 Both: Starship, kitty, dunst
 X11: i3-gaps, i3bar, picom, polybar, nvidia-smi, nlohmann_json-devel
 Wayland: niri, waybar
 
-### Configuration
+## Configuration
 You have to modify the config files manually, although they are fairly simple.
-Some resources I'd recommend are the wikis for each project and the i3wm manual.
+Some resources I'd recommend are the wikis for each project, such as:
+[niri](https://github.com/niri-wm/niri/wiki/) [polybar](https://github.com/polybar/polybar/wiki) [starship](https://starship.rs/config/)
+, man pages [dunst](https://man.archlinux.org/man/dunst.5.en)
+and the [i3wm userguide](https://i3wm.org/docs/userguide.html).
 
 ### Please open an issue if something is broken.
 __I don't accept pull requests__
 
-_The bashrc is needed for starship to apply_
-
 > [!NOTE]
 > I only included apps that I feel like I've fully riced and the rice
-> is up to date enough or has roughly the same style as my other apps._
+> is up to date enough or has roughly the same style as my other apps.
 > Also most settings aren't perfect because I don't have much time for ricing.
 > I am planning to add a code editor and rofi and update the spf config in the future.
