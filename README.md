@@ -1,19 +1,18 @@
 # Chlebqowy Dotfiles
 
 <img width="2560" height="1440" alt="i3 setup" src="https://github.com/user-attachments/assets/d3411e8a-8b31-44ad-885e-9d75b0a008ae" />
-// add niri ss
+<!-- add niri ss -->
 
 ## Currently includes:
 - starship
 - kitty
 - dunst
-- dmenu
 
 |X11|Wayland|
 |---|---|
 |i3|niri|
 |polybar|waybar|
-|dmenu|rofi|
+|dmenu|rofi (defaults)|
 |feh|swaybg|
 |picom|built-in|
 
@@ -46,14 +45,15 @@
 - All system shortcuts start with super.
 - The Niri keybinds are made so that they can work if you have a
 single hand on the keyboard and the other on the mouse
-Or both hands on the keyboard.
+or both hands on the keyboard.
 ### Essential shortcuts:
 - Windows can be moved or focused with super + arrow keys or wasd.
-- Resizing is done with Super++/- and Super+Shift++/-
+- Resizing is done with Super + + / - and Super + Shift + + / -
 - The terminal is opened with Super+Enter, firefox with
 Super+Shift+Enter and the launcher with Super+i
 - You can focus on the left monitor with Ctrl+Super+Left and on the right with Ctrl+Super+Right
-Please read the [`Niri`](wayland/niri/config.kdl) or [`i3`](x11/i3/config) configs to learn more
+
+_Please read the [`Niri`](wayland/niri/config.kdl) or [`i3`](xorg/i3/config) configs to learn more_
 ---
 ## How to install:
 > [!WARNING]
@@ -64,14 +64,14 @@ _Your main font needs to be monospace_
 I personally use and recommend Departuremono but it is a pixel font.  
 Put the nerd font into /etc/fonts/font-name  
 Optionally, copy the local.conf to /etc/fonts/local.conf (REQUIRES SUDO)  
-(This assumes you are using departuremono, otherwise you have to modify the file)  \
+(This assumes you are using departuremono, otherwise you have to modify the file)
 
 > [!NOTE]
 > I recommend modifying niri and i3 files to reflect your monitor setup
 
 Copy all of the contents of the cross-platform directory into ~/.config  
 If you want to use x11, also copy all of the contents of the xorg directory into ~/.config  
-If you want to use wayland, also copy all of the contents of the x11 directory into ~/.config  
+If you want to use wayland, also copy all of the contents of the wayland directory into ~/.config  
 
 Put scripts into ~/scripts  
 Copy all contents of the bin/ directory into /usr/bin/ (REQUIRES SUDO) or .local/bin  
