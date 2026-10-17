@@ -12,15 +12,6 @@
 
 -------
 
-## How to install:
-Put all contents of x11 or wayland and cross-platform into .config
-Put scripts into /home/user/scripts
-Put all contents of bin/ into /usr/bin/
-Put all pictures into /home/user/Pictures/Important/
-Add the bashrc contents to your .bashrc
-
--------
-
 ## Features:
 
 ### Cross-platform
@@ -47,6 +38,31 @@ Add the bashrc contents to your .bashrc
 - Bar with an interesting design style and the same information as x11
 - Nice nature wallpapers
 -----
+## How to install:
+> [!WARNING]
+> Back up your existing `~/.config` and `/etc/fonts` first.
+
+__A nerd font is heavily recommended.__ You can find some at https://www.nerdfonts.com/font-downloads.
+_Your main font needs to be monospace_
+I personally use and recommend Departuremono but it is a pixel font.
+Put the nerd font into /etc/fonts/font-name
+Optionally, copy the local.conf to /etc/fonts/local.conf (REQUIRES SUDO)
+(This assumes you are using departuremono, otherwise you have to modify the file)
+
+Copy all of the contents of the cross-platform directory into ~/.config
+If you want to use x11, also copy all of the contents of the x11 directory into ~/.config
+If you want to use wayland, also copy all of the contents of the x11 directory into ~/.config
+
+Put scripts into ~/scripts
+Copy all contents of the bin/ directory into /usr/bin/ (REQUIRES SUDO) or .local/bin
+Put the contents of pictures/ into ~/Pictures/Important/
+Add the contents of .bashrc to your .bashrc
+(For other shells follow https://starship.rs/guide/#step-2-set-up-your-shell-to-use-starship)
+---
+## Dependencies
+Both: Starship, kitty, dunst
+X11: i3-gaps, i3bar, picom, polybar, nvidia-smi, nlohmann_json-devel
+Wayland: niri, waybar
 
 ### Configuration
 You have to modify the config files manually, although they are fairly simple.
