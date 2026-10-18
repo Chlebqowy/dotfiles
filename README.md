@@ -105,8 +105,7 @@ Some resources I'd recommend are the wikis for each project, such as:
 > is up to date enough or has roughly the same style as my other apps.
 > Also most settings aren't perfect because I don't have much time for ricing.
 > I am planning to add a firefox config and rice rofi and update the superfile config in the future.
-> And add a micro special color and just make micro work better with other apps because for now
-> Most of its colors are custom
+> And test the install.sh on cachy but I have to bring back that partition.
 
 ## Contributing  
 __Please open an issue if something is broken. Format the issue however you want.__  
