@@ -33,7 +33,7 @@ __Cross-platform__
 - Quick and clean custom animations
 - Compositor shadows, blur and transparency
 - Top bar with system info created using polybar
-- Polybar module that lists the amount of packages to upgrade
+- Polybar module that lists the amount of packages to upgrade (Only apt, pacman, zypper and dnf)
 - A separate bar for workspaces on the second screen made with a custom program
 - Many custom scripts
 - Modified version of dmenu included in the [bin/](bin) directory (x86_64 only)
