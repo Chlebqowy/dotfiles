@@ -1,24 +1,28 @@
-#!/bin/sh
+#!/bin/bash
 
 primary=$'\e[38;2;117;255;152m'
 secondary=$'\e[38;2;79;218;88m'
 text=$'\e[38;2;251;254;252m'
 
+time = $(date +%F-%H%M)
+
 mkdir -pv ~/.config
 mkdir -pv ~/.fonts #most likely exist but I have to make sure
-echo -e "${primary}) Backing up ~/.config to ~/.config-backup-chlebqowy${text}"
+echo -e "${primary}) Backing up ~/.config to ~/.config-backup-chlebqowy-${time}${text}"
 sleep 1
-cp -rv ~/.config ~/config-backup-chlebqowy
-echo -e "${primary}) Backing up ~/.fonts to ~/.fonts-backup-chlebqowy${text}"
+cp -rv ~/.config ~/.config-backup-chlebqowy-${time}
+echo -e "${primary}) Backing up ~/.fonts to ~/.fonts-backup-chlebqowy-${time}${text}"
 sleep 1
-cp -rv ~/.fonts ~/.fonts-backup-chlebqowy
-echo -e "${primary}) Backing up /etc/fonts to /etc/fonts-backup-chlebqowy (REQUIRES SUDO, OPTIONAL)${text}"
+cp -rv ~/.fonts ~/.fonts-backup-chlebqowy-${time}
+echo -e "${primary}) Backing up /etc/fonts to /etc/fonts-backup-chlebqowy-${time} (REQUIRES SUDO, OPTIONAL)${text}"
 sleep 1
-sudo cp -rv /etc/fonts /etc/fonts-backup-chlebqowy
+sudo cp -rv /etc/fonts /etc/fonts-backup-chlebqowy-${time}
+echo -e "${primary}) Backing up ~/.bashrc to ~/.bashrc-backup-chlebqowy-${time} (REQUIRES SUDO, OPTIONAL)${text}"
+sleep 1
+sudo cp -rv ~/.bashrc ~/.bashrc-backup-chlebqowy-${time}
 echo -e "${primary})Installing departure mono${text}"
 sleep 1
 read -rp "${secondary}Install globally or locally? [g/l]: ${text}" answer
-
     case "$answer" in
         g|G)
             sudo cp -rv ./departure_mono_nerd.otf /etc/fonts/departure_mono_nerd.otf
@@ -92,6 +96,9 @@ sleep 1
 mkdir -pv ~/Pictures
 mkdir -pv ~/Pictures/Important
 cp -vn ./pictures/* ~/Pictures/Important
+echo -e "${primary})Installing .bashrc${text}"
+sleep 1
+cat .bashrc >> ~/.bashrc
 echo -e "${primary})Building c++ and c scripts${text}"
 sleep 1
 g++ src/chlebqowy-workspace-bar.cpp -o bin/chlebqowy-workspace-bar
@@ -120,27 +127,27 @@ echo -e "${primary})Installing dmenu${text}"
 sleep 1
 cd src/dmenu
 make
+cd ../..
 case "$answer-scripts" in
 	g|G)
-		sudo mv -v dmenu /usr/bin/dmenu
+		sudo mv -v ./bin/dmenu /usr/bin/dmenu
 	l|L)
-		mv -v dmenu .local/bin/dmenu
+		mv -v ./bin/dmenu ~/.local/bin/dmenu
 	*)
-	    mv -v dmenu .local/bin/dmenu
-cd ../..
+	    mv -v ./bin/dmenu ~/.local/bin/dmenu
 read -rp "${secondary}Get pre-build dmenu_run and dmenu_path or install it manually? [p/m]: ${text}" answer-dmenu
 	case "$answer-dmenu" in
         p|P)
         	case "$answer-scripts" in
         		g|G)
-        			sudo mv -v dmenu_run /usr/bin/dmenu_run
-        			sudo mv -v dmenu_path /usr/bin/dmenu_path
+        			sudo mv -v ./bin/dmenu_run /usr/bin/dmenu_run
+        			sudo mv -v ./bin/dmenu_path /usr/bin/dmenu_path
         		l|L)
-        			mv -v dmenu_run .local/bin/dmenu_run
-        			mv -v dmenu_path .local/bin/dmenu_path
+        			mv -v ./bin/dmenu_run ~/.local/bin/dmenu_run
+        			mv -v ./bin/dmenu_path ~/.local/bin/dmenu_path
         		*)
-        	    	mv -v dmenu_run .local/bin/dmenu_run
-        	    	mv -v dmenu_path .local/bin/dmenu_path
+        	    	mv -v ./bin/dmenu_run ~/.local/bin/dmenu_run
+        	    	mv -v ./bin/dmenu_path ~/.local/bin/dmenu_path
             ;;
         m|M)
 			echo -e "${primary})Please get dmenu_run and dmenu_path from the suckless website and put them in /usr/bin or ~/.local/bin (depening on whether you installed the c scripts globally or locally)${text}"
@@ -151,3 +158,4 @@ read -rp "${secondary}Get pre-build dmenu_run and dmenu_path or install it manua
     esac
 echo -e "\x1b[32m✓ Finished${text}"
 echo -e "${secondary} Please make sure all dependencies from README.md are installed${text}"
+echo -e "${secondary} Please reboot after installing them${text}"
