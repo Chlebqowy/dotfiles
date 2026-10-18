@@ -1,0 +1,12 @@
+{
+    "tabsize": 4,
+    "colorscheme": "chlebqowy",
+    "basename": true,
+    "diffgutter": true,
+    "matchbracestyle": "highlight",
+    "multiopen": "vsplit",
+	 "ft:python": {
+    	"showchars": "tab",
+    	"tabsize": 4,
+    }
+}

@@ -12,6 +12,7 @@ __Cross-platform__
 - kitty
 - dunst
 - fontconfig
+- micro
 
 |X11|Wayland|
 |---|---|

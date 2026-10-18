@@ -1,10 +1,16 @@
 # COLORS
 ## Accents
 Main Accent **#75ff98** rgb(118, 255. 152), hsv(135.22, 54.12, 100), hsl(135.22, 100, 72.94) - polybar, starship (i3refreshed color scheme)
+Main Accent Text **#a0e5b1** - Micro status bar text
 Strong Accent **#7fffb2** rgb(127, 255, 178), hsv(143.91, 50.2, 100), hsl(143.91, 100, 74.9) - niri border
-Dark Accent **#227744** hsv(144, 71.43, 46.67) - i3 tabs
-Secondary **#3f8f62** rgb(63, 143, 98), hsv(146.25, 55.94, 56.08), hsl(146.25, 48.83, 40.39) - i3 border, dunst border, starship (i3refreshed, dark_accent)
+Title BG Accent **#227744** hsv(144, 71.43, 46.67) - i3 tabs
+Dark Accent **#3f8f62** rgb(63, 143, 98), hsv(146.25, 55.94, 56.08), hsl(146.25, 48.83, 40.39) - i3 border, dunst border, starship (i3refreshed, dark_accent)
+Secondary **#ceeaaf** - Micro strings
+secondary Text **#ddeacf** - Micro ints
+ternary **#6fbf98** - Micro todo, micro modified
 Shadow **#113322** rgb(17, 51, 34), hsv(150, 66.67, 20)), hsl(150, 50, 13.33) - niri shadow, picom shadow
+Accent BG **#2D4536** micro bar
+Secondary BG **#3a4734** micro focused line
 
 ## Exclusive Accents
 i3 Inactive Tab **#335544** 
@@ -13,26 +19,29 @@ i3 Tab Border **#339955**
 i3 Inactive Tab Border **#336644**
 
 ## Grays
-
-Unfocused - **#5b5757** i3 unfocused border, niri unfocused border 
+Unfocused text - **#AAACA8**
+Unfocused bg - **#5b5757** i3 unfocused border, niri unfocused border, starship i3-refreshed
+Full background **#222222**
+Transparent background gray **#28282855**
+Transparent background black **#000000aa**
 Shadow - **#333333** hsv(0, 0, 20) picom inactive shadow, niri inactive shadow
 
 ## Exclusive Grays
-Background kitty **#222222**
-Background dunst **#28282855**
-Background polybar **#000000aa**
-Background starship **#3e3e3e**
+
 i3 Unfocused Tab **#222826**
 i3 Unfocused Tab Border *#333333*
 
 ## Text
-Main Text **#ffffff** - kitty, i3, dunst
+Main Text **#fbfefc** - kitty, i3, dunst, polybar
 Subtle Text 1 **#e0e0e0** - starship
 Subtle Text 2 **#eeeeee** - i3
-Subtle Text Tinted **#fafcfb** - polybar
 Unfocused Text **$888888** - i3
 
 ## Special Colors
+Blue - **#78afe0** - Micro identifier
+Success - **#A6D189** - Micro added text, micro type
+Error - **#ff3322** - Micro errors
+Statement - "#90e5b1" - Micro statement
 
 ## Exclusive Special Colors
 Indicator i3 **#222222**
