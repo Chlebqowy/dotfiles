@@ -110,6 +110,7 @@ Some resources I'd recommend are the wikis for each project, such as:
 ## Contributing  
 __Please open an issue if something is broken. Format the issue however you want.__  
 _I generally don't accept pull requests_, but I'd welcome AMD/Intel GPU support.  
+Feature requests are fine.
 
 ## Building 
 Optional, the files are included pre-built for x86_64  
