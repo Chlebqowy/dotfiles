@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /home/user/scripts/wallpapers.sh
+source ~/scripts/wallpapers.sh
 mode="--bg-scale"
 
 while true; do

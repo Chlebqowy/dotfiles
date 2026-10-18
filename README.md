@@ -88,8 +88,8 @@ Optionally, copy the local.conf to /etc/fonts/local.conf (REQUIRES SUDO)
   
 ## Dependencies    
 Both: Starship, kitty, dunst    
-X11: i3wm/i3 (4.22 or newer, or i3-gaps on older distros), i3bar, picom, polybar, feh, nvidia-smi (optional)  
-Wayland: niri, waybar, swaybg, rofi  
+X11: i3wm/i3 (4.22 or newer, or i3-gaps on older distros), i3bar, picom, polybar, feh, nvidia-smi (optional), activitywatch (optional)
+Wayland: niri, waybar, swaybg, rofi
 Building (optional): nlohmann_json-devel (workspace-bar), g++, make (dmenu), xlib, xft and xinerama headers (dmenu)   
 
 ## Configuration

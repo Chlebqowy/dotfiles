@@ -140,12 +140,12 @@ $exec-noid "setxkbmap pl"
 
 # exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-# exec "bash /home/user/.config/i3/screens.sh horizontal"
+# exec "bash ~/.config/i3/screens.sh horizontal"
 
 $exec-noid "xrandr --output HDMI-0 --mode 2560x1440 --rate 120 --pos 0x0 --rotate normal --output DP-2 --mode 2560x1440 --rate 240 --pos 2560x0 --rotate normal --primary"
 
-$exec-noid "/home/user/activitywatch/aw_qt"
-$exec-noid "bash /home/user/scripts/fehpaperdyn.sh"
+$exec-noid "~/activitywatch/aw_qt" # optional
+$exec-noid "bash ~/scripts/fehpaperdyn.sh"
 
 $exec-noid "picom"
 $exec-noid "polybar"

@@ -296,9 +296,9 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-at-startup "waybar"
-spawn-at-startup "/home/user/scripts/swaypaperdyn.sh"
+spawn-at-startup "~/scripts/swaypaperdyn.sh"
 spawn-at-startup "dunst"
-spawn-at-startup "/home/user/activitywatch/aw-qt"
+spawn-at-startup "~/activitywatch/aw-qt"
 spawn-at-startup "kitty"
 spawn-sh-at-startup "kitty --app-id vpn nmcli conn up protonvpn && [[ -n $(ip address | grep protonvpn) ]] && echo -e 'VPN 🗸' && sleep 5"
 spawn-at-startup "firefox"
@@ -567,16 +567,8 @@ binds {
     Mod+o hotkey-overlay-title="swaync client toggle" { spawn "swaync-client" "-t"; }
     Mod+Shift+Backslash hotkey-overlay-title="file manager" { spawn "kitty" "spf"; }
     Mod+Backslash hotkey-overlay-title="code/text editor" { spawn "code"; }
-    Mod+ISO_Level3_Shift+Z hotkey-overlay-title="music" { spawn "/home/user/scripts/music.sh" "0" "0"; }
-    Mod+ISO_Level3_Shift+Shift+Z hotkey-overlay-title="shuffle" { spawn "/home/user/scripts/music.sh" "0" "1"; }
-    Mod+ISO_Level3_Shift+X hotkey-overlay-title="music fire" { spawn "/home/user/scripts/music.sh" "1" "0"; }
-    Mod+ISO_Level3_Shift+Shift+X hotkey-overlay-title="music fire shuffle" { spawn "/home/user/scripts/music.sh" "1" "1"; }
-    Mod+ISO_Level3_Shift+V hotkey-overlay-title="prompt music" { spawn "kitty" "--app-id" "music_cli" "/home/user/scripts/music_cli.sh"; }
-    Mod+ISO_Level3_Shift+A cooldown-ms=100 hotkey-overlay-title="vlc quieter (only when ran from script)" { spawn "/home/user/scripts/vlc_opt.sh" "-m" "voldown"; }
-    Mod+ISO_Level3_Shift+D cooldown-ms=100 hotkey-overlay-title="vlc louder (only when ran from script)" { spawn "/home/user/scripts/vlc_opt.sh" "-m" "volup"; }
+    Mod+ISO_Level3_Shift+D cooldown-ms=100 hotkey-overlay-title="vlc louder 
     Mod+ISO_Level3_Shift+Q hotkey-overlay-title="music off" { spawn "pkill" "vlc"; }
-    Mod+ISO_Level3_Shift+E hotkey-overlay-title="vlc toggle pause (only when ran from script)" { spawn "/home/user/scripts/vlc_opt.sh" "-m" "pause"; }
-    Mod+ISO_Level3_Shift+W hotkey-overlay-title="vlc skip (only when ran from script)" { spawn "/home/user/scripts/vlc_opt.sh" "-m" "next"; }
     
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
