@@ -12,7 +12,7 @@ echo -e "${primary}) Backing up ~/.config to ~/.config-backup-chlebqowy-${time}$
 cp -rv ~/.config ~/.config-backup-chlebqowy-${time}
 echo -e "${primary}) Backing up ~/.fonts to ~/.fonts-backup-chlebqowy-${time}${text}"
 cp -rv ~/.fonts ~/.fonts-backup-chlebqowy-${time}
-echo -e "${primary}) Backing up ~/.bashrc to ~/.bashrc-backup-chlebqowy-${time} (REQUIRES SUDO, OPTIONAL)${text}"
+echo -e "${primary}) Backing up ~/.bashrc to ~/.bashrc-backup-chlebqowy-${time} ${text}"
 cp -rv ~/.bashrc ~/.bashrc-backup-chlebqowy-${time}
 echo -e "${primary}) Installing departure mono${text}"
 cp -rv ./departure_mono_nerd.otf ~/.fonts/departure_mono_nerd.otf
@@ -41,9 +41,9 @@ sleep 1
 g++ src/chlebqowy-workspace-bar.cpp -o bin/chlebqowy-workspace-bar
 g++ src/chlebqowy-update-num.cpp -o bin/chlebqowy-update-num
 g++ src/chlebqowy-gpu-usage.cpp -o bin/chlebqowy-gpu-usage
-sudo cp -rv bin/chlebqowy-gpu-usage ~/.local/bin/chlebqowy-gpu-usage
-sudo cp -rv bin/chlebqowy-update-num ~/.local/bin/chlebqowy-update-num
-sudo cp -rv bin/chlebqowy-workspace-bar ~/.local/bin/chlebqowy-workspace-bar
+cp -rv bin/chlebqowy-gpu-usage ~/.local/bin/chlebqowy-gpu-usage
+cp -rv bin/chlebqowy-update-num ~/.local/bin/chlebqowy-update-num
+cp -rv bin/chlebqowy-workspace-bar ~/.local/bin/chlebqowy-workspace-bar
 echo -e "${primary}) Installing dmenu${text}"
 cd src/dmenu
 make
