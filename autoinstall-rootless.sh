@@ -41,9 +41,9 @@ sleep 1
 g++ src/chlebqowy-workspace-bar.cpp -o bin/chlebqowy-workspace-bar
 g++ src/chlebqowy-update-num.cpp -o bin/chlebqowy-update-num
 g++ src/chlebqowy-gpu-usage.cpp -o bin/chlebqowy-gpu-usage
-sudo cp -rv bin/chlebqowy-gpu-usage .local/bin/chlebqowy-gpu-usage
-sudo cp -rv bin/chlebqowy-update-num .local/bin/chlebqowy-update-num
-sudo cp -rv bin/chlebqowy-workspace-bar .local/bin/chlebqowy-workspace-bar
+sudo cp -rv bin/chlebqowy-gpu-usage ~/.local/bin/chlebqowy-gpu-usage
+sudo cp -rv bin/chlebqowy-update-num ~/.local/bin/chlebqowy-update-num
+sudo cp -rv bin/chlebqowy-workspace-bar ~/.local/bin/chlebqowy-workspace-bar
 echo -e "${primary}) Installing dmenu${text}"
 cd src/dmenu
 make
