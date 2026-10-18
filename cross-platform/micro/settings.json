@@ -8,5 +8,7 @@
 	 "ft:python": {
     	"showchars": "tab",
     	"tabsize": 4,
-    }
+    },
+    "statusformatl": " █ $(filename)  L$(line) C$(col) ",
+    "statusformatr": " $(modified)  $(opt:filetype) █ ",
 }
