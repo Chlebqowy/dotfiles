@@ -95,6 +95,8 @@ X11: i3wm/i3 (4.22 or newer, or i3-gaps on older distros), i3bar, picom, polybar
 Wayland: niri, waybar, swaybg, rofi  
 Building (optional): nlohmann_json-devel (workspace-bar), g++, make (dmenu), xlib, xft and xinerama headers (dmenu)   
 
+On opensuse you can automatically install them with `bash opensuse-dependencies.sh`
+
 ## Configuration
 You have to modify the config files manually, although they are fairly simple.  
 Some resources I'd recommend are the wikis for each project, such as:  

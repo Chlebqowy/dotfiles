@@ -111,8 +111,8 @@ mkdir -pv ~/Pictures/Important
 cp -vn ./pictures/* ~/Pictures/Important
 echo -e "${primary}) Installing .bashrc${text}"
 sleep 1
-cat .bashrc
-cat .bashrc >> ~/.bashrc
+cat ./.bashrc
+cat ./.bashrc >> ~/.bashrc
 cat ~/.bashrc
 echo -e "${primary}) Building c++ and c scripts${text}"
 sleep 1
