@@ -63,6 +63,19 @@ read -rp "${secondary}Make departure mono the default sans and mono font? [y/n]:
             echo -e "${secondary}Please enter 'y' (global) or 'n' (local).${text}"
             ;;
     esac
+echo -e "${primary})Refreshing font cache{text}"
+sleep 1
+    case "$answer" in
+        g|G)
+            sudo fc-cache -fv
+            ;;
+        l|L)
+            fc-cache -fv
+            ;;
+        *)
+            echo -e "${secondary}Please enter 'g' (global) or 'l' (local).${text}"
+            ;;
+    esac
 echo -e "${primary})Installing cross-platform configs${text}"
 sleep 1
 cp -rv ./cross-platform/* ~/.config/
