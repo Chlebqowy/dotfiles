@@ -101,7 +101,7 @@ Some resources I'd recommend are the wikis for each project, such as:
 > I only included apps that I feel like I've fully riced and the rice
 > is up to date enough or has roughly the same style as my other apps.
 > Also most settings aren't perfect because I don't have much time for ricing.
-> I am planning to add a code editor and rice rofi and update the superfile config in the future.
+> I am planning to add a code editor, firefox config and rice rofi and update the superfile config in the future.
 
 ## Contributing  
 __Please open an issue if something is broken. Format the issue however you want.__  
