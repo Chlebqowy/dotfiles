@@ -88,8 +88,8 @@ Optionally, copy the local.conf to /etc/fonts/local.conf (REQUIRES SUDO)
   
 ## Dependencies    
 Both: Starship, kitty, dunst    
-X11: i3wm/i3 (4.22 or newer, or i3-gaps on older distros), i3bar, picom, polybar, feh, nvidia-smi (optional), activitywatch (optional)
-Wayland: niri, waybar, swaybg, rofi
+X11: i3wm/i3 (4.22 or newer, or i3-gaps on older distros), i3bar, picom, polybar, feh, nvidia-smi (optional), activitywatch (optional)  
+Wayland: niri, waybar, swaybg, rofi  
 Building (optional): nlohmann_json-devel (workspace-bar), g++, make (dmenu), xlib, xft and xinerama headers (dmenu)   
 
 ## Configuration
@@ -108,8 +108,8 @@ __Please open an issue if something is broken. Format the issue however you want
 _I generally don't accept pull requests_, but I'd welcome AMD/Intel GPU support.  
 
 ## Building 
-Optional, the files are included pre-built for x86_64
-For c++ files (with the .cpp ending) such as workspace-bar.cpp and pkg.cpp, run g++ file.cpp -o file, for example
+Optional, the files are included pre-built for x86_64  
+For c++ files (with the .cpp ending) such as chlebqowy-workspace-bar.cpp and chlebqowy-update-num.cpp, run g++ file.cpp -o file, for example
 ```sh
 g++ src/chlebqowy-workspace-bar.cpp -o bin/chlebqowy-workspace-bar
 g++ src/chlebqowy-update-num.cpp -o bin/chlebqowy-update-num
