@@ -57,8 +57,8 @@ bindsym $mod+h split h
 bindsym $mod+v split v
 
 bindsym $mod+f fullscreen toggle
-bindsym $mod+Shift+f exec "/home/user/.config/i3/lock-in-mode on"
-bindsym $mod+Ctrl+f exec "/home/user/.config/i3/lock-in-mode off"
+bindsym $mod+Shift+f exec "~/scripts/lock-in-mode.sh on"
+bindsym $mod+Ctrl+f exec "~/scripts/lock-in-mode.sh off"
 
 bindsym $mod+j set $font pango:DepartureMono Nerd Font Mono:style=Bold 16
 bindsym $mod+k set $font pango:DepartureMono Nerd Font Mono:style=Bold 8
@@ -188,7 +188,7 @@ bar {
   id 1
   #font pango:DepartureMono Nerd Font 12
   font pango:DepartureMono Nerd Font 11
-  status_command "~/scripts/workspace-bar"
+  status_command "chlebqowy-workspace-bar"
   colors {
     background #222222aa
   }

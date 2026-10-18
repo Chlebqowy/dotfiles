@@ -111,8 +111,8 @@ _I generally don't accept pull requests_, but I'd welcome AMD/Intel GPU support.
 Optional, the files are included pre-built for x86_64
 For c++ files (with the .cpp ending) such as workspace-bar.cpp and pkg.cpp, run g++ file.cpp -o file, for example
 ```sh
-g++ scripts/workspace-bar.cpp -o scripts/workspace-bar
-g++ src/chlebqowy-update-num/pkg.cpp -o bin/chlebqowy-update-num
+g++ src/chlebqowy-workspace-bar.cpp -o bin/chlebqowy-workspace-bar
+g++ src/chlebqowy-update-num.cpp -o bin/chlebqowy-update-num
 g++ src/chlebqowy-gpu-usage.cpp -o bin/chlebqowy-gpu-usage
 (cd src/dmenu && make && mv dmenu ../../bin/dmenu)
 ```
