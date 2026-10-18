@@ -1,7 +1,7 @@
 # Chlebqowy Dotfiles
 
-<img width="2560" height="1440" alt="i3 setup" src="https://github.com/user-attachments/assets/d3411e8a-8b31-44ad-885e-9d75b0a008ae" />
-<!-- add niri ss -->
+<img width="2560" height="1440" alt="i3 (X11) screenshot" src="https://github.com/user-attachments/assets/d3411e8a-8b31-44ad-885e-9d75b0a008ae" />
+<img width="2560" height="1440" alt="Niri (Wayland) screenshot" src="https://github.com/user-attachments/assets/f1efa861-4f4c-438e-9620-81035c1e5482" />
 
 > [!NOTE]
 > AI has been used a bit in this project but all design choices were done by me. [Click here for more info](#ai-disclosure)
