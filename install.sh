@@ -84,16 +84,16 @@ sleep 1
 read -rp "${secondary}Xorg, Wayland or both? [x/w/b]: ${text}" answer_display
     case "$answer_display" in
         w|W)
-            sudo cp -rv ./wayland/* ~/.config
+            cp -rv ./wayland/* ~/.config
             break
             ;;
         x|X)
-            sudo cp -rv ./xorg/* ~/.config
+            cp -rv ./xorg/* ~/.config
             break
             ;;
         b|B)
-            sudo cp -rv ./xorg/* ~/.config
-            sudo cp -rv ./wayland/* ~/.config
+            cp -rv ./xorg/* ~/.config
+            cp -rv ./wayland/* ~/.config
             break
             ;;
         *)
@@ -129,9 +129,9 @@ read -rp "${secondary}Install globally or locally? [g/l]: ${text}" answer_script
             break
             ;;
         l|L)
-            sudo cp -rv bin/chlebqowy-gpu-usage .local/bin/chlebqowy-gpu-usage
-            sudo cp -rv bin/chlebqowy-update-num .local/bin/chlebqowy-update-num
-            sudo cp -rv bin/chlebqowy-workspace-bar .local/bin/chlebqowy-workspace-bar
+            cp -rv bin/chlebqowy-gpu-usage .local/bin/chlebqowy-gpu-usage
+            cp -rv bin/chlebqowy-update-num .local/bin/chlebqowy-update-num
+            cp -rv bin/chlebqowy-workspace-bar .local/bin/chlebqowy-workspace-bar
             break
             ;;
         *)
