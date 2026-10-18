@@ -129,9 +129,9 @@ read -rp "${secondary}Install globally or locally? [g/l]: ${text}" answer_script
             break
             ;;
         l|L)
-            cp -rv bin/chlebqowy-gpu-usage .local/bin/chlebqowy-gpu-usage
-            cp -rv bin/chlebqowy-update-num .local/bin/chlebqowy-update-num
-            cp -rv bin/chlebqowy-workspace-bar .local/bin/chlebqowy-workspace-bar
+            cp -rv bin/chlebqowy-gpu-usage ~/.local/bin/chlebqowy-gpu-usage
+            cp -rv bin/chlebqowy-update-num ~/.local/bin/chlebqowy-update-num
+            cp -rv bin/chlebqowy-workspace-bar ~/.local/bin/chlebqowy-workspace-bar
             break
             ;;
         *)
