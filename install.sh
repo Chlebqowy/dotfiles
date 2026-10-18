@@ -20,7 +20,7 @@ sudo cp -rv /etc/fonts /etc/fonts-backup-chlebqowy-${time}
 echo -e "${primary}) Backing up ~/.bashrc to ~/.bashrc-backup-chlebqowy-${time} (REQUIRES SUDO, OPTIONAL)${text}"
 sleep 1
 sudo cp -rv ~/.bashrc ~/.bashrc-backup-chlebqowy-${time}
-echo -e "${primary})Installing departure mono${text}"
+echo -e "${primary}) Installing departure mono${text}"
 sleep 1
 read -rp "${secondary}Install globally or locally? [g/l]: ${text}" answer
     case "$answer" in
@@ -36,10 +36,10 @@ read -rp "${secondary}Install globally or locally? [g/l]: ${text}" answer
             echo -e "${secondary}Please enter 'g' (global) or 'l' (local).${text}"
             ;;
     esac
-echo -e "${primary})Installing local.conf${text}"
+echo -e "${primary}) Installing local.conf${text}"
 sleep 1
-read -rp "${secondary}Make departure mono the default sans and mono font? [y/n]: ${text}" answer-local
-    case "$answer-local" in
+read -rp "${secondary}Make departure mono the default sans and mono font? [y/n]: ${text}" answer_local
+    case "$answer_local" in
         y|Y)
             case "$answer" in
                 g|G)
@@ -63,7 +63,7 @@ read -rp "${secondary}Make departure mono the default sans and mono font? [y/n]:
             echo -e "${secondary}Please enter 'y' (global) or 'n' (local).${text}"
             ;;
     esac
-echo -e "${primary})Refreshing font cache{text}"
+echo -e "${primary}) Refreshing font cache${text}"
 sleep 1
     case "$answer" in
         g|G)
@@ -76,10 +76,10 @@ sleep 1
             echo -e "${secondary}Please enter 'g' (global) or 'l' (local).${text}"
             ;;
     esac
-echo -e "${primary})Installing cross-platform configs${text}"
+echo -e "${primary}) Installing cross-platform configs${text}"
 sleep 1
 cp -rv ./cross-platform/* ~/.config/
-echo -e "${primary})Installing display server-specific configs${text}"
+echo -e "${primary}) Installing display server_specific configs${text}"
 sleep 1
 read -rp "${secondary}Xorg, Wayland or both? [x/w/b]: ${text}" answer_display
     case "$answer_display" in
@@ -100,26 +100,28 @@ read -rp "${secondary}Xorg, Wayland or both? [x/w/b]: ${text}" answer_display
             echo -e "${secondary}Please enter 'w' (Wayland), 'X' (Xorg) or 'b' (both).${text}"
             ;;
     esac
-echo -e "${primary})Installing shell scripts${text}"
+echo -e "${primary}) Installing shell scripts${text}"
 sleep 1
 mkdir -pv ~/scripts
 cp -vn ./scripts/* ~/scripts/
-echo -e "${primary})Installing wallpapers${text}"
+echo -e "${primary}) Installing wallpapers${text}"
 sleep 1
 mkdir -pv ~/Pictures
 mkdir -pv ~/Pictures/Important
 cp -vn ./pictures/* ~/Pictures/Important
-echo -e "${primary})Installing .bashrc${text}"
+echo -e "${primary}) Installing .bashrc${text}"
 sleep 1
+cat .bashrc
 cat .bashrc >> ~/.bashrc
-echo -e "${primary})Building c++ and c scripts${text}"
+cat ~/.bashrc
+echo -e "${primary}) Building c++ and c scripts${text}"
 sleep 1
 g++ src/chlebqowy-workspace-bar.cpp -o bin/chlebqowy-workspace-bar
 g++ src/chlebqowy-update-num.cpp -o bin/chlebqowy-update-num
 g++ src/chlebqowy-gpu-usage.cpp -o bin/chlebqowy-gpu-usage
-read -rp "${secondary}Install globally or locally? [g/l]: ${text}" answer-scripts
+read -rp "${secondary}Install globally or locally? [g/l]: ${text}" answer_scripts
 
-    case "$answer-scripts" in
+    case "$answer_scripts" in
         g|G)
             sudo cp -rv bin/chlebqowy-gpu-usage /usr/bin/chlebqowy-gpu-usage
             sudo cp -rv bin/chlebqowy-update-num /usr/bin/chlebqowy-update-num
@@ -136,31 +138,43 @@ read -rp "${secondary}Install globally or locally? [g/l]: ${text}" answer-script
             echo -e "${secondary}Please enter 'g' (global) or 'l' (local).${text}"
             ;;
     esac
-echo -e "${primary})Installing dmenu${text}"
+echo -e "${primary}) Installing dmenu${text}"
 sleep 1
 cd src/dmenu
 make
 cd ../..
-case "$answer-scripts" in
+case "$answer_scripts" in
 	g|G)
 		sudo mv -v ./bin/dmenu /usr/bin/dmenu
+		break
+		;;
 	l|L)
 		mv -v ./bin/dmenu ~/.local/bin/dmenu
+		break
+		;;
 	*)
 	    mv -v ./bin/dmenu ~/.local/bin/dmenu
-read -rp "${secondary}Get pre-build dmenu_run and dmenu_path or install it manually? [p/m]: ${text}" answer-dmenu
-	case "$answer-dmenu" in
+	    ;;
+esac
+read -rp "${secondary}Get pre-build dmenu_run and dmenu_path or install it manually? [p/m]: ${text}" answer_dmenu
+	case "$answer_dmenu" in
         p|P)
-        	case "$answer-scripts" in
+        	case "$answer_scripts" in
         		g|G)
         			sudo mv -v ./bin/dmenu_run /usr/bin/dmenu_run
         			sudo mv -v ./bin/dmenu_path /usr/bin/dmenu_path
+					break
+					;;
         		l|L)
         			mv -v ./bin/dmenu_run ~/.local/bin/dmenu_run
         			mv -v ./bin/dmenu_path ~/.local/bin/dmenu_path
+					break
+					;;
         		*)
         	    	mv -v ./bin/dmenu_run ~/.local/bin/dmenu_run
         	    	mv -v ./bin/dmenu_path ~/.local/bin/dmenu_path
+        	    	;;
+			esac
             ;;
         m|M)
 			echo -e "${primary})Please get dmenu_run and dmenu_path from the suckless website and put them in /usr/bin or ~/.local/bin (depening on whether you installed the c scripts globally or locally)${text}"
