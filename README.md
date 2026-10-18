@@ -9,7 +9,7 @@
 ## Currently includes
 __Cross-platform__
 - starship
-- kitty
+- kitty/termux
 - dunst
 - fontconfig
 - micro
