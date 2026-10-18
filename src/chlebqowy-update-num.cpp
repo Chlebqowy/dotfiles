@@ -38,6 +38,20 @@ int main(){
         if (cmdOutput > 0) {
             cmdOutput-=1; // remove that line
         } 
+    } else if (filesystem::exists("/usr/bin/apt")) {
+        char cmd[] = "apt list --upgradable | wc -l";
+
+        array<char, 128> buffer;
+        string result;
+
+        unique_ptr<FILE, decltype(&pclose)> pipe(popen(cmd, "r"), pclose);
+        while (fgets(buffer.data(), static_cast<int>(buffer.size()), pipe.get()) != nullptr) {
+            result += buffer.data();
+        }
+        cmdOutput = stod(result);
+        if (cmdOutput > 0) {
+            cmdOutput-=1; // remove that line
+        } 
     } else { cout << "Unsupported package manager"; return 1; }
     double colorChanges[] = {20, 50, 200, 10000};
     string colors[] = {"#75ff98","#faa", "#f55", "#f00"};
