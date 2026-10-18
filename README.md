@@ -66,7 +66,7 @@ _Please read the [`Niri`](wayland/niri/config.kdl) or [`i3`](xorg/i3/config) con
 2. If you want to use X11, also copy all of the contents of the `xorg` directory into `~/.config`    
 3. If you want to use Wayland, also copy all of the contents of the `wayland` directory into `~/.config`  
 4. Put scripts into `~/scripts`  
-5. (Currently X11-only) Copy all contents of the `bin/` (contains dmenu binaries) directory into `~/.local/bin` (per-user) or `/usr/bin` (REQUIRES SUDO) (if you don't trust me with the binaries, you can build them yourself. All source files are included and there's a [building section in this readme](#building))
+5. (Currently X11-only) Copy all contents of the `bin/` directory into `~/.local/bin` (per-user) or `/usr/bin` (REQUIRES SUDO) (if you don't trust me with the binaries, you can build them yourself. All source files are included and there's a [building section in this readme](#building))
 6. Put the contents of `pictures/` into `~/Pictures/Important/`  
 7. Add the contents of `.bashrc` to your `~/.bashrc` (needed for the command prompt to work)  
 (For other shells follow https://starship.rs/guide/#step-2-set-up-your-shell-to-use-starship)  
@@ -112,8 +112,8 @@ Optional, the files are included pre-built for x86_64
 For c++ files (with the .cpp ending) such as workspace-bar.cpp and pkg.cpp, run g++ file.cpp -o file, for example
 ```sh
 g++ scripts/workspace-bar.cpp -o scripts/workspace-bar
-g++ xorg/polybar/scripts/pkg.cpp -o xorg/polybar/scripts/pkg
-g++ xorg/polybar/scripts/gpu.cpp -o xorg/polybar/scripts/gpu
+g++ src/chlebqowy-update-num/pkg.cpp -o bin/chlebqowy-update-num
+g++ src/chlebqowy-gpu-usage.cpp -o bin/chlebqowy-gpu-usage
 (cd src/dmenu && make && mv dmenu ../../bin/dmenu)
 ```
 Make sure you have the [dependencies](#dependencies) required for building  
@@ -132,6 +132,6 @@ and to troubleshoot waybar and niri
 This readme hasn't been AI generated but I've had a model proofread it.  
 
 ## License
-[MIT](LICENSE) for the configs   
+[MIT](LICENSE) for the configs, scripts and my code  
 [The Unsplash license](https://unsplash.com/license) for pictures  
 [The dmenu license](src/dmenu/LICENSE) for the dmenu fork  
