@@ -63,7 +63,7 @@ _Please read the [`Niri`](wayland/niri/config.kdl) or [`i3`](xorg/i3/config) con
 > [!WARNING]
 > Back up your existing `~/.config` and `/etc/fonts` first.
 
-You can install it with `bash install.sh` or manually.
+You can install it with `sh install.sh` or manually.
 
 1. Copy all of the contents of the cross-platform directory into `~/.config`
 2. If you want to use X11, also copy all of the contents of the `xorg` directory into `~/.config`    
