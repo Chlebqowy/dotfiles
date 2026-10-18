@@ -5,9 +5,11 @@
 #include <stdexcept>
 #include <string>
 #include <array>
+#include <filesystem>
 using namespace std;
 
 int main(){
+    if (!filesystem::exists("/usr/bin/zypper")) { cout << "Unsupported package manager"; return 1; }
     char cmd[] = "zypper lu | grep '|' | wc -l"; // list updates and count lines. there's an extra line for table info to remove later
     array<char, 128> buffer;
     string result;

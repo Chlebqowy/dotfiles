@@ -5,9 +5,11 @@
 #include <stdexcept>
 #include <string>
 #include <array>
+#include <filesystem>
 using namespace std;
 
 int main(){
+    if (!filesystem::exists("/usr/bin/nvidia-smi")) { cout << "Unsupported gpu"; return 1; }
     char cmd[] = "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits";
     array<char, 128> buffer;
     string result;
