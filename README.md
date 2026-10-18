@@ -106,7 +106,7 @@ Some resources I'd recommend are the wikis for each project, such as:
 > I only included apps that I feel like I've fully riced and the rice
 > is up to date enough or has roughly the same style as my other apps.
 > Also most settings aren't perfect because I don't have much time for ricing.
-> I am planning to add a firefox config and rice rofi and fastfetch and update the superfile config in the future.
+> I am planning to add a firefox config and rice rofi, sddm and fastfetch and update the superfile config in the future.
 > And make the picom animation for resize smoother and make one for moving. Also add a color one and maybe add dimming to open and close.
 
 ## Contributing  
