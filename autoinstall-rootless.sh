@@ -14,8 +14,8 @@ echo -e "${primary}) Backing up ~/.fonts to ~/.fonts-backup-chlebqowy-${time}${t
 cp -rv ~/.fonts ~/.fonts-backup-chlebqowy-${time}
 echo -e "${primary}) Backing up ~/.bashrc to ~/.bashrc-backup-chlebqowy-${time} ${text}"
 cp -rv ~/.bashrc ~/.bashrc-backup-chlebqowy-${time}
-echo -e "${primary}) Installing departure mono${text}"
-cp -rv ./departure_mono_nerd.otf ~/.fonts/departure_mono_nerd.otf
+echo -e "${primary}) Installing Iosevka${text}"
+cp -rv ./Iosevka ~/.fonts/Iosevka
 echo -e "${primary}) Installing local.conf${text}"
 cp -rv ./local.conf ~/.fonts/local.conf
 echo -e "${primary}) Refreshing font cache${text}"

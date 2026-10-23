@@ -20,16 +20,16 @@ sudo cp -rv /etc/fonts /etc/fonts-backup-chlebqowy-${time}
 echo -e "${primary}) Backing up ~/.bashrc to ~/.bashrc-backup-chlebqowy-${time} (REQUIRES SUDO, OPTIONAL)${text}"
 sleep 1
 sudo cp -rv ~/.bashrc ~/.bashrc-backup-chlebqowy-${time}
-echo -e "${primary}) Installing departure mono${text}"
+echo -e "${primary}) Installing Iosevka${text}"
 sleep 1
 read -rp "${secondary}Install globally or locally? [g/l]: ${text}" answer
     case "$answer" in
         g|G)
-            sudo cp -rv ./departure_mono_nerd.otf /etc/fonts/departure_mono_nerd.otf
+            sudo cp -rv ./Iosevka /etc/fonts/Iosevka
             break
             ;;
         l|L)
-            cp -rv ./departure_mono_nerd.otf ~/.fonts/departure_mono_nerd.otf
+            cp -rv ./Iosevka ~/.fonts/Iosevka
             break
             ;;
         *)

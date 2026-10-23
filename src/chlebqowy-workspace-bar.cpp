@@ -16,8 +16,6 @@ using namespace std;
 
 char get_char(const string& display)
 {
-    if (display == "DP-2")   return 'A';
-    if (display == "HDMI-0") return 'B';
     return ' ';
 }
 int setup_socket()
@@ -175,8 +173,8 @@ string format_line(char seperator, int name_lenght, int lenght_per_workspace, bo
 int main()
 {
 // constants
-    const int lenght = 250;
-    const int workspace_amount = 10;
+    const int lenght = 150;
+    const int workspace_amount = 5;
     const int lenght_per_workspace = lenght / workspace_amount;
     const char seperator = ')';
     const int name_lenght = lenght_per_workspace - 5; // space, window, space, seperator, space
@@ -210,7 +208,7 @@ int main()
         string line = "";
 
         auto workspaces = nlohmann::json::parse(json);
-        for (int i = 0; i<workspace_amount; i++) {
+        for (int i = 1; i<workspace_amount+1; i++) {
             const nlohmann::json* match = nullptr; // for some reason segfaults if defined without nullptr value
             for (auto& ws : workspaces) {
                 if (ws["num"].get<int>() == i) {
@@ -245,7 +243,7 @@ int main()
             {"markup", "pango"},
             {"separator", false},
             {"separator_block_width", 0},
-            {"min_width", 2560},
+            {"min_width", 1920},
             {"align", "center"}
         };
 

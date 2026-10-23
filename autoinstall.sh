@@ -18,8 +18,8 @@ echo -e "${primary}) Backing up /etc/fonts to /etc/fonts-backup-chlebqowy-${time
 sudo cp -rv /etc/fonts /etc/fonts-backup-chlebqowy-${time}
 echo -e "${primary}) Backing up ~/.bashrc to ~/.bashrc-backup-chlebqowy-${time} (REQUIRES SUDO, OPTIONAL)${text}"
 sudo cp -rv ~/.bashrc ~/.bashrc-backup-chlebqowy-${time}
-echo -e "${primary}) Installing departure mono${text}"
-sudo cp -rv ./departure_mono_nerd.otf /etc/fonts/departure_mono_nerd.otf
+echo -e "${primary}) Installing Iosevka ${text}"
+sudo cp -rv ./Iosevka /etc/fonts/Iosevka
 echo -e "${primary}) Installing local.conf${text}"
 sudo cp -rv ./local.conf /etc/fonts/local.conf
 echo -e "${primary}) Refreshing font cache${text}"
