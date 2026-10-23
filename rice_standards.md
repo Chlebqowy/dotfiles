@@ -1,6 +1,7 @@
 # COLORS
 
 background #F3EADA
+background-transparent #FFFAEFAA
 gray #6f6b60
 focused bg #d8c1ad
 
