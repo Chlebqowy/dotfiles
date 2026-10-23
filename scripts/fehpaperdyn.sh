@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~/scripts/wallpapers.sh
+source /home/user/scripts/wallpapers.sh
 mode="--bg-scale"
 
 while true; do
@@ -10,7 +10,8 @@ while true; do
             if [ "$currentTimePeriod" != "${timePeriods[$i]}" ]; then
                 currentTimePeriod="${timePeriods[$i]}"
                 pkill feh
-                feh "$basedir${wallpapers[$i]}" $mode &
+                echo -e "feh $basedir${wallpapers[$i]} $mode &" 
+                feh $basedir${wallpapers[$i]} $mode &
                 echo "${timePeriods[$i]}"
                 break
             fi
