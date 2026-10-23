@@ -1,6 +1,6 @@
 {
     "tabsize": 4,
-    "colorscheme": "chlebqowy",
+    "colorscheme": "chlebqowy-light",
     "basename": true,
     "diffgutter": true,
     "matchbracestyle": "highlight",
@@ -9,6 +9,6 @@
     	"showchars": "tab",
     	"tabsize": 4,
     },
-    "statusformatl": " █ $(filename)  L$(line) C$(col) ",
-    "statusformatr": " $(modified)  $(opt:filetype) █ ",
+    "statusformatl": "  $(filename)  \\  L$(line) \\ C$(col) ",
+    "statusformatr": " $(modified) \\ $(opt:filetype)  ",
 }

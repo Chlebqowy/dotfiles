@@ -13,7 +13,7 @@ color-link constant "#adf38f"
 color-link constant.number "#adf38f" 
 color-link constant.string "#ceeaaf"
 
-color-link type "#60D160"
+color-link type "#89D1A6"
 color-link type.keyword "#89D1A6"
 
 color-link special "#4fda58"

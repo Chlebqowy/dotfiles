@@ -1,0 +1,43 @@
+color-link default "#0A050F,#F3EADA"
+color-link comment "#4f3f38"
+# hi
+# This is a big comment
+
+# TODO customise bottom bar 
+
+color-link identifier "#323293"
+color-link identifier.class "#329393"
+color-link identifier.var "#323293"
+
+color-link constant "#933263"
+color-link constant.number "#933263" 
+color-link constant.string "#933293"
+
+color-link type "#329332"
+color-link type.keyword "#89D1A6"
+
+color-link special "#939332"
+color-link statement "#933232"
+#color-link preproc "#F4B8E4"
+
+color-link error "bold #ff3322"
+color-link todo "bold #639332"
+
+color-link diff-added "#639332"
+color-link diff-modified "#936332" 
+color-link diff-deleted "#933232"
+
+#color-link gutter-error "#E78284"
+#color-link gutter-warning "#E5C890"	
+
+color-link statusline "#F3EADA,#6f6b60"
+color-link tabbar "#b2ffc5,#3f8f62"
+color-link indent-char "default"
+color-link line-number "#efbc8f"
+color-link current-line-number "#ef8528,#d8c1ad"
+
+color-link cursor-line "#d8c1ad"
+color-link type.extended "default"
+
+color-link divider "#3f8f62,#75ff98"
+color-link message "#b25435"
