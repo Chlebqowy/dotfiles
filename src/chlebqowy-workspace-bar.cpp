@@ -151,20 +151,20 @@ string format_line(char seperator, int name_lenght, int lenght_per_workspace, bo
     string colored_name;
 
     if (active) {
-        colored_name = "<span weight='normal' foreground='" + primary_bold + "'>"+correct_length_name + "</span>";
+        colored_name = "<span weight='bold' foreground='" + primary_bold + "'>"+correct_length_name + "</span>";
     } else if (visible) { 
-        colored_name = "<span weight='normal' foreground='" + primary_bold + "'>" + to_string(num) + "</span> <span weight='normal' foreground='" + secondary + "'>" + correct_length_name.substr(3, correct_length_name.length()-1) + "</span>";  // If you have a different naming scheme, modify arg 1 in substr
+        colored_name = "<span weight='bold' foreground='" + primary_bold + "'>" + to_string(num) + "</span> <span weight='normal' foreground='" + secondary + "'>" + correct_length_name.substr(3, correct_length_name.length()-1) + "</span>";  // If you have a different naming scheme, modify arg 1 in substr
     } else {
-        colored_name = "<span weight='normal' foreground='" + primary_bold + "'>" + to_string(num) + "</span> <span weight='normal' foreground='" + text_color + "'>" + correct_length_name.substr(3, correct_length_name.length()-1) + "</span>"; // also works with bold // If you have a different naming scheme, modify arg 1 in substr
+        colored_name = "<span weight='bold' foreground='" + primary_bold + "'>" + to_string(num) + "</span> <span weight='normal' foreground='" + text_color + "'>" + correct_length_name.substr(3, correct_length_name.length()-1) + "</span>"; // also works with bold // If you have a different naming scheme, modify arg 1 in substr
     }
 
     char screen = get_char(display);
-    colored_name += "<span weight='normal' foreground='" + text_color + "'>";
+    colored_name += "<span weight='bold' foreground='" + text_color + "'>";
     colored_name += (' ');
     colored_name += screen;
     colored_name += "</span>";
     colored_name += (' ');
-    colored_name += "<span weight='normal' foreground='" + secondary + "'>"; // also works with bold
+    colored_name += "<span weight='bold' foreground='" + secondary + "'>"; // also works with bold
     colored_name += seperator;
     colored_name += "</span>";
     colored_name += (' ');
