@@ -5,7 +5,7 @@
 set $exec-noid exec --no-startup-id
 set $mod Mod4
 
-font pango:DepartureMono Nerd Font Mono 8
+font pango:Iosevka Nerd Font Mono 8
 
 # $ dex --autostart --environment i3
 
@@ -25,7 +25,7 @@ bindsym $mod+Shift+Return exec firefox
 
 bindsym $mod+Shift+q kill
 
-bindsym $mod+i $exec-noid dmenu_run -fn 'DepartureMono Nerd Font Mono-11' -sb "#227744" # -r 8 && rofi -show run
+bindsym $mod+i $exec-noid dmenu_run -fn 'Iosevka Nerd Font Mono-11' -sb "#227744" # -r 8 && rofi -show run
 
 bindsym $mod+a focus left
 bindsym $mod+s focus down
@@ -60,8 +60,8 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+f exec "~/scripts/lock-in-mode.sh on"
 bindsym $mod+Ctrl+f exec "~/scripts/lock-in-mode.sh off"
 
-bindsym $mod+j set $font pango:DepartureMono Nerd Font Mono:style=Bold 16
-bindsym $mod+k set $font pango:DepartureMono Nerd Font Mono:style=Bold 8
+bindsym $mod+j set $font pango:Iosevka Nerd Font Mono:style=Bold 16
+bindsym $mod+k set $font pango:Iosevka Nerd Font Mono:style=Bold 8
 
 bindsym $mod+p layout stacking
 bindsym $mod+o layout tabbed
@@ -80,38 +80,23 @@ bindsym $mod+z focus child
 set $wsn workspace number
 set $mct move container to
 
-set $ws1 "1: Game/Main"
-set $ws2 "2: Yt/Firefox"
-set $ws3 "3: Code"
-set $ws4 "4: Extra Docs"
+set $ws1 "1: Notatki"
+set $ws2 "2: Firefox"
+set $ws3 "3: Kod"
+set $ws4 "4: Losowe"
 set $ws5 "5: Discord"
-set $ws6 "6: Work/Learning"
-set $ws7 "7: Other"
-set $ws8 "8: Discord Main"
-set $ws9 "9: Trash"
-set $ws0 "0: Yt/firefox Main"
 
 bindsym $mod+1 $wsn $ws1
 bindsym $mod+2 $wsn $ws2
 bindsym $mod+3 $wsn $ws3
 bindsym $mod+4 $wsn $ws4
 bindsym $mod+5 $wsn $ws5
-bindsym $mod+6 $wsn $ws6
-bindsym $mod+7 $wsn $ws7
-bindsym $mod+8 $wsn $ws8
-bindsym $mod+9 $wsn $ws9
-bindsym $mod+0 $wsn $ws0
 
 bindsym $mod+Shift+1 $mct $wsn $ws1
 bindsym $mod+Shift+2 $mct $wsn $ws2
 bindsym $mod+Shift+3 $mct $wsn $ws3
 bindsym $mod+Shift+4 $mct $wsn $ws4
 bindsym $mod+Shift+5 $mct $wsn $ws5
-bindsym $mod+Shift+6 $mct $wsn $ws6
-bindsym $mod+Shift+7 $mct $wsn $ws7
-bindsym $mod+Shift+8 $mct $wsn $ws8
-bindsym $mod+Shift+9 $mct $wsn $ws9
-bindsym $mod+Shift+0 $mct $wsn $ws0
 
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
@@ -142,7 +127,7 @@ $exec-noid "setxkbmap pl"
 
 # exec "bash ~/.config/i3/screens.sh horizontal"
 
-$exec-noid "xrandr --output HDMI-0 --mode 2560x1440 --rate 120 --pos 0x0 --rotate normal --output DP-2 --mode 2560x1440 --rate 240 --pos 2560x0 --rotate normal --primary"
+$exec-noid "xrandr --output eDP-1 --mode 1920x1080 --rate 60 --pos 0x0 --rotate normal"
 
 $exec-noid "~/activitywatch/aw_qt" # optional
 $exec-noid "bash ~/scripts/fehpaperdyn.sh"
@@ -159,35 +144,28 @@ client.unfocused #333333 #222826 #888888 #222222 #5b5757
 client.focused_inactive #336644 #335544 #eeeeee #222222 #5b5757
 for_window [class="dunst"] border pixel 0
 
-workspace $ws1 output DP-2
-workspace $ws2 output HDMI-0
-workspace $ws3 output DP-2
-workspace $ws4 output HDMI-0
-workspace $ws5 output HDMI-0
-workspace $ws6 output DP-2
-workspace $ws7 output DP-2
-workspace $ws8 output DP-2
-workspace $ws9 output DP-2
-workspace $ws0 output DP-2
+workspace $ws1 output eDP-1
+workspace $ws2 output eDP-1
+workspace $ws3 output eDP-1
+workspace $ws4 output eDP-1
+workspace $ws5 output eDP-1
 
 assign [class="(?i)steam"] $ws1
-assign [class="(?i)prismlauncher"] $ws1
-assign [class="(?i)code"] $ws2
-assign [class="(?i)discord"] $ws5
-$exec-noid discord
+assign [class="(?i)firefox"] $ws2
+assign [class="(?i)discord"] $ws4
 
-$exec-noid i3-msg 'workspace $ws2; workspace $ws1'
+$exec-noid i3-msg 'workspace $ws1'
 
 bar {
   workspace_buttons no
   tray_output none
   #position bottom
-  position top
+  position bottom
   #output primary
-  output HDMI-0
+  output eDP-1
   id 1
-  #font pango:DepartureMono Nerd Font 12
-  font pango:DepartureMono Nerd Font 11
+  #font pango:Iosevka Nerd Font 12
+  font pango:Iosevka Nerd Font 11
   status_command "chlebqowy-workspace-bar"
   colors {
     background #222222aa
