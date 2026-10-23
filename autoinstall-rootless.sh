@@ -22,9 +22,8 @@ echo -e "${primary}) Refreshing font cache${text}"
 fc-cache -fv
 echo -e "${primary}) Installing cross-platform configs${text}"
 cp -rv ./cross-platform/* ~/.config/
-echo -e "${primary}) Installing display server_specific configs${text}"
+echo -e "${primary}) Installing xorg configs${text}"
 cp -rv ./xorg/* ~/.config
-cp -rv ./wayland/* ~/.config
 echo -e "${primary}) Installing shell scripts${text}"
 mkdir -pv ~/scripts
 cp -vn ./scripts/* ~/scripts/

@@ -79,27 +79,9 @@ sleep 1
 echo -e "${primary}) Installing cross-platform configs${text}"
 sleep 1
 cp -rv ./cross-platform/* ~/.config/
-echo -e "${primary}) Installing display server_specific configs${text}"
+echo -e "${primary}) Installing xorg configs${text}"
 sleep 1
-read -rp "${secondary}Xorg, Wayland or both? [x/w/b]: ${text}" answer_display
-    case "$answer_display" in
-        w|W)
-            cp -rv ./wayland/* ~/.config
-            break
-            ;;
-        x|X)
-            cp -rv ./xorg/* ~/.config
-            break
-            ;;
-        b|B)
-            cp -rv ./xorg/* ~/.config
-            cp -rv ./wayland/* ~/.config
-            break
-            ;;
-        *)
-            echo -e "${secondary}Please enter 'w' (Wayland), 'X' (Xorg) or 'b' (both).${text}"
-            ;;
-    esac
+cp -rv ./xorg/* ~/.config
 echo -e "${primary}) Installing shell scripts${text}"
 sleep 1
 mkdir -pv ~/scripts

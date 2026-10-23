@@ -7,20 +7,16 @@
 > AI has been used a bit in this project but all design choices were done by me. [Click here for more info](#ai-disclosure)
 
 ## Currently includes
-__Cross-platform__
 - starship
 - kitty/termux
 - dunst
 - fontconfig
 - micro
-
-|X11|Wayland|
-|---|---|
-|i3|niri|
-|polybar|waybar|
-|dmenu|rofi (defaults)|
-|feh|swaybg|
-|picom|built-in|
+- i3
+- polybar
+- dmenu
+- feh
+- picom
 
 ## Features
 
@@ -39,25 +35,15 @@ __Cross-platform__
 - Many custom scripts
 - Modified version of dmenu included in the [bin/](bin) directory (x86_64 only)
 
-### Wayland
-- Smooth shadows, blur, transparency and animations
-- Bar with an experimental design style and the same information as X11
-- Tab indicators and notifications that are colored after the app icon
-- Some windows moving slightly up and down
-- Everything under Cross-platform applies here too
-
 ## Keybinds
 - All keybinds follow simple patterns such as all system shortcuts starting with super.
-- The Niri keybinds are made so that they can work if you have a
-single hand on the keyboard and the other on the mouse
-or both hands on the keyboard.
 ### Essential shortcuts:
 - Windows can be moved or focused with `Super` + `↑`/`←`/`↓`/`→` or `w`/`a`/`s`/`d`.
 - Resizing is done with `Super` + `+` / `-` and `Super` + `Shift` + `+` / `-`
 - The terminal is opened with `Super` + `Enter`, Firefox with `Super`+`Shift`+`Enter` and the launcher with `Super` + `i`
 - You can focus on the left monitor with `Ctrl` + `Super` + `Left` and on the right with `Ctrl` + `Super` + `Right`
 
-_Please read the [`Niri`](wayland/niri/config.kdl) or [`i3`](xorg/i3/config) configs to learn more_
+_Please read the [`i3`](xorg/i3/config) config to learn more
 
 ## How to install
 > [!WARNING]
@@ -66,10 +52,9 @@ _Please read the [`Niri`](wayland/niri/config.kdl) or [`i3`](xorg/i3/config) con
 You can install it with `sh install.sh`, manually or `sh autoinstall.sh` (ONLY DO THE LAST ONE IF YOU READ THE SCRIPT).
 
 1. Copy all of the contents of the cross-platform directory into `~/.config`
-2. If you want to use X11, also copy all of the contents of the `xorg` directory into `~/.config`    
-3. If you want to use Wayland, also copy all of the contents of the `wayland` directory into `~/.config`  
+2. If you want to use X11, also copy all of the contents of the `xorg` directory into `~/.config`     
 4. Put scripts into `~/scripts`  
-5. (Currently X11-only) Copy all contents of the `bin/` directory into `~/.local/bin` (per-user) or `/usr/bin` (REQUIRES SUDO) (if you don't trust me with the binaries, you can build them yourself. All source files are included and there's a [building section in this readme](#building))
+5. Copy all contents of the `bin/` directory into `~/.local/bin` (per-user) or `/usr/bin` (REQUIRES SUDO) (if you don't trust me with the binaries, you can build them yourself. All source files are included and there's a [building section in this readme](#building))
 6. Put the contents of `pictures/` into `~/Pictures/Important/`  
 7. Add the contents of `.bashrc` to your `~/.bashrc` (needed for the command prompt to work)  
 (For other shells follow https://starship.rs/guide/#step-2-set-up-your-shell-to-use-starship)  
@@ -84,15 +69,13 @@ You can install it with `sh install.sh`, manually or `sh autoinstall.sh` (ONLY D
 ### Fonts
 __A nerd font is heavily recommended.__ You can find some at https://www.nerdfonts.com/font-downloads.    
 _Your main font needs to be monospace_     
-I personally use and recommend Departure Mono but it is a pixel font.    
 Put the nerd font into /etc/fonts/font-name (REQUIRES SUDO) or .fonts (Only for one user)  
 Optionally, copy the local.conf to /etc/fonts/local.conf (REQUIRES SUDO)    
-(This assumes you are using Departure Mono, otherwise you have to modify the file)  
+(This assumes you are using Iosevka, otherwise you have to modify the file)  
   
 ## Dependencies    
-Both: Starship, kitty, dunst, micro-editor    
-X11: i3wm/i3 (4.22 or newer, or i3-gaps on older distros), i3bar, picom, polybar, feh, nvidia-smi (optional), activitywatch (optional)  
-Wayland: niri, waybar, swaybg, rofi  
+Starship, kitty, dunst, micro-editor    
+i3wm/i3 (4.22 or newer, or i3-gaps on older distros), i3bar, picom, polybar, feh, nvidia-smi (optional), activitywatch (optional)    
 Building (optional): nlohmann_json-devel (workspace-bar), g++, make (dmenu), xlib, xft and xinerama headers (dmenu)   
 
 On opensuse you can automatically install them with `bash opensuse-dependencies.sh`
@@ -100,7 +83,7 @@ On opensuse you can automatically install them with `bash opensuse-dependencies.
 ## Configuration
 You have to modify the config files manually, although they are fairly simple.  
 Some resources I'd recommend are the wikis for each project, such as:  
-[niri](https://github.com/niri-wm/niri/wiki/) [polybar](https://github.com/polybar/polybar/wiki) [starship](https://starship.rs/config/), man pages [dunst](https://man.archlinux.org/man/dunst.5.en) and the [i3wm userguide](https://i3wm.org/docs/userguide.html).  
+[polybar](https://github.com/polybar/polybar/wiki) [starship](https://starship.rs/config/), man pages [dunst](https://man.archlinux.org/man/dunst.5.en) and the [i3wm userguide](https://i3wm.org/docs/userguide.html).  
 
 > [!NOTE]
 > I only included apps that I feel like I've fully riced and the rice
@@ -136,7 +119,6 @@ dmenu_run and dmenu_path is not provided here but you can get it from the [upstr
 ## AI Disclosure
 ChatGPT and Claude for helping me when I couldn't find docs, so:  
 fontconfig, new picom syntax, and getting the i3 IPC  
-and to troubleshoot waybar and niri  
 This readme hasn't been AI generated but I've had a model proofread it.  
 
 ## License
