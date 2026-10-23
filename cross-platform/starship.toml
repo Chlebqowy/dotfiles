@@ -1,24 +1,24 @@
 "$schema" = 'https://starship.rs/config-schema.json'
-palette = 'refreshedi3'
-format = "[ ](fg:accent)[█](fg:accent bg:gray)[$directory]()[](fg:accent bg:gray)[$time](bg:gray fg:white_text)[](fg:accent bg:gray)[ ](fg:dark_accent bg:gray)[█](fg:dark_accent)\n[$os](fg:white_text)[$username](fg:white_text) [](fg:gray)[$status](bg:gray fg:success)[](fg:gray)"
+palette = 'main'
+format = """\
+[ ](fg:accent)[](fg:accent bg:gray)\
+[$directory]()[\\\\](fg:accent bg:gray)\
+[$time](bg:gray fg:white_text)\
+[](fg:accent bg:gray)[](fg:accent)
+[   ]()\
+[ ](fg:accent)[](fg:accent bg:gray)\
+[$os](bg:gray fg:white_text)[\\\\](fg:accent bg:gray)\
+[$username](bg:gray fg:white_text)\
+[](bg:gray fg:accent)[](fg:accent)
+[](fg:gray)[ ](bg:gray)[$status]()[ ](bg:gray)[](fg:gray) \
+"""
 
-[palettes.sideuser]
-accent = "#92cf9c"
-dark_accent = "#294233"
-gray = "#3e3e3e"
-white_text = "#e0e0e0"
-red_text = "#ffe0e0"
-failure = "#fda1a0"
-success = "#92cf9c"
-
-[palettes.refreshedi3]
-accent = "#75ff98"
-dark_accent = "#3f8f62"
-gray = "#5b5757"
-white_text = "#e0e0e0"
+[palettes.main]
+accent = "#ef8528"
+gray = "#6f6b60"
+white_text = "#e7e3e0"
 red_text = "#ffc0c0"
-failure = "#ff7575"
-success = "#75ff98"
+failure = "#ff3322"
 
 [directory]
 truncation_length = 3
@@ -35,13 +35,13 @@ format = "[ $time ]($style)"
 
 [username]
 show_always = true
-style_user = "fg:accent"
+style_user = "fg:white_text bg:gray"
 style_root = "fg:red_text"
-format = "[$user]($style)"
+format = "[ $user ]($style)"
 
 [status]
 disabled = false
-style = "bg:gray fg:success"
+style = "bg:gray fg:accent"
 failure_style = "bg:gray fg:failure"
 symbol = "\\$"
 success_symbol = "\\$"
@@ -51,8 +51,8 @@ format = "[$symbol]($style)"
 
 [os]
 disabled = false
-style = "fg:accent"
-format = "[$symbol]($style)"
+style = "fg:accent_text bg:gray"
+format = "[ $symbol]($style)"
 
 [os.symbols]
 AIX = " "
