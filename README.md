@@ -101,8 +101,7 @@ dmenu_run and dmenu_path is not provided here but you can get it from the [upstr
 - Every project for which configs I included  
 
 ## AI Disclosure
-ChatGPT and Claude for helping me when I couldn't find docs, so:  
-fontconfig, new picom syntax, and getting the i3 IPC  
+ChatGPT and Claude helped me when I couldn't find docs, so fontconfig and getting the sway IPC  
 This readme hasn't been AI generated but I've had a model proofread it.  
 
 ## License
