@@ -12,28 +12,12 @@
 - dunst
 - fontconfig
 - micro
-- i3
-- polybar
-- dmenu
+- swayfx
+- 
 - feh
-- picom
 
 ## Features
 
-### Cross-platform
-- Semi-minimalist style with a lot of roundness, thick borders, some transparency and blur
-- Fresh green color scheme with many shades.
-- Config files that are easy to modify
-- Nice wallpapers of nature that change depending on the time of day
-
-### X11
-- Quick and clean custom animations
-- Compositor shadows, blur and transparency
-- Top bar with system info created using polybar
-- Polybar module that lists the amount of packages to upgrade (Only apt, pacman, zypper and dnf)
-- A separate bar for workspaces on the second screen made with a custom program
-- Many custom scripts
-- Modified version of dmenu included in the [bin/](bin) directory (x86_64 only)
 
 ## Keybinds
 - All keybinds follow simple patterns such as all system shortcuts starting with super.
@@ -43,7 +27,7 @@
 - The terminal is opened with `Super` + `Enter`, Firefox with `Super`+`Shift`+`Enter` and the launcher with `Super` + `i`
 - You can focus on the left monitor with `Ctrl` + `Super` + `Left` and on the right with `Ctrl` + `Super` + `Right`
 
-_Please read the [`i3`](xorg/i3/config) config to learn more
+_Please read the [`sway`](wayland/sway/config) config to learn more
 
 ## How to install
 > [!WARNING]
@@ -75,15 +59,15 @@ Optionally, copy the local.conf to /etc/fonts/local.conf (REQUIRES SUDO)
   
 ## Dependencies    
 Starship, kitty, dunst, micro-editor    
-i3wm/i3 (4.22 or newer, or i3-gaps on older distros), i3bar, picom, polybar, feh, nvidia-smi (optional), activitywatch (optional)    
+swayfx, swaybg, nvidia-smi,    
 Building (optional): nlohmann_json-devel (workspace-bar), g++, make (dmenu), xlib, xft and xinerama headers (dmenu)   
 
-On opensuse you can automatically install them with `bash opensuse-dependencies.sh`
+On opensuse you can automatically install them with `bash opensuse-dependencies.sh` (Also adds my obs repo)
 
 ## Configuration
 You have to modify the config files manually, although they are fairly simple.  
 Some resources I'd recommend are the wikis for each project, such as:  
-[polybar](https://github.com/polybar/polybar/wiki) [starship](https://starship.rs/config/), man pages [dunst](https://man.archlinux.org/man/dunst.5.en) and the [i3wm userguide](https://i3wm.org/docs/userguide.html).  
+[starship](https://starship.rs/config/), man pages [dunst](https://man.archlinux.org/man/dunst.5.en) and the [i3wm userguide](https://i3wm.org/docs/userguide.html).  
 
 > [!NOTE]
 > I only included apps that I feel like I've fully riced and the rice
