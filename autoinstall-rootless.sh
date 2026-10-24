@@ -3,7 +3,7 @@
 primary=$'\e[38;2;117;255;152m'
 secondary=$'\e[38;2;79;218;88m'
 text=$'\e[38;2;251;254;252m'
-
+# todo update colors, use default for text
 time = $(date +%F-%H%M)
 
 mkdir -pv ~/.config
@@ -22,8 +22,8 @@ echo -e "${primary}) Refreshing font cache${text}"
 fc-cache -fv
 echo -e "${primary}) Installing cross-platform configs${text}"
 cp -rv ./cross-platform/* ~/.config/
-echo -e "${primary}) Installing xorg configs${text}"
-cp -rv ./xorg/* ~/.config
+echo -e "${primary}) Installing wayland configs${text}"
+cp -rv ./wayland/* ~/.config
 echo -e "${primary}) Installing shell scripts${text}"
 mkdir -pv ~/scripts
 cp -vn ./scripts/* ~/scripts/
@@ -42,14 +42,7 @@ g++ src/chlebqowy-update-num.cpp -o bin/chlebqowy-update-num
 g++ src/chlebqowy-gpu-usage.cpp -o bin/chlebqowy-gpu-usage
 cp -rv bin/chlebqowy-gpu-usage ~/.local/bin/chlebqowy-gpu-usage
 cp -rv bin/chlebqowy-update-num ~/.local/bin/chlebqowy-update-num
-cp -rv bin/chlebqowy-workspace-bar ~/.local/bin/chlebqowy-workspace-bar
-echo -e "${primary}) Installing dmenu${text}"
-cd src/dmenu
-make
-cd ../..
-mv -v ./bin/dmenu ~/.local/bin/dmenu
-mv -v ./bin/dmenu_run ~/.local/bin/dmenu_run
-mv -v ./bin/dmenu_path ~/.local/bin/dmenu_path
+cp -rv bin/chlebqowy-workspace-bar-wl ~/.local/bin/chlebqowy-workspace-bar-wl
 echo -e "\x1b[32m✓ Finished${text}"
 echo -e "${secondary} Please make sure all dependencies from README.md are installed${text}"
 echo -e "${secondary} Please reboot after installing them${text}"

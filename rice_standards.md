@@ -3,11 +3,14 @@
 background #F3EADA
 background-transparent #FFFAEFAA
 gray #6f6b60
+lighter gray #8F8888
 focused bg #d8c1ad
 
 accent #ef8528
 dark accent #b25435
 subtle accent #efbc8f
+
+secondary #2892ef
 
 white_text #e7e3e0
 gray_text #4f3f38

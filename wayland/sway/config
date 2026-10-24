@@ -25,7 +25,7 @@ bindsym $mod+Shift+Return exec firefox
 
 bindsym $mod+Shift+q kill
 
-bindsym $mod+i $exec-noid dmenu_run -fn 'Iosevka Nerd Font Mono-11' -sb "#227744" # -r 8 && rofi -show run
+bindsym $mod+i $exec-noid dmenu_run -fn 'Iosevka Nerd Font Mono-11' -sb "#227744" # -r 8
 
 bindsym $mod+a focus left
 bindsym $mod+s focus down
@@ -57,8 +57,6 @@ bindsym $mod+h split h
 bindsym $mod+v split v
 
 bindsym $mod+f fullscreen toggle
-bindsym $mod+Shift+f exec "~/scripts/lock-in-mode.sh on"
-bindsym $mod+Ctrl+f exec "~/scripts/lock-in-mode.sh off"
 
 bindsym $mod+j set $font pango:Iosevka Nerd Font Mono:style=Bold 16
 bindsym $mod+k set $font pango:Iosevka Nerd Font Mono:style=Bold 8
@@ -98,10 +96,9 @@ bindsym $mod+Shift+3 $mct $wsn $ws3
 bindsym $mod+Shift+4 $mct $wsn $ws4
 bindsym $mod+Shift+5 $mct $wsn $ws5
 
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r reload
 
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Kill i3?' -B 'Yes' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "swaynag -t warning -m 'Kill sway?' -B 'Yes' 'swaymsg exit'"
 
 bindsym $mod+equal resize grow width 100 px
 bindsym $mod+shift+equal resize grow height 100 px
@@ -112,36 +109,23 @@ bindsym $mod+shift+minus resize shrink height 100 px
 bindsym $mod+ctrl+minus resize shrink width 20 px
 bindsym $mod+ctrl+shift+minus resize shrink height 20 px
 
-gaps inner 20
-gaps outer 5
-# make sure it's the same as in lock-in-mode
+gaps inner 12
+gaps outer 0
 
 smart_gaps off
 #smart_borders on
 
 exec --no-startup-id nm-applet
 
-$exec-noid "setxkbmap pl"
-
-# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
-# exec "bash ~/.config/i3/screens.sh horizontal"
-
-$exec-noid "xrandr --output eDP-1 --mode 1920x1080 --rate 60 --pos 0x0 --rotate normal"
-
-$exec-noid "~/activitywatch/aw_qt" # optional
-$exec-noid "bash ~/scripts/fehpaperdyn.sh"
-
-$exec-noid "picom"
-$exec-noid "polybar"
+$exec-noid "bash ~/scripts/swaypaperdyn.sh"
 $exec-noid "dunst"
 
 title_align center
 
-for_window [class="^.*"] border pixel 8
-client.focused #339955 #227744 #ffffff #222222 #3f8f62
-client.unfocused #333333 #222826 #888888 #222222 #5b5757
-client.focused_inactive #336644 #335544 #eeeeee #222222 #5b5757
+for_window [class="^.*"] border pixel 5
+# name \ tab border \ tab \ text \ ? \ Border
+client.focused #ef8528 #b25435 #ffffff #222222 #b25435
+client.unfocused #8f8888 #6f6b60 #888888 #222222 #6f6b60
 for_window [class="dunst"] border pixel 0
 
 workspace $ws1 output eDP-1
@@ -152,29 +136,36 @@ workspace $ws5 output eDP-1
 
 assign [class="(?i)steam"] $ws1
 assign [class="(?i)firefox"] $ws2
-assign [class="(?i)discord"] $ws4
+assign [class="(?i)discord"] $ws5
 
 $exec-noid i3-msg 'workspace $ws1'
 
 bar {
   workspace_buttons no
   tray_output none
-  #position bottom
-  position bottom
-  #output primary
+  position top
   output eDP-1
   id 1
-  #font pango:Iosevka Nerd Font 12
   font pango:Iosevka Nerd Font 11
-  status_command "chlebqowy-workspace-bar"
+  status_command "chlebqowy-workspace-bar-wl"
   colors {
-    background #222222aa
+    background #FFFAEFAA
   }
-  height 32
-  # inconsistent with polybar because it felt bigger. probably because of shadows
-  #height 36
-  # padding 9px # 6 pt at 107 dpi, polybar is 24 pt and font size is 12 pt so I wanted to make them equal. divide that by 2.
-}
+  height 24
+ }
+ input type:touchpad {
+ 	tap enabled
+ 	accel_profile adaptive
+ 	pointer_accel -0.1
+ 	middle_emulation enabled
+ }
+ input type:keyboard {
+ 	xkb_layout pl
+ }
+ output eDP-1 {
+ 	mode 1920x1080@60hz
+ 	scale 0.9
+ }
 
 exec "systemctl --user start i3-session.target"
 $exec-noid "/usr/libexec/xdg-desktop-portal-gtk &"

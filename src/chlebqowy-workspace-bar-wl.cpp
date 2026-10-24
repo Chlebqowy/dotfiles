@@ -21,7 +21,7 @@ char get_char(const string& display)
 int setup_socket()
 {
 // get socket path
-    FILE* pipe = popen("i3 --get-socketpath", "r");
+    FILE* pipe = popen("sway --get-socketpath", "r");
     if (!pipe) return -1;
 
     char buffer[512];
@@ -94,45 +94,7 @@ string read_from_socket(int i3_ipc)
     }
     return json;
 }
-// ANSIstring format_line(char seperator, int name_lenght, int lenght_per_workspace, bool active, bool visible, string name, string display, int num, string primary, string primary_bold, string secondary, string text_color) 
-// ANSI{
-// ANSI    //cout << "formatting" << endl;
-// ANSI    string correct_length_name;
-// ANSI    if (name.length() >= name_lenght)
-// ANSI    {
-// ANSI        correct_length_name = name.substr(0, name_lenght);
-// ANSI    } else {
-// ANSI        correct_length_name = name;
-// ANSI        for (int i = name.length(); i<name_lenght; i++) {
-// ANSI            correct_length_name += ' ';
-// ANSI        }
-// ANSI    }
-// ANSI    char screen = get_char(display);
-// ANSI    correct_length_name += (' ');
-// ANSI    correct_length_name += screen;
-// ANSI
-// ANSI    //cout << correct_length_name << endl;
-// ANSI
-// ANSI    string colored_name;
-// ANSI
-// ANSI    if (active) {
-// ANSI        colored_name = primary_bold + correct_length_name;
-// ANSI    } else if (visible) {
-// ANSI        colored_name = primary_bold + to_string(num) + secondary + correct_length_name.substr(1, correct_length_name.length()-1);
-// ANSI    } else {
-// ANSI        colored_name = primary_bold + to_string(num) + text_color + correct_length_name.substr(1, correct_length_name.length()-1); 
-// ANSI    }
-// ANSI
-// ANSI    //cout << colored_name << endl;
-// ANSI
-// ANSI    colored_name += (' ');
-// ANSI    colored_name += secondary;
-// ANSI    colored_name += seperator;
-// ANSI    colored_name += (' ');
-// ANSI    colored_name += text_color;
-// ANSI    return colored_name;
-// ANSI}
-string format_line(char seperator, int name_lenght, int lenght_per_workspace, bool active, bool visible, string name, string display, int num, string primary, string primary_bold, string secondary, string text_color) 
+string format_line(char seperator, int name_lenght, int lenght_per_workspace, bool active, bool visible, string name, string display, int num, string primary, string primary_subtle, string secondary, string text_color) 
 {
     //PANGO
     //cout << "formatting" << endl;
@@ -151,11 +113,11 @@ string format_line(char seperator, int name_lenght, int lenght_per_workspace, bo
     string colored_name;
 
     if (active) {
-        colored_name = "<span weight='bold' foreground='" + primary_bold + "'>"+correct_length_name + "</span>";
+        colored_name = "<span weight='bold' foreground='" + secondary + "'>"+correct_length_name + "</span>";
     } else if (visible) { 
-        colored_name = "<span weight='bold' foreground='" + primary_bold + "'>" + to_string(num) + "</span> <span weight='normal' foreground='" + secondary + "'>" + correct_length_name.substr(3, correct_length_name.length()-1) + "</span>";  // If you have a different naming scheme, modify arg 1 in substr
+        colored_name = "<span weight='bold' foreground='" + primary + "'>" + to_string(num) + "</span> <span weight='normal' foreground='" + secondary + "'>" + correct_length_name.substr(3, correct_length_name.length()-1) + "</span>";  // If you have a different naming scheme, modify arg 1 in substr
     } else {
-        colored_name = "<span weight='bold' foreground='" + primary_bold + "'>" + to_string(num) + "</span> <span weight='normal' foreground='" + text_color + "'>" + correct_length_name.substr(3, correct_length_name.length()-1) + "</span>"; // also works with bold // If you have a different naming scheme, modify arg 1 in substr
+        colored_name = "<span weight='bold' foreground='" + primary + "'>" + to_string(num) + "</span> <span weight='normal' foreground='" + text_color + "'>" + correct_length_name.substr(3, correct_length_name.length()-1) + "</span>"; // also works with bold // If you have a different naming scheme, modify arg 1 in substr
     }
 
     char screen = get_char(display);
@@ -164,7 +126,7 @@ string format_line(char seperator, int name_lenght, int lenght_per_workspace, bo
     colored_name += screen;
     colored_name += "</span>";
     colored_name += (' ');
-    colored_name += "<span weight='bold' foreground='" + secondary + "'>"; // also works with bold
+    colored_name += "<span weight='bold' foreground='" + primary_subtle + "'>"; // also works with bold
     colored_name += seperator;
     colored_name += "</span>";
     colored_name += (' ');
@@ -176,19 +138,16 @@ int main()
     const int lenght = 150;
     const int workspace_amount = 5;
     const int lenght_per_workspace = lenght / workspace_amount;
-    const char seperator = ')';
+    const char seperator = '\\';
+    const string extra_seperator = "";
     const int name_lenght = lenght_per_workspace - 5; // space, window, space, seperator, space
     const float cd = 1.0; // seconds
     const float err_cd = 0.1; // also seconds
 
-    // ANSIconst string primary = "\x1b[0m\x1b[38;2;117;255;152m";
-    // ANSIconst string primary_bold = "\x1b[1m\x1b[38;2;117;255;152m";
-    // ANSIconst string secondary = "\x1b[0m\x1b[38;2;79;191;98m";
-    // ANSIconst string text = "\x1b[0m\x1b[38;2;250;252;251m";
-    const string primary   = "#75ff98";
-    const string primary_bold   = "#75ff98";
-    const string secondary = "#4fbf62";
-    const string text      = "#fafcfb";
+    const string primary   = "#ef8528";
+    const string primary_subtle = "#efbc8f";
+    const string text      = "#0A050F";
+    const string secondary = "#2892ef";
 
     cout << "{\"version\":1}" << endl;
     cout << "[" << endl;
@@ -207,6 +166,10 @@ int main()
 
         string line = "";
 
+        line += "<span weight='normal' foreground='" + primary + "'>";
+        line += extra_seperator;
+        line += "</span> ";
+
         auto workspaces = nlohmann::json::parse(json);
         for (int i = 1; i<workspace_amount+1; i++) {
             const nlohmann::json* match = nullptr; // for some reason segfaults if defined without nullptr value
@@ -221,7 +184,7 @@ int main()
                 line += format_line(seperator,name_lenght,lenght_per_workspace,
                     false,false,
                     "","", i,
-                    primary, primary_bold, secondary, text);
+                    primary, primary_subtle, secondary, text);
             } else {
                 //cout << "match" << endl;
                 line += format_line(seperator, name_lenght, lenght_per_workspace,
@@ -229,14 +192,18 @@ int main()
                     match->at("visible").get<bool>(),
                     match->at("name").get<string>(),
                     match->at("output").get<string>(),
-                    i, primary, primary_bold, secondary, text
+                    i, primary, primary_subtle, secondary, text
                     );
             }
         }
-        // ANSIline += primary_bold;
-        // ANSIline += "WORKSPACES"; // extra
         line += "<span weight='normal' foreground='" + primary + "'>";
-        line += "WORK"; // extra
+        line += extra_seperator;
+        line += "</span>";
+        line += "<span weight='bold' foreground='" + secondary + "'>";
+        line += " WORK "; // extra
+        line += "</span>";
+        line += "<span weight='normal' foreground='" + primary + "'>";
+        line += extra_seperator;
         line += "</span>";
         nlohmann::json block = {
             {"full_text", line},

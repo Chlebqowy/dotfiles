@@ -6,6 +6,8 @@ primary=$'\e[38;2;117;255;152m'
 secondary=$'\e[38;2;79;218;88m'
 text=$'\e[38;2;251;254;252m'
 
+# todo update colors, use default for text
+
 time = $(date +%F-%H%M)
 
 mkdir -pv ~/.config
@@ -26,8 +28,8 @@ echo -e "${primary}) Refreshing font cache${text}"
 sudo fc-cache -fv
 echo -e "${primary}) Installing cross-platform configs${text}"
 cp -rv ./cross-platform/* ~/.config/
-echo -e "${primary}) Installing display xorg configs${text}"
-sudo cp -rv ./xorg/* ~/.config
+echo -e "${primary}) Installing display wayland configs${text}"
+cp -rv ./wayland/* ~/.config
 echo -e "${primary}) Installing shell scripts${text}"
 mkdir -pv ~/scripts
 cp -vn ./scripts/* ~/scripts/
@@ -42,17 +44,10 @@ cat ~/.bashrc
 echo -e "${primary}) Building c++ and c scripts${text}"
 g++ src/chlebqowy-workspace-bar.cpp -o bin/chlebqowy-workspace-bar
 g++ src/chlebqowy-update-num.cpp -o bin/chlebqowy-update-num
-g++ src/chlebqowy-gpu-usage.cpp -o bin/chlebqowy-gpu-usage
+g++ src/chlebqowy-gpu-usage.cpp-wl -o bin/chlebqowy-gpu-usage-wl
 sudo cp -rv bin/chlebqowy-gpu-usage /usr/bin/chlebqowy-gpu-usage
 sudo cp -rv bin/chlebqowy-update-num /usr/bin/chlebqowy-update-num
-sudo cp -rv bin/chlebqowy-workspace-bar /usr/bin/chlebqowy-workspace-bar
-echo -e "${primary}) Installing dmenu${text}"
-cd src/dmenu
-make
-cd ../..
-sudo mv -v ./bin/dmenu /usr/bin/dmenu
-sudo mv -v ./bin/dmenu_run /usr/bin/dmenu_run
-sudo mv -v ./bin/dmenu_path /usr/bin/dmenu_path
+sudo cp -rv bin/chlebqowy-workspace-bar-wl /usr/bin/chlebqowy-workspace-bar-wl
 echo -e "\x1b[32m✓ Finished${text}"
 echo -e "${secondary} Please make sure all dependencies from README.md are installed${text}"
 echo -e "${secondary} Please reboot after installing them${text}"

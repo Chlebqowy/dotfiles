@@ -6,15 +6,16 @@ format = """\
 [$time](bg:gray fg:white_text)\
 [](fg:accent bg:gray)[](fg:accent)
 [   ]()\
-[ ](fg:accent)[](fg:accent bg:gray)\
-[$os](bg:gray fg:white_text)[\\\\](fg:accent bg:gray)\
+[ ](fg:secondary)[](fg:secondary bg:gray)\
+[$os](bg:gray fg:white_text)[\\\\](fg:secondary bg:gray)\
 [$username](bg:gray fg:white_text)\
-[](bg:gray fg:accent)[](fg:accent)
+[](bg:gray fg:secondary)[](fg:secondary)
 [](fg:gray)[ ](bg:gray)[$status]()[ ](bg:gray)[](fg:gray) \
 """
 
 [palettes.main]
 accent = "#ef8528"
+secondary = "#2892ef"
 gray = "#6f6b60"
 white_text = "#e7e3e0"
 red_text = "#ffc0c0"

@@ -3,7 +3,7 @@
 primary=$'\e[38;2;117;255;152m'
 secondary=$'\e[38;2;79;218;88m'
 text=$'\e[38;2;251;254;252m'
-
+# todo update colors, use default for text
 time = $(date +%F-%H%M)
 
 mkdir -pv ~/.config
@@ -79,9 +79,9 @@ sleep 1
 echo -e "${primary}) Installing cross-platform configs${text}"
 sleep 1
 cp -rv ./cross-platform/* ~/.config/
-echo -e "${primary}) Installing xorg configs${text}"
+echo -e "${primary}) Installing wayland configs${text}"
 sleep 1
-cp -rv ./xorg/* ~/.config
+cp -rv ./wayland/* ~/.config
 echo -e "${primary}) Installing shell scripts${text}"
 sleep 1
 mkdir -pv ~/scripts
@@ -100,69 +100,24 @@ echo -e "${primary}) Building c++ and c scripts${text}"
 sleep 1
 g++ src/chlebqowy-workspace-bar.cpp -o bin/chlebqowy-workspace-bar
 g++ src/chlebqowy-update-num.cpp -o bin/chlebqowy-update-num
-g++ src/chlebqowy-gpu-usage.cpp -o bin/chlebqowy-gpu-usage
+g++ src/chlebqowy-gpu-usage-wl.cpp -o bin/chlebqowy-gpu-usage-wl
 read -rp "${secondary}Install globally or locally? [g/l]: ${text}" answer_scripts
 
     case "$answer_scripts" in
         g|G)
             sudo cp -rv bin/chlebqowy-gpu-usage /usr/bin/chlebqowy-gpu-usage
             sudo cp -rv bin/chlebqowy-update-num /usr/bin/chlebqowy-update-num
-            sudo cp -rv bin/chlebqowy-workspace-bar /usr/bin/chlebqowy-workspace-bar
+            sudo cp -rv bin/chlebqowy-workspace-bar-wl /usr/bin/chlebqowy-workspace-bar-wl
             break
             ;;
         l|L)
             cp -rv bin/chlebqowy-gpu-usage ~/.local/bin/chlebqowy-gpu-usage
             cp -rv bin/chlebqowy-update-num ~/.local/bin/chlebqowy-update-num
-            cp -rv bin/chlebqowy-workspace-bar ~/.local/bin/chlebqowy-workspace-bar
+            cp -rv bin/chlebqowy-workspace-bar-wl ~/.local/bin/chlebqowy-workspace-bar-wl
             break
             ;;
         *)
             echo -e "${secondary}Please enter 'g' (global) or 'l' (local).${text}"
-            ;;
-    esac
-echo -e "${primary}) Installing dmenu${text}"
-sleep 1
-cd src/dmenu
-make
-cd ../..
-case "$answer_scripts" in
-	g|G)
-		sudo mv -v ./bin/dmenu /usr/bin/dmenu
-		break
-		;;
-	l|L)
-		mv -v ./bin/dmenu ~/.local/bin/dmenu
-		break
-		;;
-	*)
-	    mv -v ./bin/dmenu ~/.local/bin/dmenu
-	    ;;
-esac
-read -rp "${secondary}Get pre-build dmenu_run and dmenu_path or install it manually? [p/m]: ${text}" answer_dmenu
-	case "$answer_dmenu" in
-        p|P)
-        	case "$answer_scripts" in
-        		g|G)
-        			sudo mv -v ./bin/dmenu_run /usr/bin/dmenu_run
-        			sudo mv -v ./bin/dmenu_path /usr/bin/dmenu_path
-					break
-					;;
-        		l|L)
-        			mv -v ./bin/dmenu_run ~/.local/bin/dmenu_run
-        			mv -v ./bin/dmenu_path ~/.local/bin/dmenu_path
-					break
-					;;
-        		*)
-        	    	mv -v ./bin/dmenu_run ~/.local/bin/dmenu_run
-        	    	mv -v ./bin/dmenu_path ~/.local/bin/dmenu_path
-        	    	;;
-			esac
-            ;;
-        m|M)
-			echo -e "${primary})Please get dmenu_run and dmenu_path from the suckless website and put them in /usr/bin or ~/.local/bin (depening on whether you installed the c scripts globally or locally)${text}"
-            ;;
-        *)
-            echo -e "${secondary}Please enter 'p' (pre-built) or 'm' (manual).${text}"
             ;;
     esac
 echo -e "\x1b[32m✓ Finished${text}"
