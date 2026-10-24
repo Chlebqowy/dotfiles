@@ -123,6 +123,16 @@ $exec-noid "dunst"
 title_align center
 
 for_window [class="^.*"] border pixel 5
+corner_radius 4
+
+for_window [app_id="nautilus"] opacity 0.9
+
+blur enable
+blur_passes 1
+blur_radius 1
+blur_brightness 0.85
+blur_noise 0.0
+
 # name \ tab border \ tab \ text \ ? \ Border
 client.focused #ef8528 #b25435 #ffffff #222222 #b25435
 client.unfocused #8f8888 #6f6b60 #888888 #222222 #6f6b60
