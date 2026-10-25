@@ -117,7 +117,7 @@ string format_line(
     //cout << correct_length_name << endl;
 
     string colored_name;
-    if (active) colored_name = "<span background='"+gray+">";
+    if (active) colored_name = "<span background='"+gray+"'>";
     else colored_name = "";
 	//colored_name = "";
     if (active) colored_name += "<span weight='bold' foreground='" + secondary + "'>";
