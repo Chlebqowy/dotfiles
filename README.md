@@ -1,6 +1,6 @@
 # Chlebqowy Dotfiles
 
-<img width="1920" height="1080" alt="Sway screenshot (outdated)" src="wip_rice"/>
+<img width="1920" height="1080" alt="Sway screenshot (outdated)" src="wip_rice.png"/>
 
 > [!NOTE]
 > AI has been used a bit in this project but all design choices were done by me. [Click here for more info](#ai-disclosure)
