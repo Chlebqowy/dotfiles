@@ -1,9 +1,8 @@
-Change workspace bar style, make seperators around focused workspaces thick and use gray backgrounds.
-Maybe split the thick seperator into 2 
-Or always use the thick seperator but use the short one for between number and name
-Imitate polybar
-Rice notifs, rofi, fastfetch, maybe sddm and grub
-Add mild shadows and animations
-Add swoosh sfx
-Maybe add some quarter-circles
-Add second, preferably also third wallpaper
+Rice notifs (mid prio)
+Rice rofi (mid prio)
+Rice fastfetch (low prio)
+Rice sddm (high prio)
+Rice grub (mid prio)
+Add animations (high prio)
+Add swoosh sfx (low prio)
+Add second, preferably also third wallpaper (high prio)

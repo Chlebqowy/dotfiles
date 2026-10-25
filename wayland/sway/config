@@ -136,6 +136,13 @@ blur_radius 1
 blur_brightness 0.85
 blur_noise 0.0
 
+shadows enable
+shadow_blur_radius 20
+shadow_offset -3 3 
+shadow_color #ffaa007F
+shadow_inactive_color #aaaaaa7F
+default_dim_inactive 0
+
 # name \ tab border \ tab \ text \ ? \ Border
 client.focused #ef8528 #b25435 #ffffff #222222 #b25435
 client.unfocused #8f8888 #6f6b60 #888888 #222222 #6f6b60
