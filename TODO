@@ -1,3 +1,6 @@
+Change workspace bar style, make seperators around focused workspaces thick and use gray backgrounds.
+Maybe split the thick seperator into 2 
+Or always use the thick seperator but use the short one for between number and name
 Imitate polybar
 Rice notifs, rofi, fastfetch, maybe sddm and grub
 Add mild shadows and animations
