@@ -98,22 +98,17 @@ cat ./.bashrc >> ~/.bashrc
 cat ~/.bashrc
 echo -e "${primary}) Building c++ and c scripts${text}"
 sleep 1
-g++ src/chlebqowy-workspace-bar.cpp -o bin/chlebqowy-workspace-bar
-g++ src/chlebqowy-update-num.cpp -o bin/chlebqowy-update-num
-g++ src/chlebqowy-gpu-usage-wl.cpp -o bin/chlebqowy-gpu-usage-wl
+cd src
+make
 read -rp "${secondary}Install globally or locally? [g/l]: ${text}" answer_scripts
 
     case "$answer_scripts" in
         g|G)
-            sudo cp -rv bin/chlebqowy-gpu-usage /usr/bin/chlebqowy-gpu-usage
-            sudo cp -rv bin/chlebqowy-update-num /usr/bin/chlebqowy-update-num
-            sudo cp -rv bin/chlebqowy-workspace-bar-wl /usr/bin/chlebqowy-workspace-bar-wl
+            make install-global
             break
             ;;
         l|L)
-            cp -rv bin/chlebqowy-gpu-usage ~/.local/bin/chlebqowy-gpu-usage
-            cp -rv bin/chlebqowy-update-num ~/.local/bin/chlebqowy-update-num
-            cp -rv bin/chlebqowy-workspace-bar-wl ~/.local/bin/chlebqowy-workspace-bar-wl
+        	make install
             break
             ;;
         *)

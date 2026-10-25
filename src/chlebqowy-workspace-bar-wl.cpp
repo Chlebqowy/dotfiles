@@ -14,6 +14,10 @@
 
 using namespace std;
 
+const float x = 1920;
+const float scale = 0.9;
+const int bar_x = (int)(x/scale);
+
 char get_char(const string& display)
 {
     return ' ';
@@ -151,7 +155,7 @@ int main()
 {
 // constants
     const int lenght = 150;
-    const int workspace_amount = 5;
+    const int workspace_amount = 6;
     const int lenght_per_workspace = lenght / workspace_amount;
     const char seperator = '\\';
     const string extra_seperator_0 = "";
@@ -234,7 +238,7 @@ int main()
             {"markup", "pango"},
             {"separator", false},
             {"separator_block_width", 0},
-            {"min_width", 1920},
+            {"min_width", bar_x},
             {"align", "center"}
         };
 

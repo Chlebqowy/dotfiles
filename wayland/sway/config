@@ -83,18 +83,21 @@ set $ws2 "2: Firefox"
 set $ws3 "3: Kod"
 set $ws4 "4: Losowe"
 set $ws5 "5: Discord"
+set $ws6 "6: Rysowanie"
 
 bindsym $mod+1 $wsn $ws1
 bindsym $mod+2 $wsn $ws2
 bindsym $mod+3 $wsn $ws3
 bindsym $mod+4 $wsn $ws4
 bindsym $mod+5 $wsn $ws5
+bindsym $mod+6 $wsn $ws6
 
 bindsym $mod+Shift+1 $mct $wsn $ws1
 bindsym $mod+Shift+2 $mct $wsn $ws2
 bindsym $mod+Shift+3 $mct $wsn $ws3
 bindsym $mod+Shift+4 $mct $wsn $ws4
 bindsym $mod+Shift+5 $mct $wsn $ws5
+bindsym $mod+Shift+6 $mct $wsn $ws6
 
 bindsym $mod+Shift+r reload
 
@@ -156,12 +159,23 @@ bar {
   position top
   output eDP-1
   id 1
-  font pango:Iosevka Nerd Font 11
+  font pango:Iosevka Nerd Font 12
+  status_command "chlebqowy-info-bar-wl"
+  colors {
+    background #FFFAEFAA
+  }
+ }
+bar {
+  workspace_buttons no
+  tray_output none
+  position top
+  output eDP-1
+  id 2
+  font pango:Iosevka Nerd Font 12
   status_command "chlebqowy-workspace-bar-wl"
   colors {
     background #FFFAEFAA
   }
-  height 24
  }
  input type:touchpad {
  	tap enabled
