@@ -1,7 +1,6 @@
 # Chlebqowy Dotfiles
 
-<img width="2560" height="1440" alt="i3 (X11) screenshot" src="https://github.com/user-attachments/assets/e10b32f4-96b4-4d5e-a29a-086b195596c8" />
-<img width="2560" height="1440" alt="Niri (Wayland) screenshot" src="https://github.com/user-attachments/assets/f1efa861-4f4c-438e-9620-81035c1e5482" />
+<img width="1920" height="1080" alt="Sway screenshot (outdated)" src="wip_rice"/>
 
 > [!NOTE]
 > AI has been used a bit in this project but all design choices were done by me. [Click here for more info](#ai-disclosure)
