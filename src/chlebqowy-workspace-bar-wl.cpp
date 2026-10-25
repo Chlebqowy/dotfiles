@@ -94,7 +94,13 @@ string read_from_socket(int i3_ipc)
     }
     return json;
 }
-string format_line(char seperator, int name_lenght, int lenght_per_workspace, bool active, bool visible, string name, string display, int num, string primary, string primary_subtle, string secondary, string text_color) 
+string format_line(
+	char seperator, int name_lenght, 
+	int lenght_per_workspace, bool active, 
+	bool visible, string name, string display, 
+	int num, string primary, string primary_subtle, 
+	string secondary, string text_color, string gray,
+	string special_seperator_0, string special_seperator_1) 
 {
     //PANGO
     //cout << "formatting" << endl;
@@ -111,13 +117,21 @@ string format_line(char seperator, int name_lenght, int lenght_per_workspace, bo
     //cout << correct_length_name << endl;
 
     string colored_name;
+    if (active) colored_name = "<span background='"+gray+">";
+    else colored_name = "";
+	//colored_name = "";
+    if (active) colored_name += "<span weight='bold' foreground='" + secondary + "'>";
+    else colored_name += "<span weight='bold' foreground='" + primary + "'>";
+    colored_name += special_seperator_1;
+    colored_name += "</span>";
+    colored_name += (' ');
 
     if (active) {
-        colored_name = "<span weight='bold' foreground='" + secondary + "'>"+correct_length_name + "</span>";
+        colored_name += "<span weight='bold' foreground='" + text_color + "'>"+correct_length_name + "</span>";
     } else if (visible) { 
-        colored_name = "<span weight='bold' foreground='" + primary + "'>" + to_string(num) + "</span> <span weight='normal' foreground='" + secondary + "'>" + correct_length_name.substr(3, correct_length_name.length()-1) + "</span>";  // If you have a different naming scheme, modify arg 1 in substr
+        colored_name += "<span weight='bold' foreground='" + primary + "'>" + to_string(num) + "</span> <span weight='normal' foreground='" + secondary + "'>" + correct_length_name.substr(3, correct_length_name.length()-1) + "</span>";  // If you have a different naming scheme, modify arg 1 in substr
     } else {
-        colored_name = "<span weight='bold' foreground='" + primary + "'>" + to_string(num) + "</span> <span weight='normal' foreground='" + text_color + "'>" + correct_length_name.substr(3, correct_length_name.length()-1) + "</span>"; // also works with bold // If you have a different naming scheme, modify arg 1 in substr
+        colored_name += "<span weight='bold' foreground='" + primary + "'>" + to_string(num) + "</span> <span weight='normal' foreground='" + text_color + "'>" + correct_length_name.substr(3, correct_length_name.length()-1) + "</span>"; // also works with bold // If you have a different naming scheme, modify arg 1 in substr
     }
 
     char screen = get_char(display);
@@ -126,10 +140,11 @@ string format_line(char seperator, int name_lenght, int lenght_per_workspace, bo
     colored_name += screen;
     colored_name += "</span>";
     colored_name += (' ');
-    colored_name += "<span weight='bold' foreground='" + primary_subtle + "'>"; // also works with bold
-    colored_name += seperator;
+    if (active) colored_name += "<span weight='bold' foreground='" + secondary + "'>";
+    else colored_name += "<span weight='bold' foreground='" + primary + "'>";
+    colored_name += special_seperator_0;
     colored_name += "</span>";
-    colored_name += (' ');
+    if (active) colored_name += "</span>";
     return colored_name;
 }
 int main()
@@ -139,7 +154,9 @@ int main()
     const int workspace_amount = 5;
     const int lenght_per_workspace = lenght / workspace_amount;
     const char seperator = '\\';
-    const string extra_seperator = "";
+    const string extra_seperator_0 = "";
+    const string extra_seperator_1 = ""; 
+    // has to be split up because the character is long
     const int name_lenght = lenght_per_workspace - 5; // space, window, space, seperator, space
     const float cd = 1.0; // seconds
     const float err_cd = 0.1; // also seconds
@@ -148,7 +165,7 @@ int main()
     const string primary_subtle = "#efbc8f";
     const string text      = "#0A050F";
     const string secondary = "#2892ef";
-
+    const string gray = "#6d6b60";
     cout << "{\"version\":1}" << endl;
     cout << "[" << endl;
     bool first_update = true;
@@ -167,8 +184,8 @@ int main()
         string line = "";
 
         line += "<span weight='normal' foreground='" + primary + "'>";
-        line += extra_seperator;
-        line += "</span> ";
+        line += extra_seperator_0;
+        line += "</span>";
 
         auto workspaces = nlohmann::json::parse(json);
         for (int i = 1; i<workspace_amount+1; i++) {
@@ -184,7 +201,8 @@ int main()
                 line += format_line(seperator,name_lenght,lenght_per_workspace,
                     false,false,
                     "","", i,
-                    primary, primary_subtle, secondary, text);
+                    primary, primary_subtle, secondary, text,
+                    gray, extra_seperator_0, extra_seperator_1);
             } else {
                 //cout << "match" << endl;
                 line += format_line(seperator, name_lenght, lenght_per_workspace,
@@ -192,18 +210,24 @@ int main()
                     match->at("visible").get<bool>(),
                     match->at("name").get<string>(),
                     match->at("output").get<string>(),
-                    i, primary, primary_subtle, secondary, text
-                    );
+                    i, primary, primary_subtle, secondary, text,
+                    gray, extra_seperator_0, extra_seperator_1);
             }
         }
         line += "<span weight='normal' foreground='" + primary + "'>";
-        line += extra_seperator;
+        line += extra_seperator_0;
         line += "</span>";
-        line += "<span weight='bold' foreground='" + secondary + "'>";
+        line += "<span weight='normal' foreground='" + primary + "' background='" + gray + "'>";
+        line += extra_seperator_1;
+        line += "</span>";
+        line += "<span weight='bold' foreground='" + secondary + "' background='" + gray + "'>";
         line += " WORK "; // extra
         line += "</span>";
+        line += "<span weight='normal' foreground='" + primary + "' background='" + gray + "'>";
+        line += extra_seperator_0;
+        line += "</span>";
         line += "<span weight='normal' foreground='" + primary + "'>";
-        line += extra_seperator;
+        line += extra_seperator_1;
         line += "</span>";
         nlohmann::json block = {
             {"full_text", line},
