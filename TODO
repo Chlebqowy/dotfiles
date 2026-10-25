@@ -1,11 +1,11 @@
 Rice notifs (mid prio)
-Rice rofi (mid prio)
+Rice rofi (high prio)
 Rice fastfetch (low prio)
 Rice sddm or use an implementation of greetd (maybe regreet but it seems to be wayland-only) (high prio)
 Rice grub (mid prio)
 Add animations (high prio)
 Add swoosh sfx (low prio)
-Add second, preferably also third wallpaper (high prio)
+Add second, preferably also third wallpaper (mid prio)
 Maybe design the wallpaper as an svg. And maybe make a logo for the dots and use it in fastfetch.
 Something maybe like [∞] (but with the [ - angled at 60° and the infinity sign having the tumbleweed > thing)
 Or maybe make something unique
