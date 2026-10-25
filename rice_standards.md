@@ -10,6 +10,7 @@ accent #ef8528
 dark accent #b25435
 subtle accent #efbc8f
 
+cursor #caaaa0
 secondary #2892ef
 
 white_text #e7e3e0
