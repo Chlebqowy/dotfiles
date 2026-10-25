@@ -1,7 +1,7 @@
 Rice notifs (mid prio)
 Rice rofi (mid prio)
 Rice fastfetch (low prio)
-Rice sddm (high prio)
+Rice sddm or use an implementation of greetd (maybe regreet but it seems to be wayland-only) (high prio)
 Rice grub (mid prio)
 Add animations (high prio)
 Add swoosh sfx (low prio)
