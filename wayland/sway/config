@@ -120,7 +120,6 @@ smart_gaps off
 
 exec --no-startup-id nm-applet
 
-$exec-noid "bash ~/scripts/swaypaperdyn.sh"
 $exec-noid "dunst"
 
 title_align center
@@ -197,6 +196,8 @@ bar {
  	mode 1920x1080@60hz
  	scale 0.9
  }
+
+ $exec-noid "bash ~/scripts/swaypaperdyn.sh"
 
 exec "systemctl --user start i3-session.target"
 $exec-noid "/usr/libexec/xdg-desktop-portal-gtk &"

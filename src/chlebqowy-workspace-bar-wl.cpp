@@ -162,7 +162,7 @@ int main()
     const string extra_seperator_1 = ""; 
     // has to be split up because the character is long
     const int name_lenght = lenght_per_workspace - 5; // space, window, space, seperator, space
-    const float cd = 1.0; // seconds
+    const float cd = 0.5; // seconds
     const float err_cd = 0.1; // also seconds
 
     const string primary   = "#ef8528";

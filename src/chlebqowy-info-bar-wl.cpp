@@ -25,7 +25,7 @@ const char seperator = '\\';
 const string extra_seperator_0 = "";
 const string extra_seperator_1 = ""; 
 const float cd = 1.0; // seconds
-const float bonus_cd = 30.0; // seconds
+const int bonus_cd = 30; // multiples of cd
 const float err_cd = 0.1; // also seconds
 const string BAT = "BAT1";
 const bool direction = 1; // 0 left 1 right
@@ -297,8 +297,13 @@ int main()
     bool first_update = true;
 	//string line;
 	string line_l, line_r;
+	int count = bonus_cd - 1;
     while (true){
-    	line_l = gen_l_bar();
+    	count ++;
+    	if (count>=bonus_cd){
+    		line_l = gen_l_bar();
+    		count = 0;
+    	}
     	line_r = gen_r_bar();
 
         nlohmann::json block_l = {
