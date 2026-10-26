@@ -2,13 +2,13 @@
 
 sudo ls /
 
-primary=$'\e[38;2;117;255;152m'
-secondary=$'\e[38;2;79;218;88m'
-text=$'\e[38;2;251;254;252m'
-
-# todo update colors, use default for text
-
+primary=$'\e[38;2;239;133;40m'
+secondary=$'\e[38;2;40;146;239m'
+text=$'\e[0m'
 time = $(date +%F-%H%M)
+
+echo -e "${primary}) WARNING: THIS SCRIPT IS UNTESTED AND UNFINISHED. PLEASE PRESS CTRL+C TO QUIT IF YOU DON'T WANT TO PROCEED${text}"
+sleep 5
 
 mkdir -pv ~/.config
 mkdir -pv ~/.fonts #most likely exist but I have to make sure
