@@ -20,6 +20,9 @@ sudo cp -rv /etc/fonts /etc/fonts-backup-chlebqowy-${time}
 echo -e "${primary}) Backing up ~/.bashrc to ~/.bashrc-backup-chlebqowy-${time} (REQUIRES SUDO, OPTIONAL)${text}"
 sleep 1
 sudo cp -rv ~/.bashrc ~/.bashrc-backup-chlebqowy-${time}
+echo -e "${primary}) Backing up /etc/regreet to /etc/regreet-backup-chlebqowy-${time} (REQUIRES SUDO, OPTIONAL)${text}"
+sleep 1
+sudo cp -rv /etc/regreet /etc/regreet-backup-chlebqowy-${time}
 echo -e "${primary}) Installing Iosevka${text}"
 sleep 1
 read -rp "${secondary}Install globally or locally? [g/l]: ${text}" answer
@@ -38,7 +41,7 @@ read -rp "${secondary}Install globally or locally? [g/l]: ${text}" answer
     esac
 echo -e "${primary}) Installing local.conf${text}"
 sleep 1
-read -rp "${secondary}Make departure mono the default sans and mono font? [y/n]: ${text}" answer_local
+read -rp "${secondary}Make Iosevka mono the default sans and mono font? [y/n]: ${text}" answer_local
     case "$answer_local" in
         y|Y)
             case "$answer" in
@@ -61,6 +64,21 @@ read -rp "${secondary}Make departure mono the default sans and mono font? [y/n]:
             ;;
         *)
             echo -e "${secondary}Please enter 'y' (global) or 'n' (local).${text}"
+            ;;
+    esac
+echo -e "${primary}) Installing Regreet config${text}"
+sleep 1
+read -rp "${secondary}Install a Regreet config? [y/n]: ${text}" answer
+    case "$answer" in
+        y|Y)
+            sudo cp -rv ./etc/regreet /etc/regreet
+            break
+            ;;
+        n|N)
+            break
+            ;;
+        *)
+            echo -e "${secondary}Please enter 'g' (global) or 'l' (local).${text}"
             ;;
     esac
 echo -e "${primary}) Refreshing font cache${text}"

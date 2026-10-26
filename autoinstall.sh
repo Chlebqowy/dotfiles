@@ -20,12 +20,16 @@ echo -e "${primary}) Backing up /etc/fonts to /etc/fonts-backup-chlebqowy-${time
 sudo cp -rv /etc/fonts /etc/fonts-backup-chlebqowy-${time}
 echo -e "${primary}) Backing up ~/.bashrc to ~/.bashrc-backup-chlebqowy-${time} (REQUIRES SUDO, OPTIONAL)${text}"
 sudo cp -rv ~/.bashrc ~/.bashrc-backup-chlebqowy-${time}
+echo -e "${primary}) Backing up /etc/regreet /etc/regreet-${time} (REQUIRES SUDO, OPTIONAL)${text}"
+sudo cp -rv /etc/regreet /etc/regreet-backup-chlebqowy-${time}
 echo -e "${primary}) Installing Iosevka ${text}"
 sudo cp -rv ./Iosevka /etc/fonts/Iosevka
 echo -e "${primary}) Installing local.conf${text}"
 sudo cp -rv ./local.conf /etc/fonts/local.conf
 echo -e "${primary}) Refreshing font cache${text}"
 sudo fc-cache -fv
+echo -e "${primary}) Installing regreet config${text}"
+sudo cp -rv ./etc/regreet /etc/regreet
 echo -e "${primary}) Installing cross-platform configs${text}"
 cp -rv ./cross-platform/* ~/.config/
 echo -e "${primary}) Installing display wayland configs${text}"
