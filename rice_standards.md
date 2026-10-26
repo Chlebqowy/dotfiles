@@ -2,6 +2,7 @@
 
 background #F3EADA
 background-transparent #FFFAEFAA
+wbg #F3EADA
 gray #6f6b60
 lighter gray #8F8888
 focused bg #d8c1ad
