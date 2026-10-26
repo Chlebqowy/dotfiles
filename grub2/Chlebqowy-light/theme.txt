@@ -26,7 +26,6 @@ terminal-font: "Iosevka 12"
   scrollbar = false
 
   item_pixmap_style = "item_*.png"
-  focused_pixmap_style = "focused_*.png"
 }
 
 + progress_bar {
