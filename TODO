@@ -19,3 +19,7 @@ c5 - text
 
 c2bg c1fg ||:: c5fg text c1fg ::||c3fg c4bg:: c5fg text $ prompt
 and output is regular bg
+
+maybe start with an orange part or invert orange and aqua
+
+maybe try to implement in starship
