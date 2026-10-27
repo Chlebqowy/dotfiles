@@ -7,3 +7,15 @@ Add second, preferably also third wallpaper (mid prio)
 Maybe design the wallpaper as an svg. And maybe make a logo for the dots and use it in fastfetch.
 Something maybe like [∞] (but with the [ - angled at 60° and the infinity sign having the tumbleweed > thing)
 Or maybe make something unique
+
+Side terminal prompt idea
+c1 - aqua
+c2 - dark aqua
+c3 - orange
+c4 - dark orange
+c5 - text
+|| - thick
+:: - braille 6 dots
+
+c2bg c1fg ||:: c5fg text c1fg ::||c3fg c4bg:: c5fg text $ prompt
+and output is regular bg
