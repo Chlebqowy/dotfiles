@@ -155,7 +155,7 @@ int main()
 {
 // constants
     const int lenght = 150;
-    const int workspace_amount = 6;
+    const int workspace_amount = 7;
     const int lenght_per_workspace = lenght / workspace_amount;
     const char seperator = '\\';
     const string extra_seperator_0 = "";

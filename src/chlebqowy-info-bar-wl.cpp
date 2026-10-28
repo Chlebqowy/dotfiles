@@ -172,10 +172,12 @@ string get_date(){
 	while (fgets(buffer.data(), static_cast<int>(buffer.size()), pipe.get()) != nullptr) {
 	    result += buffer.data();
 	}
+	cout << result << endl;
 	result = result.substr(0, size(result)-1);
-	result[0] -= 32;
-	result[1] -= 32;
-	result[2] -= 32;
+	if (result.substr(0, 2) == "ś") {result[1] = 's'; result = result.substr(1, size(result)-1);}
+	if (result[0] >= 'a' && result[0] <= 'z'){result[0] -= 32;} else {result[1] = '?'; result = result.substr(1, size(result)-1);}
+	if (result[1] >= 'a' && result[1] <= 'z'){result[1] -= 32;} else {result[1] = '?'; result = result.substr(0, 1) + result.substr(2, size(result)-2);}
+	if (result[2] >= 'a' && result[2] <= 'z'){result[2] -= 32;} else {result[1] = '?'; result = result.substr(0, 2) + result.substr(3, size(result)-3);}
 	return result;
 }
 string get_hour(){
@@ -257,6 +259,7 @@ string clock_format(string value, bool is_secondary){
 	else module_txt += "<span foreground='" + primary + "'>";
 	module_txt += extra_seperator_1;
 	module_txt += "</span>";
+	//cout << "clock format" << endl;
 	return module_txt;
 }
 string gen_l_bar()
@@ -272,13 +275,18 @@ string gen_l_bar()
 string gen_r_bar()
 {
 	string line;
+	//cout << "CPU" << endl;
 	line += standard_format("CPU", get_cpu(), true, irrelevant, false, 3);
 	line += full_seperator;
+	//cout << "RAM" << endl;
 	line += standard_format("RAM", get_ram(), true, irrelevant, false, 3);
 	line += full_seperator;
+	//cout << "GPU" << endl;
 	line += standard_format("GPU", get_gpu(), true, irrelevant, false, 3);
 	line += full_seperator_secondary;
+	//cout << "HOUR" << endl;
 	line += clock_format(get_hour(), true);
+	//cout << "line" << endl;
 	return line;
 }
 int main()
@@ -301,9 +309,11 @@ int main()
     while (true){
     	count ++;
     	if (count>=bonus_cd){
+    		//cout << "lbar" << endl;
     		line_l = gen_l_bar();
     		count = 0;
     	}
+    	//cout << "rbar" << endl;
     	line_r = gen_r_bar();
 
         nlohmann::json block_l = {
@@ -323,9 +333,13 @@ int main()
            {"align", "right"},
         };
 
+		//cout << "block" << endl;
         if (!first_update) cout << ",";
+       	//cout << line_r << endl;
+       	//cout << line_l << endl;
         //cout << nlohmann::json::array({block}).dump() << endl;
-        cout << nlohmann::json::array({block_l, block_r}).dump() << endl;
+        //cout << nlohmann::json::array({block_l}).dump() << endl;
+        //cout << nlohmann::json::array({block_l, block_r}).dump() << endl;
         first_update = false;
         if (!direction) sleep(bonus_cd);
         else sleep(cd);
