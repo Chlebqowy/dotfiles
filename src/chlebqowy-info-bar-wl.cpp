@@ -266,6 +266,7 @@ string gen_l_bar()
 {
 	string line;
 	line += clock_format(get_date(), true);
+	//cout << "date" << endl;
 	line += full_seperator_secondary;
 	line += standard_format("BAT", get_bat(BAT), true, get_charging(BAT), false, 3);
 	line += full_seperator;
@@ -333,13 +334,13 @@ int main()
            {"align", "right"},
         };
 
-		//cout << "block" << endl;
         if (!first_update) cout << ",";
+		//cout << "block" << endl;
        	//cout << line_r << endl;
        	//cout << line_l << endl;
         //cout << nlohmann::json::array({block}).dump() << endl;
         //cout << nlohmann::json::array({block_l}).dump() << endl;
-        //cout << nlohmann::json::array({block_l, block_r}).dump() << endl;
+        cout << nlohmann::json::array({block_l, block_r}).dump() << endl;
         first_update = false;
         if (!direction) sleep(bonus_cd);
         else sleep(cd);
