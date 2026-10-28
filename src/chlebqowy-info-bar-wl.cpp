@@ -172,7 +172,7 @@ string get_date(){
 	while (fgets(buffer.data(), static_cast<int>(buffer.size()), pipe.get()) != nullptr) {
 	    result += buffer.data();
 	}
-	cout << result << endl;
+	//cout << result << endl;
 	result = result.substr(0, size(result)-1);
 	if (result.substr(0, 2) == "ś") {result[1] = 's'; result = result.substr(1, size(result)-1);}
 	if (result[0] >= 'a' && result[0] <= 'z'){result[0] -= 32;} else {result[1] = '?'; result = result.substr(1, size(result)-1);}
