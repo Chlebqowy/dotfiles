@@ -1,0 +1,33 @@
+* {
+    selection : #7fffb2;
+    input : #006c3d;
+    base : #5b5757;
+    text : #ffffff;
+}
+
+element selected normal {
+    background-color : @selection;
+}
+element selected urgent {
+    background-color : @selection;
+}
+element selected active {
+    background-color : @selection;
+}
+element normal active {
+    background-color : @selection;
+}
+inputbar {
+    spacing:    0;
+    text-color: @text;
+    background-color: @input;
+    padding:    1px ;
+}
+
+window {
+  location: center;
+  background-color: @base;
+  border: 3px;
+  border-color: @selection;
+}
+
