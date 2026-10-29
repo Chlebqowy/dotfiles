@@ -62,6 +62,25 @@ string parse_proc(string line, char unit_char_1, char start_char)
 	size_t number_amount = numbers_end - first_number;
 	return line.substr(first_number, number_amount);
 }
+string parse_proc(string line, char unit_char_1) 
+{
+	size_t first_number = min(
+		min(
+			min(
+				min(line.find('0'), line.find('1')),
+				min(line.find('2'), line.find('3'))
+			),
+			min(
+				min(line.find('4'), line.find('5')),
+				min(line.find('6'), line.find('7'))
+			)
+		),
+		min(line.find('8'), line.find('9')));
+		// scuffed af
+	size_t numbers_end = line.find(unit_char_1, first_number) - 1;
+	size_t number_amount = numbers_end - first_number;
+	return line.substr(first_number, number_amount);
+}
 
 string get_ram()
 {
@@ -130,8 +149,10 @@ string get_gpu(){
 	string result;
 	unique_ptr<FILE, decltype(&pclose)> pipe(popen(cmd, "r"), pclose);
 	while (fgets(buffer.data(), static_cast<int>(buffer.size()), pipe.get()) != nullptr) {
+		//cout << buffer.data() << endl;
 	    result += buffer.data();
 	}
+	result = result.substr(0, result.size()-1);
 	return result;
 	} catch(int e) {
 		return "ERR!"+ to_string(e);

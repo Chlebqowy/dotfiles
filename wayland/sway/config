@@ -14,7 +14,8 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 10%-
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s 10%+
 
 floating_modifier $mod
 
@@ -25,7 +26,8 @@ bindsym $mod+Shift+Return exec firefox
 
 bindsym $mod+Shift+q kill
 
-bindsym $mod+i $exec-noid dmenu_run -fn 'Iosevka Nerd Font Mono-11' -sb "#227744" # -r 8
+bindsym $mod+i $exec-noid rofi -show run,window
+bindsym $mod+shift+i $exec-noid rofi -modi emoji -show emoji
 
 bindsym $mod+a focus left
 bindsym $mod+s focus down
@@ -81,9 +83,11 @@ set $mct move container to
 set $ws1 "1: Notatki"
 set $ws2 "2: Firefox"
 set $ws3 "3: Kod"
-set $ws4 "4: Losowe"
+set $ws4 "4: Różne"
 set $ws5 "5: Discord"
 set $ws6 "6: Rysowanie"
+set $ws7 "7: Gry"
+set $ws8 "8bg"
 
 bindsym $mod+1 $wsn $ws1
 bindsym $mod+2 $wsn $ws2
@@ -91,6 +95,8 @@ bindsym $mod+3 $wsn $ws3
 bindsym $mod+4 $wsn $ws4
 bindsym $mod+5 $wsn $ws5
 bindsym $mod+6 $wsn $ws6
+bindsym $mod+7 $wsn $ws7
+bindsym $mod+8 $wsn $ws8
 
 bindsym $mod+Shift+1 $mct $wsn $ws1
 bindsym $mod+Shift+2 $mct $wsn $ws2
@@ -98,6 +104,8 @@ bindsym $mod+Shift+3 $mct $wsn $ws3
 bindsym $mod+Shift+4 $mct $wsn $ws4
 bindsym $mod+Shift+5 $mct $wsn $ws5
 bindsym $mod+Shift+6 $mct $wsn $ws6
+bindsym $mod+Shift+7 $mct $wsn $ws7
+bindsym $mod+Shift+8 $mct $wsn $ws8
 
 bindsym $mod+Shift+r reload
 
@@ -155,7 +163,7 @@ workspace $ws5 output eDP-1
 
 assign [class="(?i)steam"] $ws1
 assign [class="(?i)firefox"] $ws2
-assign [class="(?i)discord"] $ws5
+assign [class="(?i)Discord"] $ws5
 
 $exec-noid i3-msg 'workspace $ws1'
 
@@ -185,16 +193,31 @@ bar {
  }
  input type:touchpad {
  	tap enabled
- 	accel_profile adaptive
- 	pointer_accel -0.1
+ 	accel_profile flat
+ 	pointer_accel 0.1
+ 	middle_emulation enabled
+ }
+ input type:mouse {
+ 	tap enabled
+ 	accel_profile flat
+ 	pointer_accel 0.2
  	middle_emulation enabled
  }
  input type:keyboard {
  	xkb_layout pl
  }
+ #input type:keyboard {
+ #	xkb_layout en
+ #}
  output eDP-1 {
  	mode 1920x1080@60hz
  	scale 0.9
+ 	pos 0 0
+ }
+ output HDMI-A-1 {
+ 	mode 1920x1080@60hz
+ 	scale 0.9
+ 	pos 0 0
  }
 
  $exec-noid "bash ~/scripts/swaypaperdyn.sh"
