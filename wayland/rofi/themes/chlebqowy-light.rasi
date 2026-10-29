@@ -12,6 +12,7 @@
     white-text:					 #e7e3e0;
 
 	accent: 					 #ef8528;
+	accent-dark:				 #b25435;
 	secondary:					 #2892ef;
 	bordercolor:                 @foreground;
     
@@ -24,7 +25,8 @@ window {
 	width:			  400px;
 	height:			  800px;
     background-color: @background;
-    border:           0; //use sway border
+    border:           5px; //use sway border
+	border-color: 	  @accent-dark;
     padding:          5;
 }
 mainbox {
@@ -54,6 +56,8 @@ element-text {
 }
 element-text selected.normal {
 	font: "Iosevka Nerd Font Bold 12";
+	border:           2px 0px 2px 0px;
+	border-color: 	  @secondary;
 }
 element normal.normal {
     background-color: @normal-background;

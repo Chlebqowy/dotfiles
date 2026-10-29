@@ -1,11 +1,11 @@
-Set lyx keybinds and customise it (very high priority)
+Rice lyx, set missing keybinds that 
+are currently relevant (very high priority)
 Rice notifs (mid prio)
-Rice rofi (high prio) 
 Rice fastfetch (low prio)
 Add animations (high prio)
 Add swoosh sfx (low prio)
-Add ble.sh (mid prio)
-Make a firefox theme and a custom home screen, maybe use another browser (mid prio)
+Add ble.sh (mid-high prio)
+Make a firefox theme and a custom home screen, maybe use another browser (low-mid prio)
 Add second, preferably also third wallpaper (mid prio)
 Maybe design the wallpaper as an svg. And maybe make a logo for the dots and use it in fastfetch.
 Something maybe like [∞] (but with the [ - angled at 60° and the infinity sign having the tumbleweed > thing)

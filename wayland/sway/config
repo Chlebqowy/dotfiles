@@ -1,12 +1,9 @@
-# i3 config file (v4)
-#
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+# Sway config
 
 set $exec-noid exec --no-startup-id
 set $mod Mod4
 
-font pango:Iosevka Nerd Font Mono 8
-
+font pango:Iosevka Nerd Font Mono Bold 10
 # $ dex --autostart --environment i3
 
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -26,7 +23,7 @@ bindsym $mod+Shift+Return exec firefox
 
 bindsym $mod+Shift+q kill
 
-bindsym $mod+i $exec-noid rofi -show run,window
+bindsym $mod+i $exec-noid rofi -show run
 bindsym $mod+shift+i $exec-noid rofi -modi emoji -show emoji
 
 bindsym $mod+a focus left
@@ -136,7 +133,12 @@ for_window [class="^.*"] border pixel 5
 corner_radius 4
 
 for_window [app_id="nautilus"] opacity 0.9
-
+# apply everything to rofi
+layer_effects "rofi" {
+	shadows disable;
+	blur enable;
+	corner_radius 5;
+}
 blur enable
 blur_passes 1
 blur_radius 1
@@ -151,8 +153,10 @@ shadow_inactive_color #aaaaaa7F
 default_dim_inactive 0
 
 # name \ tab border \ tab \ text \ ? \ Border
-client.focused #ef8528 #b25435 #ffffff #222222 #b25435
+client.focused #ef8528 #b25435 #e7e3e0 #222222 #b25435
 client.unfocused #8f8888 #6f6b60 #888888 #222222 #6f6b60
+client.focused_inactive #AAAAAA #8F8888 #e7e3e0 #222222 #6f6b60
+# client.focused_inactive #2892ef #1a5d99 #e7e3e0 #222222 #1a5d99
 for_window [class="dunst"] border pixel 0
 
 workspace $ws1 output eDP-1
