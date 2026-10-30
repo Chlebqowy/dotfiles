@@ -1,7 +1,8 @@
 #!/bin/bash
 
-source /home/user/scripts/wallpapers.sh
-mode="--bg-scale"
+folder=$(dirname "$0")
+source $folder/wallpapers.sh
+mode="fill"
 
 while true; do
     currentHour=$(date +%H)
@@ -9,9 +10,8 @@ while true; do
         if [ "$currentHour" -ge "${timePeriodStarts[$i]}" ]; then
             if [ "$currentTimePeriod" != "${timePeriods[$i]}" ]; then
                 currentTimePeriod="${timePeriods[$i]}"
-                pkill feh
-                echo -e "feh $basedir${wallpapers[$i]} $mode &" 
-                feh $basedir${wallpapers[$i]} $mode &
+                pkill swaybg
+                swaybg -i "$basedir${wallpapers[$i]}" -m $mode &
                 echo "${timePeriods[$i]}"
                 break
             fi
