@@ -1,9 +1,9 @@
-Rice lyx, set missing keybinds that 
-are currently relevant (very high priority)
+Rice lyx, set missing keybinds that are currently relevant (very high priority)
 Rice notifs (mid prio)
 Rice fastfetch (low prio)
 Add animations (high prio)
 Add swoosh sfx (low prio)
+Turn wallpaper script into a C program (should fix it), eliminate scripts dir (? prio)
 Add ble.sh (mid-high prio)
 Make a firefox theme and a custom home screen, maybe use another browser (low-mid prio)
 Add second, preferably also third wallpaper (mid prio)
