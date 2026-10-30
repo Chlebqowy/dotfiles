@@ -35,4 +35,5 @@ pink #933263
 # Symbols
 Special seperator p1 
 Special seperator p2 
+Special seperator full 
 Main seperator \

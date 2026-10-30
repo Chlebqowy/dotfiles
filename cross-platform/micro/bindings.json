@@ -1,4 +1,6 @@
 {
 	"Ctrl-a": "PreviousSplit",
 	"Ctrl-d": "NextSplit",
+	"Alt-e": "ShellMode",
 }
+// ctrl-e command

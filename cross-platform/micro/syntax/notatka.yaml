@@ -8,6 +8,7 @@ rules:
     - symbol.brackets: "[(){}]|\\[|\\]"
     - constant.number: "\\b[0123456789/]+(\\.[0123456789/]+)?([Ee][+-]?[0-9]+)?\\b"
     - special: "^#{1,6}.*"
+    - identifier: "<.*>"
     - comment:
         start: "<--"
         end: "-->"

@@ -1,0 +1,63 @@
+# openSUSE grub2 theme
+
+title-text: "Boot"
+title-color: "#2892ef"
+title-font: "Iosevka Bold 12"
+
+terminal-font: "Iosevka 12"
+
++ boot_menu {
+  left = 20%
+  width = 60%
+  top = 20%
+  height = 50%	
+
+  item_font = "Iosevka 12"
+  item_color = "#e7e3e0"
+  item_height = 32
+  item_spacing = 0
+
+  selected_item_font = "Iosevka 12"
+  selected_item_color= "#ef8528"
+
+  icon_height = 32
+  icon_width = 32
+
+  scrollbar = false
+
+  item_pixmap_style = "item_*.png"
+}
+
++ progress_bar {
+  id = "__timeout__"
+
+  left = 20%
+  width = 60%
+  top = 75%
+  height = 24
+
+  font = "Iosevka 12"
+
+  text_color = "#0A050F"
+  fg_color = "#ef8528"
+
+  bg_color = "#b25435"
+  border_color = "#ef8528"
+
+  text = "@TIMEOUT_NOTIFICATION_SHORT@"
+}
+
++ hbox {
+  top = 90%
+  left = 20%
+  width = 60%
+  + label {text = "C: Command Line     E: Edit Entry" font = "Iosevka Bold 12" color = "#ef8528" align = "center"}
+}
+
++ image {
+  file = "wpaper.png"
+  left = 0
+  top = 0
+  width = 100%
+  height = 100%
+}

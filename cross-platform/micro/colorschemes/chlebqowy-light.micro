@@ -16,7 +16,7 @@ color-link constant.string "#933293"
 color-link type "#329332"
 color-link type.keyword "#89D1A6"
 
-color-link special "#939332"
+color-link special "#ef8528"
 color-link statement "#933232"
 #color-link preproc "#F4B8E4"
 

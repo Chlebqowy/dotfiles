@@ -11,4 +11,5 @@
     },
     "statusformatl": "  $(filename)  \\  L$(line) \\ C$(col) ",
     "statusformatr": " $(modified) \\ $(opt:filetype)  ",
+    "clipboard": "external"
 }
