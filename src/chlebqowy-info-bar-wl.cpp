@@ -38,6 +38,12 @@ const string white_text = "#e7e3e0";
 const string full_seperator = "<span foreground='" + primary + "'> " + seperator + " </span>";
 const string full_seperator_secondary = "<span foreground='" + secondary + "'> " + seperator + " </span>";
 PackageManager package_manager;
+string pkg = "";
+int pkg_i = 16;
+const int pkg_cd = 16;
+int cpu_i = 60;
+const int cpu_cd = 60;
+string cpu = "";
 const float scale = 0.9;
 const float x = 1920;
 const int part_x = (int) (x/scale)/2;
@@ -53,6 +59,7 @@ int get_max_bright(){
 	return stoi(bright_capacity);
 }
 const int max_bright = get_max_bright();
+
 
 string parse_proc(string line, char unit_char_1, char start_char) 
 {
@@ -120,6 +127,7 @@ string get_ram()
 string get_cpu()
 {
 	try {
+	if (cpu_i == cpu_cd) {
 	char cmd[] = "top -bn1 | grep \"Cpu\"";
 	array<char, 128> buffer;
 	string result;
@@ -128,7 +136,10 @@ string get_cpu()
 	    result += buffer.data();
 	}
 	// correct line is 4th
-	return to_string(100 - stoi(parse_proc(result, 'i', 'i')));	
+	cpu = to_string(100 - stoi(parse_proc(result, 'i', 'i')));	
+	} else cpu_i++;
+	return cpu;
+	// TODO stop using top
 	} catch(int e) {
 		return "ERR!"+ to_string(e);
 	}
@@ -178,6 +189,7 @@ string get_brightness()
 }
 string get_gpu(){
 	try {
+	return "0";
 	if (!filesystem::exists("/usr/bin/nvidia-smi")) { return "ERR!U"; }
 	char cmd[] = "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits";
 	array<char, 128> buffer;
@@ -194,6 +206,7 @@ string get_gpu(){
 }
 string get_pkg(PackageManager package_manager){
 	char cmd[64];
+	if (pkg_i == pkg_cd) {
 	switch(package_manager) 
 	{
 		case zypper:
@@ -216,7 +229,8 @@ string get_pkg(PackageManager package_manager){
 	    result += buffer.data();
 	}
 	if (package_manager == zypper) result[size(result)-1] = result[size(result)-1] - 1;
-	return remove_escape(result);
+	pkg = remove_escape(result);} else {pkg_i += 1;}
+	return pkg;
 }
 string get_date(){
 	char cmd[] = "date +%a\\ %Y/%m/%d";
