@@ -1,0 +1,4 @@
+BasedOnStyle: LLVM
+BreakBeforeBraces: Allman
+AllowShortIfStatementsOnASingleLine: WithoutElse
+IndentWidth: 4
