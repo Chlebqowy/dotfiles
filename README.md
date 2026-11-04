@@ -65,6 +65,7 @@ Feature requests are fine.
 ## AI Disclosure
 ChatGPT and Claude helped me when I couldn't find docs, so fontconfig and getting the sway IPC  
 This readme hasn't been AI generated but I've had a model proofread it.  
+I also used AI to change the bottom part in lyx because I couldn't find anything about it.
 
 ## License
 [MIT](LICENSE) for the configs, scripts and my code  

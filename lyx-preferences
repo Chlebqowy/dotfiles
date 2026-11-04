@@ -1,0 +1,102 @@
+# LyX 2.5.3 generated this file. If you want to make your own
+# modifications you should do them from inside LyX and save.
+
+Format 40
+
+\bind_file "math"
+
+#
+# MISC SECTION ######################################
+#
+
+\user_name "M"
+\user_email ""
+\user_initials ""
+
+#
+# SCREEN & FONTS SECTION ############################
+#
+
+# Set color scheme (system|light|dark)
+\color_scheme light
+\screen_font_sizes 5 7 8 9 10 12 14.4 17.26 20.74 24.88
+\screen_font_roman "Iosevka Nerd Font"
+\screen_font_sans "Iosevka Nerd Font"
+\screen_font_typewriter "Iosevka Nerd Font Mono"
+
+#
+# COLOR SECTION ###################################
+#
+
+\ui_theme "Default"
+\set_color "background" "#F3E6CA" "#F3E6CA"
+# Claude had to set this because I couldn't find it in the docs and nobody
+# helped me in the forums. "bottomarea" is the empty area below the document
+# (gray by default). Since Format 35, \set_color needs three values:
+# name, light color, dark color. With only two, LyX misreads the lines.
+\set_color "bottomarea" "#F3E6CA" "#F3E6CA"
+\set_color "foreground" "#0A050F" "#0A050F"
+\set_color "math" "#0A050F" "#0A050F"
+\set_color "mathbg" "#F3EADA" "#F3EADA"
+\set_color "latex" "#0A050F" "#0A050F"
+\set_color "mathcorners" "#ef8528" "#ef8528"
+\set_color "mathframe" "#ef8528" "#ef8528"
+\set_color "mathline" "#ef8528" "#ef8528"
+\set_color "cursor" "#caaaa0" "#caaaa0"
+\set_color "selection" "#efbc8f" "#efbc8f"
+\set_color "selectionmath" "#efbc8f" "#efbc8f"
+\set_color "depthbar" "#81a2be" "#81a2be"
+\set_color "buttonframe" "#005500" "#005500"
+\set_color "buttonbg" "#005500" "#005500"
+\set_color "buttonhoverbg" "#00aa00" "#00aa00"
+#
+# PRINTER SECTION ###################################
+#
+
+
+#
+# TEX SECTION #######################################
+#
+
+
+#
+# FILE SECTION ######################################
+#
+
+
+#
+# PLAIN TEXT EXPORT SECTION ##############################
+#
+
+
+#
+# SPELLCHECKER SECTION ##############################
+#
+
+
+#
+# LANGUAGE SUPPORT SECTION ##########################
+#
+
+\spellcheck_continuously false
+\language_custom_package ""
+
+#
+# 2nd MISC SUPPORT SECTION ##########################
+#
+
+
+#
+# FORMATS SECTION ##########################
+#
+
+
+#
+# CONVERTERS SECTION ##########################
+#
+
+
+#
+# COPIERS SECTION ##########################
+#
+
