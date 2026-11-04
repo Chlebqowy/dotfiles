@@ -29,7 +29,7 @@ cyan #329393
 green #329332
 lime #639332
 yellow #939332
-orange #936332
+orange #936332 
 red #933232
 purple #933293
 pink #933263
@@ -39,3 +39,12 @@ Special seperator p1 
 Special seperator p2 
 Special seperator full 
 Main seperator \
+
+# Shapes
+Border
+4px rounding
+5px size
+accent_dark color
+
+# Font
+Iosevka 12

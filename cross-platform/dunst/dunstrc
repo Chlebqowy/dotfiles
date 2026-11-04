@@ -1,0 +1,43 @@
+[global]
+monitor = 0
+enable_posix_regex = true
+width = (450, 600)
+height = (0, 200)
+notification_limit = 8
+origin = bottom-center
+scale = 1
+icon_corner_radius = 20
+corner_radius = 4
+text_icon_padding = 2
+frame_width = 5
+gap_size = 12
+offset = 24
+sort = urgency_descending
+idle_threshold = 5
+font = Iosevka Nerd Font Mono 12
+format = "<span foreground='#ef8528'></span><span foreground='#e7e3e0' background='#6f6b60'><span foreground='#ef8528'></span> <b>%a</b> %c<span foreground='#ef8528'></span></span><span foreground='#ef8528'></span> %s <span foreground='#ef8528'>\</span> %b\n%p"
+stack_duplicates = false
+icon_theme = "Adwaita, Memphis98"
+browser = "firefox"
+mouse_left_click = remove_current
+mouse_right_click = open_url
+mouse_middle_click = close_all
+ignore_dbusclose = true
+alignment = center
+markup = full
+frame_color = "#b25435"
+background = "#F3E6CAD2"
+foreground = "#0A050F"
+timeout = 7
+; idle_threshold = 10
+
+[discord]
+appname="[Dd]iscord"
+frame_color = "#2892ef"
+format = "<span foreground='#2892ef'></span><span foreground='#e7e3e0' background='#6f6b60'><span foreground='#2892ef'></span> <b>%a</b> %c<span foreground='#2892ef'></span></span><span foreground='#2892ef'></span> %s <span foreground='#2892ef'>\</span> %b\n%p"
+
+[firefox]
+appname="[Ff]irefox"
+frame_color = "#b25435"
+format = "<span foreground='#ef8528'></span><span foreground='#e7e3e0' background='#6f6b60'><span foreground='#ef8528'></span> <b>%a</b> %c<span foreground='#ef8528'></span></span><span foreground='#ef8528'></span> %s <span foreground='#ef8528'>\</span> %b\n%p"
+
