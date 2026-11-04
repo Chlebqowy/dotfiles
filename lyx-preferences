@@ -37,7 +37,7 @@ Format 40
 \set_color "bottomarea" "#F3E6CA" "#F3E6CA"
 \set_color "foreground" "#0A050F" "#0A050F"
 \set_color "math" "#0A050F" "#0A050F"
-\set_color "mathbg" "#F3EADA" "#F3EADA"
+\set_color "mathbg" "#F3E6CA" "#F3E6CA"
 \set_color "latex" "#0A050F" "#0A050F"
 \set_color "mathcorners" "#ef8528" "#ef8528"
 \set_color "mathframe" "#ef8528" "#ef8528"
