@@ -142,7 +142,7 @@ layer_effects "rofi" {
 blur enable
 blur_passes 1
 blur_radius 1
-blur_brightness 0.85
+blur_brightness 0.9
 blur_noise 0.0
 
 shadows enable
@@ -180,7 +180,7 @@ bar {
   font pango:Iosevka Nerd Font 12
   status_command "chlebqowy-info-bar-wl"
   colors {
-    background #FFFAEFAA
+    background #F3E6CAB2
   }
  }
 bar {
@@ -192,7 +192,7 @@ bar {
   font pango:Iosevka Nerd Font 12
   status_command "chlebqowy-workspace-bar-wl"
   colors {
-    background #FFFAEFAA
+    background #F3E6CAB2
   }
  }
  input type:touchpad {

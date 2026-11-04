@@ -1,5 +1,5 @@
 * {
-	background:                  #F3EADAAA;
+	background:                  #F3E6CAB2;
 	normal-background:			 #00000000;
 	alternate-background:        @normal-background;
 	selected-background: 	 	 @gray;

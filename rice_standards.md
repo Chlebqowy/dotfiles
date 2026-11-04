@@ -1,7 +1,9 @@
 # COLORS
 
 background #F3EADA
+new background #F3E6CA
 background-transparent #FFFAEFAA
+new background-transparent #F3E6CAB2
 gray #6f6b60
 lighter gray #8F8888
 extra gray #AAAAAA

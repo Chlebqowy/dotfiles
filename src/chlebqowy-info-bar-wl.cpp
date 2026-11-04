@@ -41,6 +41,18 @@ PackageManager package_manager;
 const float scale = 0.9;
 const float x = 1920;
 const int part_x = (int) (x/scale)/2;
+int get_max_bright(){
+	char bright_capacity_cmd[] = "brightnessctl m";
+	array<char, 128> buffer;
+	string bright_capacity;
+	unique_ptr<FILE, decltype(&pclose)> pipe(popen(bright_capacity_cmd, "r"), pclose);
+	while (fgets(buffer.data(), static_cast<int>(buffer.size()), pipe.get()) != nullptr) {
+    	bright_capacity += buffer.data();
+	}
+	//cout << bright_capacity << endl;
+	return stoi(bright_capacity);
+}
+const int max_bright = get_max_bright();
 
 string parse_proc(string line, char unit_char_1, char start_char) 
 {
@@ -81,7 +93,14 @@ string parse_proc(string line, char unit_char_1)
 	size_t number_amount = numbers_end - first_number;
 	return line.substr(first_number, number_amount);
 }
-
+string remove_escape(string line) 
+{
+	size_t first_number = 0;
+	size_t numbers_end = min(line.find('\x0A', first_number), line.find('\x09', first_number));
+	size_t number_amount = numbers_end - first_number;
+	//cout << number_amount << endl;
+	return line.substr(first_number, number_amount);
+}
 string get_ram()
 {
 	try {
@@ -141,6 +160,22 @@ Battery get_charging(string BAT)
 		return irrelevant;
 	}
 }
+string get_brightness()
+{
+	try {
+	char cmd[] = "brightnessctl g";
+	array<char, 128> buffer;
+	string result;
+	unique_ptr<FILE, decltype(&pclose)> pipe(popen(cmd, "r"), pclose);
+	while (fgets(buffer.data(), static_cast<int>(buffer.size()), pipe.get()) != nullptr) {
+	    result += buffer.data();
+	}
+	int result_val = stoi(result);
+	return to_string((result_val*100)/max_bright);
+	} catch(int e) {
+		return "ERR!"+ to_string(e);
+	}
+}
 string get_gpu(){
 	try {
 	if (!filesystem::exists("/usr/bin/nvidia-smi")) { return "ERR!U"; }
@@ -152,8 +187,7 @@ string get_gpu(){
 		//cout << buffer.data() << endl;
 	    result += buffer.data();
 	}
-	result = result.substr(0, result.size()-1);
-	return result;
+	return remove_escape(result);
 	} catch(int e) {
 		return "ERR!"+ to_string(e);
 	}
@@ -182,7 +216,7 @@ string get_pkg(PackageManager package_manager){
 	    result += buffer.data();
 	}
 	if (package_manager == zypper) result[size(result)-1] = result[size(result)-1] - 1;
-	return result;
+	return remove_escape(result);
 }
 string get_date(){
 	char cmd[] = "date +%a\\ %Y/%m/%d";
@@ -249,7 +283,9 @@ string standard_format(string name, string value, bool is_percent, Battery bat, 
 			module_txt += " ";
 		}
 	} else {
+		//cout << value << endl;
 		value = value.substr(0, value_len);
+		//cout << value << endl;
 	}
 	module_txt += value;
 	if (is_percent) module_txt += "%";
@@ -293,6 +329,8 @@ string gen_l_bar()
 	line += standard_format("BAT", get_bat(BAT), true, get_charging(BAT), false, 3);
 	line += full_seperator;
 	line += standard_format("PKG", get_pkg(package_manager), false, irrelevant, false, 4);
+	line += full_seperator;
+	line += standard_format("BRI", get_brightness(), true, irrelevant, false, 3);
 	return line;
 }
 string gen_r_bar()
