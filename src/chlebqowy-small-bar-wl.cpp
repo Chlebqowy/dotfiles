@@ -17,6 +17,7 @@
 //lighter alternative to the info bar with less modules
 // TODO implement some optimisations from here to full bars
 // particularly removing direction
+// TODO maybe add a global monitor section
 using namespace std;
 
 enum Battery
@@ -296,19 +297,19 @@ string clock_format(string value, bool is_secondary)
 string gen_bar()
 {
     string line;
-    line += full_seperator_secondary;
     line += clock_format(get_date(), true);
     line += full_seperator_secondary;
     line +=
         standard_format("BAT", get_bat(BAT), true, get_charging(BAT), false, 3);
+    line += full_seperator;
     line += standard_format("RAM", get_ram(), true, irrelevant, false, 3);
     line += full_seperator_secondary;
     line += clock_format(get_hour(), true);
-    line += full_seperator_secondary;
     return line;
 }
 int main()
 {
+	int l = 1920/0.9;
     cout << "{\"version\":1}" << endl;
     cout << "[" << endl;
     bool first_update = true;
@@ -317,10 +318,10 @@ int main()
         nlohmann::json block = {
             {"full_text", gen_bar()}, {"markup", "pango"},
             {"separator", false},  {"separator_block_width", 0},
-            {"min_width", lenght}, {"align", "center"},
+            {"min_width", l},  {"align", "center"},
         };
         if (!first_update) cout << ",";
-        // cout << nlohmann::json::array({block}).dump() << endl;
+        cout << nlohmann::json::array({block}).dump() << endl;
         first_update = false;
         sleep(cd);
     }
