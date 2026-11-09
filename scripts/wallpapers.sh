@@ -4,7 +4,7 @@
 timePeriods=("Night" "Day" "Night")
 wallpapers=("wpaper-light.png" "wpaper-light.png" "wpaper-light.png")
 timePeriodStarts=(18 6 0)
-basedir="/home/user/Pictures/Important/"
+basedir="~/Pictures/Wallpapers/"
 
 if [ ${#timePeriods[@]} != ${#wallpapers[@]} ]; then
 	echo "ERROR: Amount of time periods does not match amount of wallpapers (${#timePeriods[@]}, ${#wallpapers[@]})" >&2

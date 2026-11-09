@@ -3,7 +3,8 @@ palette = 'main'
 format = """\
 [ ](fg:accent)[](fg:accent bg:gray)\
 [$directory]()[\\\\](fg:accent bg:gray)\
-[$time](bg:gray fg:white_text)\
+[$time](bg:gray fg:white_text)[\\\\](fg:accent bg:gray)\
+[$battery](bg:gray fg:white_text)\
 [](fg:accent bg:gray)[](fg:accent)
 [   ]()\
 [ ](fg:secondary)[](fg:secondary bg:gray)\
@@ -33,6 +34,13 @@ disabled = false
 use_12hr = true
 style = "bg:gray fg:white_text"
 format = "[ $time ]($style)"
+
+[battery]
+format = "[ $percentage ]($style)"
+
+[[battery.display]]
+style = "bg:gray fg:white_text"
+threshold=100
 
 [username]
 show_always = true

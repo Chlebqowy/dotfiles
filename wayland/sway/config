@@ -132,18 +132,18 @@ title_align center
 for_window [class="^.*"] border pixel 5
 corner_radius 4
 
-for_window [app_id="nautilus"] opacity 0.9
+for_window [app_id="kitty"] opacity 0.99
 # apply everything to rofi
 layer_effects "rofi" {
 	shadows disable;
-	blur enable;
+@	blur enable;
 	corner_radius 5;
 }
-blur enable
-blur_passes 1
-blur_radius 1
-blur_brightness 0.9
-blur_noise 0.0
+#blur enable
+#blur_passes 1
+#blur_radius 1
+#blur_brightness 0.9
+#blur_noise 0.0
 
 shadows enable
 shadow_blur_radius 20
@@ -171,30 +171,43 @@ assign [class="(?i)Discord"] $ws5
 
 $exec-noid i3-msg 'workspace $ws1'
 
+#bar {
+#  workspace_buttons no
+#  tray_output none
+#  position top
+#  output eDP-1
+#  id 1
+#  font pango:Iosevka Nerd Font 12
+#  status_command "chlebqowy-info-bar-wl"
+#  colors {
+#    background #F3E6CAB2
+#  }
+# }
+#bar {
+#  workspace_buttons no
+#  tray_output none
+#  position top
+#  output eDP-1
+#  id 2
+#  font pango:Iosevka Nerd Font 12
+#  status_command "chlebqowy-workspace-bar-wl"
+#  colors {
+#    background #F3E6CAB2
+#  }
+# }
 bar {
   workspace_buttons no
   tray_output none
   position top
   output eDP-1
-  id 1
+  id 10
   font pango:Iosevka Nerd Font 12
-  status_command "chlebqowy-info-bar-wl"
+  status_command "chlebqowy-small-bar-wl"
   colors {
     background #F3E6CAB2
   }
  }
-bar {
-  workspace_buttons no
-  tray_output none
-  position top
-  output eDP-1
-  id 2
-  font pango:Iosevka Nerd Font 12
-  status_command "chlebqowy-workspace-bar-wl"
-  colors {
-    background #F3E6CAB2
-  }
- }
+ 
  input type:touchpad {
  	tap enabled
  	accel_profile flat
