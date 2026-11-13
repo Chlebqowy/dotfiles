@@ -13,7 +13,7 @@ format = """\
 [$git_branch](bg:gray fg:white_text)\
 [$git_state](bg:gray fg:white_text)\
 [$git_metrics](bg:gray fg:white_text)\
-[$git_statuis](bg:gray fg:white_text)\
+[$git_status](bg:gray fg:white_text)\
 [](bg:gray fg:secondary)[](fg:secondary)
 [](fg:gray)[ ](bg:gray)[$status]()[ ](bg:gray)[](fg:gray) \
 """
@@ -53,7 +53,6 @@ style_root = "fg:red_text"
 format = "[ $user ]($style)"
 
 [status]
-disabled = false
 style = "bg:gray fg:accent"
 failure_style = "bg:gray fg:failure"
 symbol = "\\$"
@@ -79,9 +78,16 @@ added_style = "bg:gray fg:wbite_text"
 
 [git_status]
 disabled = false
-format = "[\\\\](fg:secondary bg:gray) [$ahead$count]($style) [$behind$count]($style) [\\\\](fg:secondary bg:gray) [$untracked$count]($style) [$modified$count]($style) [$deleted$count]($style) [$worktree_added$count]($style)"
+format = "[\\\\](fg:secondary bg:gray) [$ahead]($style)[$behind]($style)[$up_to_date]($style) [\\\\](fg:secondary bg:gray) [$modified]($style)[$deleted]($style)[$worktree_added]($style) "
 style = "bg:gray fg:wbite_text"
-# add status and rust
+ahead = ' ⇡${count}'
+diverged = ' ⇡${ahead_count} ⇣${behind_count}'
+behind = ' ⇣${count}'
+up_to_date = ' ='
+modified = ' M${count}'
+deleted = ' A${count}'
+worktree_added = ' D${count}'
+# add rust and py
 
 [os]
 disabled = false
