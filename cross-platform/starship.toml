@@ -5,6 +5,10 @@ format = """\
 [$directory]()[\\\\](fg:accent bg:gray)\
 [$time](bg:gray fg:white_text)[\\\\](fg:accent bg:gray)\
 [$battery](bg:gray fg:white_text)\
+[$rust](bg:gray fg:white_text)\
+[$python](bg:gray fg:white_text)\
+[$cpp](bg:gray fg:white_text)\
+[$c](bg:gray fg:white_text)\
 [](fg:accent bg:gray)[](fg:accent)
 [   ]()\
 [ ](fg:secondary)[](fg:secondary bg:gray)\
