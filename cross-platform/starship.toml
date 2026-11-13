@@ -94,18 +94,22 @@ worktree_added = " D${count}"
 # add rust and py
 
 [rust]
+disabled = false
 format = '[\\\\](fg:primary bg:gray) [Rust $version]($style)'
 style = "bg:gray fg:wbite_text"
 
 [python]
+disabled = false
 format = '[\\\\](fg:primary bg:gray) [Python $version]($style)'
 style = "bg:gray fg:wbite_text"
 
 [cpp]
+disabled = false
 format = '[\\\\](fg:primary bg:gray) [C++ $version]($style)'
 style = "bg:gray fg:wbite_text"
 
 [c]
+disabled = false
 format = '[\\\\](fg:primary bg:gray) [C $version]($style)'
 style = "bg:gray fg:wbite_text"
 
