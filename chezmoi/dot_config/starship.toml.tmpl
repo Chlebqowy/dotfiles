@@ -85,8 +85,9 @@ style = "fg:white_text"
 
 [git_metrics]
 disabled = false
-format = "[+$added]($added_style) (fg:secondary bg:gray)[-$deleted]($added_style) "
-added_style = "fg:wbite_text"
+format = "[+$added]($added_style) (fg:secondary bg:gray)[-$deleted]($deleted_style) "
+added_style = "fg:primary_100"
+deleted_style = "fg:red_text"
 
 [git_state]
 format = "[$state]($style) [$progress_current/$progress_total]($style) "
