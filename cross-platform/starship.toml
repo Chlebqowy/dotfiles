@@ -4,6 +4,7 @@ format = """\
 [ ](fg:accent)[](fg:accent bg:gray)\
 [$directory]()[\\\\](fg:accent bg:gray)\
 [$time](bg:gray fg:white_text)[\\\\](fg:accent bg:gray)\
+[$sudo](bg:gray fg:white_text)\
 [$battery](bg:gray fg:white_text)\
 [$rust](bg:gray fg:white_text)\
 [$python](bg:gray fg:white_text)\
@@ -24,6 +25,7 @@ format = """\
 
 [palettes.main]
 accent = "#ef8528"
+primary = "#ef8528"
 secondary = "#2892ef"
 gray = "#6f6b60"
 white_text = "#e7e3e0"
@@ -91,26 +93,30 @@ up_to_date = " ="
 modified = " M${count}"
 deleted = " A${count}"
 worktree_added = " D${count}"
-# add rust and py
+
+[sudo]
+disabled = false
+format = "[\\\\](fg:primary bg:gray) [sudo]($style)"
+style = "bg:gray fg:wbite_text"
 
 [rust]
 disabled = false
-format = '[\\\\](fg:primary bg:gray) [Rust $version]($style)'
+format = "[\\\\](fg:primary bg:gray) [Rust $version]($style)"
 style = "bg:gray fg:wbite_text"
 
 [python]
 disabled = false
-format = '[\\\\](fg:primary bg:gray) [Python $version]($style)'
+format = "[\\\\](fg:primary bg:gray) [Python $version]($style)"
 style = "bg:gray fg:wbite_text"
 
 [cpp]
 disabled = false
-format = '[\\\\](fg:primary bg:gray) [C++ $version]($style)'
+format = "[\\\\](fg:primary bg:gray) [C++ $version]($style)"
 style = "bg:gray fg:wbite_text"
 
 [c]
 disabled = false
-format = '[\\\\](fg:primary bg:gray) [C $version]($style)'
+format = "[\\\\](fg:primary bg:gray) [C $version]($style)"
 style = "bg:gray fg:wbite_text"
 
 [os]
