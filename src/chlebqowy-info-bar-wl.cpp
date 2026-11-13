@@ -8,7 +8,7 @@
 #include <iostream>
 #include <stdexcept>
 #include <string>
-
+#include <unicode/unistr.h>
 #include <nlohmann/json.hpp>
 #include <sys/socket.h>
 #include <sys/un.h>
@@ -298,45 +298,12 @@ string get_date()
         result += buffer.data();
     }
     // cout << result << endl;
-    result = result.substr(0, size(result) - 1);
-    if (result.substr(0, 2) == "ś")
-    {
-        result[1] = 's';
-        result = result.substr(1, size(result) - 1);
-    }
-    if (result.substr(2, 2) == "ą")
-    {
-        result[1] = 'a';
-        result = result.substr(2, size(result) - 1);
-    }
-    if (result[0] >= 'a' && result[0] <= 'z')
-    {
-        result[0] -= 32;
-    }
-    else
-    {
-        result[1] = '?';
-        result = result.substr(1, size(result) - 1);
-    }
-    if (result[1] >= 'a' && result[1] <= 'z')
-    {
-        result[1] -= 32;
-    }
-    else
-    {
-        result[1] = '?';
-        result = result.substr(0, 1) + result.substr(2, size(result) - 2);
-    }
-    if (result[2] >= 'a' && result[2] <= 'z')
-    {
-        result[2] -= 32;
-    }
-    else
-    {
-        result[1] = '?';
-        result = result.substr(0, 2) + result.substr(3, size(result) - 3);
-    }
-    return result;
+    icu::UnicodeString unicoderesult = icu::UnicodeString::fromUTF8(result);
+    unicoderesult.toUpper();
+    string utfresult; 
+    unicoderesult.toUTF8String(utfresult);
+    utfresult = utfresult.substr(0, size(utfresult) - 1);
+    return utfresult;
 }
 string get_hour()
 {

@@ -31,16 +31,17 @@ _Please read the [`sway`](wayland/sway/config) config to learn more
 
 ## How to install
 1. Make sure all dependencies are installed.
-2. Read `install.sh`, `autoinstall.sh` or `autoinstall-rootless.sh`.
-3. Run `bash install.sh` (or whichever script you decide to use).
+2. Read `setup/install.sh`, `setup/autoinstall.sh` or `setup/autoinstall-rootless.sh`.
+3. Run `bash setup/install.sh` (or whichever script you decide to use).
 
 > [!NOTE]
 > I recommend modifying niri and i3 files to reflect your monitor setup
+> Also, please do not cd into the setup directory before running the install script
   
 ## Dependencies    
 Starship, kitty, dunst, micro-editor    
 sway-fx, swaybg, nvidia-smi, swaybar, rofi,
-nlohmann_json-devel (workspace-bar), g++, make
+nlohmann_json-devel (workspace-bar), g++, make, libicu-devel
 
 On opensuse you can automatically install them with `bash opensuse-dependencies.sh` (Also adds my obs repo)
 
