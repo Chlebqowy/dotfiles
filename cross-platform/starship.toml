@@ -12,7 +12,8 @@ format = """\
 [$username](bg:gray fg:white_text)\
 [$git_branch](bg:gray fg:white_text)\
 [$git_state](bg:gray fg:white_text)\
-[$git_](bg:gray fg:white_text)\
+[$git_metrics](bg:gray fg:white_text)\
+[$git_statuis](bg:gray fg:white_text)\
 [](bg:gray fg:secondary)[](fg:secondary)
 [](fg:gray)[ ](bg:gray)[$status]()[ ](bg:gray)[](fg:gray) \
 """
@@ -73,11 +74,13 @@ style = "bg:gray fg:white_text"
 
 [git_metrics]
 disabled = false
-format = "[\\\\](fg:secondary bg:gray) +[$added]($added_style) [\\\\](fg:secondary bg:gray) -[$deleted]($deleted_style)"
-style = "bg:gray fg:white_text"
-added_style = "bg:gray fg:accent"
-deleted_style = "bg:gray fg:secondary"
+format = "[\\\\](fg:secondary bg:gray) [+$added]($added_style) [\\\\](fg:secondary bg:gray) [-$deleted]($added_style) "
+added_style = "bg:gray fg:wbite_text"
 
+[git_status]
+disabled = false
+format = "[\\\\](fg:secondary bg:gray) [$ahead$count]($style) [$behind$count]($style) [\\\\](fg:secondary bg:gray) [$untracked$count]($style) [$modified$count]($style) [$deleted$count]($style) [$worktree_added$count]($style)"
+style = "bg:gray fg:wbite_text"
 # add status and rust
 
 [os]

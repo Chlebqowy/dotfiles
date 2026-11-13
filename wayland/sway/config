@@ -29,11 +29,11 @@ bindsym $mod+shift+i $exec-noid rofi -modi emoji -show emoji
 bindsym $mod+a focus left
 bindsym $mod+s focus down
 bindsym $mod+w focus up
-bindsym $mod+d focus right
 
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
+bindsym $mod+d focus right
 bindsym $mod+Right focus right
 
 bindsym $mod+Shift+a move left
@@ -52,8 +52,11 @@ bindsym $mod+Ctrl+A exec xdotool mousemove 1280 720
 bindsym $mod+Ctrl+Right exec xdotool mousemove 3840 720
 bindsym $mod+Ctrl+D exec xdotool mousemove 3840 720
 
-bindsym $mod+h split h
-bindsym $mod+v split v
+bindsym $mod+m split h
+bindsym $mod+n split v
+
+bindsym $mod+ctrl+q split h
+bindsym $mod+ctrl+e split v
 
 bindsym $mod+f fullscreen toggle
 
@@ -67,9 +70,9 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
-bindsym $mod+m exec flameshot gui
-bindsym $mod+shift+m exec flameshot screen
-bindsym $mod+ctrl+m exec flameshot launcher
+bindsym $mod+b exec flameshot gui
+bindsym $mod+shift+b exec flameshot screen
+bindsym $mod+ctrl+b exec flameshot launcher
 
 bindsym $mod+x focus parent
 bindsym $mod+z focus child
