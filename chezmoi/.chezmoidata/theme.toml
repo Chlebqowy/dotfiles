@@ -1,0 +1,9 @@
+theme = "blue"
+[themes.blue]
+primary_l = [0x2b, 0x28, 0xed]
+primary_r = [0x28, 0x87, 0xed]
+white_text = "#efefef"
+red_text = "#ffc0c0"
+failure = "#ff3322"
+seperator = ">>"
+thick = "❱"
