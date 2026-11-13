@@ -78,16 +78,32 @@ added_style = "bg:gray fg:wbite_text"
 
 [git_status]
 disabled = false
-format = "[\\\\](fg:secondary bg:gray) [$ahead]($style)[$behind]($style)[$up_to_date]($style) [\\\\](fg:secondary bg:gray) [$modified]($style)[$deleted]($style)[$worktree_added]($style) "
+format = "[\\\\](fg:secondary bg:gray)[$ahead]($style)[$behind]($style)[$up_to_date]($style) [\\\\](fg:secondary bg:gray)[$modified]($style)[$deleted]($style)[$worktree_added]($style) "
 style = "bg:gray fg:wbite_text"
-ahead = ' ⇡${count}'
-diverged = ' ⇡${ahead_count} ⇣${behind_count}'
-behind = ' ⇣${count}'
-up_to_date = ' ='
-modified = ' M${count}'
-deleted = ' A${count}'
-worktree_added = ' D${count}'
+ahead = " ⇡${count}"
+diverged = " ⇡${ahead_count} ⇣${behind_count}"
+behind = " ⇣${count}"
+up_to_date = " ="
+modified = " M${count}"
+deleted = " A${count}"
+worktree_added = " D${count}"
 # add rust and py
+
+[rust]
+format = '[\\\\](fg:primary bg:gray) [Rust $version]($style)'
+style = "bg:gray fg:wbite_text"
+
+[python]
+format = '[\\\\](fg:primary bg:gray) [Python $version]($style)'
+style = "bg:gray fg:wbite_text"
+
+[cpp]
+format = '[\\\\](fg:primary bg:gray) [C++ $version]($style)'
+style = "bg:gray fg:wbite_text"
+
+[c]
+format = '[\\\\](fg:primary bg:gray) [C $version]($style)'
+style = "bg:gray fg:wbite_text"
 
 [os]
 disabled = false
