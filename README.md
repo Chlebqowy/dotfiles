@@ -48,7 +48,7 @@ __Cross-platform__
 
 ## Keybinds
 - All keybinds follow simple patterns such as all system shortcuts starting with super.
-- The Niri keybinds are made so that they can work if you have a
+- The keybinds are made so that they can work if you have a
 single hand on the keyboard and the other on the mouse
 or both hands on the keyboard.
 ### Essential shortcuts:

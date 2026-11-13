@@ -53,8 +53,11 @@ bindsym $mod+Ctrl+A exec xdotool mousemove 1280 720
 bindsym $mod+Ctrl+Right exec xdotool mousemove 3840 720
 bindsym $mod+Ctrl+D exec xdotool mousemove 3840 720
 
-bindsym $mod+h split h
-bindsym $mod+v split v
+bindsym $mod+m split h
+bindsym $mod+n split v
+
+bindsym $mod+ctrl+q split h
+bindsym $mod+ctrl+e split v
 
 bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+f exec "~/scripts/lock-in-mode.sh on"
