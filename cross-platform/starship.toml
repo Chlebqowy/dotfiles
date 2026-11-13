@@ -59,6 +59,7 @@ style_root = "fg:red_text"
 format = "[ $user ]($style)"
 
 [status]
+disabled = false
 style = "bg:gray fg:accent"
 failure_style = "bg:gray fg:failure"
 symbol = "\\$"
