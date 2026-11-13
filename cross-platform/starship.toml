@@ -10,6 +10,9 @@ format = """\
 [ ](fg:secondary)[](fg:secondary bg:gray)\
 [$os](bg:gray fg:white_text)[\\\\](fg:secondary bg:gray)\
 [$username](bg:gray fg:white_text)\
+[$git_branch](bg:gray fg:white_text)\
+[$git_state](bg:gray fg:white_text)\
+[$git_](bg:gray fg:white_text)\
 [](bg:gray fg:secondary)[](fg:secondary)
 [](fg:gray)[ ](bg:gray)[$status]()[ ](bg:gray)[](fg:gray) \
 """
@@ -57,6 +60,25 @@ success_symbol = "\\$"
 #pipestatus = true
 #pipestatus_format = "[$pipestatus] => [$common_meaning$signal_name$maybe_int $symbol ]($style)"
 format = "[$symbol]($style)"
+
+[git_branch]
+truncation_length = 10
+truncation_symbol = '...'
+format = "[\\\\](fg:secondary bg:gray) [$branch]($style) "
+style = "bg:gray fg:white_text"
+
+[git_state]
+format = "[\\\\](fg:secondary bg:gray) [$state]($style) [\\\\](fg:secondary bg:gray) [$progress_current/$progress_total]($style)"
+style = "bg:gray fg:white_text"
+
+[git_metrics]
+disabled = false
+format = "[\\\\](fg:secondary bg:gray) +[$added]($added_style) [\\\\](fg:secondary bg:gray) -[$deleted]($deleted_style)"
+style = "bg:gray fg:white_text"
+added_style = "bg:gray fg:accent"
+deleted_style = "bg:gray fg:secondary"
+
+# add status and rust
 
 [os]
 disabled = false

@@ -146,6 +146,8 @@ string get_date()
     }
     // cout << result << endl;
     result = result.substr(0, size(result) - 1);
+    if (!(result[0] >= '0' && result[0] <= '9' ))
+	{
     if (result.substr(0, 2) == "ś")
     {
         result[1] = 's';
@@ -153,7 +155,7 @@ string get_date()
     }
     if (result.substr(2, 2) == "ą")
     {
-        result[1] = 'a';
+        result[2] = 'a';
         result = result.substr(2, size(result) - 1);
     }
     if (result[0] >= 'a' && result[0] <= 'z')
@@ -182,6 +184,7 @@ string get_date()
     {
         result[1] = '?';
         result = result.substr(0, 2) + result.substr(3, size(result) - 3);
+    }
     }
     return result;
 }

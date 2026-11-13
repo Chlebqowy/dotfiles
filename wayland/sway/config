@@ -221,6 +221,7 @@ bar {
  	middle_emulation enabled
  }
  input type:keyboard {
+	xkb_options compose:caps
  	xkb_layout pl
  }
  #input type:keyboard {
