@@ -1,0 +1,175 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+palette = 'main'
+format = """\
+[$directory]()\
+[$username]()\
+[$time]()\
+[$git_branch]()[$git_metrics]()[$git_state]()\
+[$rust]()[$python]()[$cpp]()[$c]()\
+[❱](fg:primary_0)[❱](fg:primary_25)[❱](fg:primary_50)[❱](fg:primary_75)[❱](fg:primary_100)
+[$os]()\
+[$status]() \
+"""
+
+# cmd only
+right_format = """\
+[$time]()
+"""
+
+
+[palettes.main]
+primary_0 = "#2b28ed"
+primary_10 = '#2b32ed'
+primary_20 = '#2b3bed'
+primary_25 = '#2b40ed'
+primary_30 = '#2b45ed'
+primary_40 = '#2a4eed'
+primary_50 = '#2a58ed'
+primary_60 = '#2a61ed'
+primary_70 = '#296bed'
+primary_75 = '#2970ed'
+primary_80 = '#2974ed'
+primary_100 = "#2887ed"
+
+white_text = "#efefef"
+red_text = "#ffc0c0"
+failure = "#ff3322"
+
+[directory]
+truncation_length = 3
+truncation_symbol = "..."
+style = "fg:white_text"
+read_only_style = "fg:red_text"
+format = "[ ](fg:primary_0) [$path]($style) "
+
+[time]
+disabled = false
+use_12hr = false
+style = "fg:white_text"
+format = "[>> ](fg:primary_40)[$time]($style) "
+
+[battery]
+format = "[ $percentage ]($style)"
+
+[[battery.display]]
+style = "bg:gray fg:white_text"
+threshold=100
+
+[username]
+show_always = true
+style_user = "fg:white_text"
+style_root = "fg:red_text"
+format = "[>> ](fg:primary_20)[$user]($style) "
+
+[status]
+disabled = false
+style = "fg:primary_100"
+failure_style = "fg:failure"
+symbol = "❱"
+success_symbol = "❱"
+#pipestatus = true
+#pipestatus_format = "[$pipestatus] => [$common_meaning$signal_name$maybe_int $symbol ]($style)"
+format = "[$symbol](fg:primary_50)[$symbol](fg:primary_75)[$symbol]($style)"
+
+[git_branch]
+truncation_length = 10
+truncation_symbol = '...'
+format = "[>> ](fg:primary_60)[$branch]($style) "
+style = "fg:white_text"
+
+[git_metrics]
+disabled = false
+format = "[+$added]($added_style) (fg:secondary bg:gray)[-$deleted]($added_style) "
+added_style = "fg:wbite_text"
+
+[git_state]
+format = "[$state]($style) [$progress_current/$progress_total]($style) "
+style = "fg:white_text"
+
+[rust]
+disabled = false
+format = "[>> ](fg:primary_80)[ ](fg:primary_100)[$version]($style) "
+style = "fg:wbite_text, bold"
+
+[python]
+disabled = false
+format = "[>> ](fg:primary_80)[ ](fg:primary_100)[$version]($style) "
+style = "fg:wbite_text, bold"
+
+[cpp]
+disabled = false
+format = "[>> ](fg:primary_80)[ ](fg:primary_100)[$version]($style) "
+style = "fg:wbite_text, bold"
+
+[c]
+disabled = false
+format = "[>> ](fg:primary_80)[ ](fg:primary_100)[$version]($style) "
+style = "fg:wbite_text, bold"
+
+[os]
+disabled = false
+style = "fg:primary_50 bg:gray, bold"
+format = "[$symbol]($style)"
+
+[os.symbols]
+AIX = " "
+AlmaLinux = " "
+Alpaquita = " "
+Alpine = " "
+ALTLinux = " "
+Amazon = " "
+Android = " "
+AOSC = " "
+Arch = " "
+Artix = " "
+Bazzite = " "
+Bluefin = " "
+CachyOS = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Elementary = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = " "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Hurd = " "
+Illumos = " "
+InstantOS = " "
+Ios = "󰀷 "
+Kali = " "
+KDENeon = " "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+Nobara = " "
+OpenBSD = " "
+OpenCloudOS = " "
+openEuler = " "
+openSUSE = " "
+OracleLinux = "󰺡 "
+PikaOS = " "
+Pop = " "
+Raspbian = " "
+Redhat = "󱄛 "
+RedHatEnterprise = "󱄛 "
+Redox = "󰀘 "
+RockyLinux = " "
+Solus = " "
+SUSE = " "
+Ubuntu = " "
+Ultramarine = " "
+Unknown = " "
+Uos = " "
+Void = " "
+Windows = "󰍲 "
+Zorin = " "
