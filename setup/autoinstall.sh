@@ -22,8 +22,6 @@ echo -e "${primary}\\ Backing up /etc/regreet to /etc/regreet-backup-chlebqowy-$
 sudo cp -rv /etc/regreet /etc/regreet-backup-chlebqowy-${time}
 echo -e "${primary}\\ Installing Iosevka${text}"
 sudo cp -rv ./fonts/Iosevka /etc/fonts/Iosevka
-echo -e "${primary}\\ Installing local.conf${text}"
-sudo cp -rv ./fonts/local.conf /etc/fonts/local.conf
 echo -e "${primary}\\ Refreshing font cache${text}"
 sudo fc-cache -fv
 echo -e "${primary}\\ Installing Regreet config${text}"

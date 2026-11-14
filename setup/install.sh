@@ -41,33 +41,6 @@ read -rp "${secondary} Install globally or locally? [g/l]: ${text}" answer
             echo -e "${secondary} Please enter 'g' (global) or 'l' (local). ${text}"
             ;;
     esac
-echo -e "${primary}\\ Installing local.conf${text}"
-sleep 1
-read -rp "${secondary} Make Iosevka mono the default sans and mono font? [y/n]: ${text}" answer-fonts-local
-    case "$answer=fonts-local" in
-        y|Y)
-            case "$answer" in
-                g|G)
-                    sudo cp -rv ./fonts/local.conf /etc/fonts/local.conf
-                    break
-                    ;;
-                l|L)
-                    cp -rv ./fonts/local.conf ~/.fonts/local.conf
-                    break
-                    ;;
-                *)
-                    echo -e "${secondary} Please enter 'g' (global) or 'l' (local).${text}"
-                    ;;
-            esac
-            break
-            ;;
-        n|N)
-            break
-            ;;
-        *)
-            echo -e "${secondary} Please enter 'y' (yes) or 'n' (no).${text}"
-            ;;
-    esac
 echo -e "${primary}\\ Refreshing font cache${text}"
 sleep 1
     case "$answer-fonts" in

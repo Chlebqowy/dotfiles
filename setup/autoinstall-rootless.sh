@@ -16,8 +16,6 @@ echo -e "${primary}\\ Backing up ~/.bashrc to ~/.bashrc-backup-chlebqowy-${time}
 cp -rv ~/.bashrc ~/.bashrc-backup-chlebqowy-${time}
 echo -e "${primary}\\ Backing up /etc/regreet to /etc/regreet-backup-chlebqowy-${time} (REQUIRES SUDO, OPTIONAL)${text}"
 cp -rv ./fonts/Iosevka ~/.fonts/Iosevka
-echo -e "${primary}\\ Installing local.conf${text}"
-cp -rv ./fonts/local.conf ~/.fonts/local.conf
 echo -e "${primary}\\ Refreshing font cache${text}"
 fc-cache -fv
 echo -e "${primary}\\ Installing cross-platform configs${text}"
