@@ -15,8 +15,6 @@ thick = "❱"
 bg = "#1F2023"
 fg = "#E2E9FF"
 
-
-
 # done with oklch and hue shifting (hue is not precise and some colors have lesser
 # chroma to reduce contrast or because they support less)
 # manual because generators just made a whole palette with one hue
@@ -40,7 +38,7 @@ dark_blue = "#3e55c8"
 light_blue = "#7a97fb"
 dark_cyan = "#176f7c"
 light_cyan = "#06b1ce"
-dark_green - "#137738"
+dark_green = "#137738"
 light_green = "#4cb86a"
 dark_yellow = "#796006"
 light_yellow = "#be9a2a"
