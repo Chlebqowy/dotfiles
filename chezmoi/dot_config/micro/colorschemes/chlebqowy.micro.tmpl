@@ -1,0 +1,43 @@
+{{- $r := index .themes .theme -}}
+# $r because I misclicked in the first color line and then copied but micro can't replace $ values
+color-link default ""
+color-link comment "white"
+# hi
+# This is a big comment
+
+# TODO customise bottom bar 
+
+color-link identifier "cyan"
+color-link identifier.class "brightcyan"
+color-link identifier.var "brightcyan"
+
+color-link constant "brightgreen"
+color-link constant.number "green" 
+color-link constant.string "brightgreen"
+
+color-link type "purple"
+color-link type.keyword "lightpurple"
+
+color-link special "blue"
+color-link statement "brightblue"
+
+color-link error "bold {{- $r.red_text -}}"
+color-link todo "bold {{- $r.primary2 -}}"
+
+color-link diff-added "{{- $r.primary2 -}}"
+color-link diff-modified "purple" 
+color-link diff-deleted "red"
+
+
+color-link statusline "brightwhite,{{- $r.primary1 -}}"
+color-link tabbar "#b2ffc5,#3f8f62"
+color-link indent-char "default"
+
+color-link line-number "white"
+color-link current-line-number "{{- $r.primary1 -}},white" #the inversion is intended 
+color-link cursor-line "{{- $r.primbg -}}"
+
+color-link type.extended "default"
+
+color-link divider "white, black"
+color-link message "white"
