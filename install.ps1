@@ -2,7 +2,7 @@ Write-Output ">> Installing dependencies (assumes winget)"
 Start-Sleep -Seconds 1
 winget install chezmoi
 winget install --id Starship.Starship
-winget install micro
+winget install --id zyedidia.micro
 Write-Output ">> Copying chezmoi config"
 Start-Sleep -Seconds 1
 cp -r -Force chezmoi ~/.local/share

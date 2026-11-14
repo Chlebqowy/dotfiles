@@ -1,0 +1,18 @@
+{{- $t := index .themes .theme }}
+{{- $s := $t.seperator }}
+{{- $st := $t.thick -}}
+{{- $st := $t.thick_left -}}
+{
+    "tabsize": 4,
+    "colorscheme": "chlebqowy",
+    "basename": true,
+    "diffgutter": true,
+    "matchbracestyle": "highlight",
+    "multiopen": "vsplit",
+	"ft:python": {
+    	"showchars": "tab",
+    	"tabsize": 4,
+    },
+    "statusformatl": " $(filename) {{ $s }} L$(line) C$(col) {{ $st -}}{{- $st -}}{{- $st -}}",
+    "statusformatr": "{{- $stl -}} $(modified) $(opt:filetype) ",
+}

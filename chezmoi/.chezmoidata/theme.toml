@@ -11,6 +11,7 @@ failure = "#ff3322"
 
 seperator = ">>"
 thick = "❱"
+thick_left = "❰"
 
 bg = "#1F2023"
 fg = "#E2E9FF"
