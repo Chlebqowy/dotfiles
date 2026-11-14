@@ -1,9 +1,56 @@
 theme = "blue"
 [themes.blue]
 primary_l = [0x2b, 0x28, 0xed]
+primary1 = "#2b28ed"
 primary_r = [0x28, 0x87, 0xed]
-white_text = "#efefef"
-red_text = "#ffc0c0"
+primary2 = "#2887ed"
+
+white_text = "#E2E9FF"
+red_text = "#ffc0c0" # TODO use a color similar to prim 1/2 for this
 failure = "#ff3322"
+
 seperator = ">>"
 thick = "❱"
+
+bg = "#1F2023"
+fg = "#E2E9FF"
+
+
+
+# done with oklch and hue shifting (hue is not precise and some colors have lesser
+# chroma to reduce contrast or because they support less)
+# manual because generators just made a whole palette with one hue
+#dark_blue = "#2f40c2" # baseline dark, h270 oklch(0.45 0.2 270)
+#light_blue = "#5471f5" # baseline light, h270 oklch(0.6 0.2 270)
+#dark_green = "#56932b" # less sat, closer to blue, h135
+#light_green = "#74b24c" # same as dark
+#dark_cyan = "#1b6f80" # oklch(0.5 0.08 215) # bit lighter to account for sat
+#light_cyan = "#339eb5" # oklch(0.65 0.1 215)
+#dark_purple = "#83218a"
+#light_purple = "#b352ba"
+#dark_red = "#8f3126" # reduced chrroma even though it's supported to decrease contrast
+#light_red = "#c15e50"
+#dark_yellow = "#BFC746"
+#light_yellow = "#DEE597"
+#gray = "#515561"
+#light_gray = "#999eab"
+
+# version with constant lightness (0.7) and chroma (0.15) clipped if unavailable. Also moved a bit
+dark_blue = "#3e55c8"
+light_blue = "#7a97fb"
+dark_cyan = "#176f7c"
+light_cyan = "#06b1ce"
+dark_green - "#137738"
+light_green = "#4cb86a"
+dark_yellow = "#796006"
+light_yellow = "#be9a2a"
+dark_red = "#b32517"
+light_red = "#ed7665"
+dark_purple = "#982f93"
+light_purple = "#d179ca"
+# these can stay
+gray = "#515561"
+light_gray = "#999eab"
+
+black = "#000000"
+white = "#E2E9FF"
