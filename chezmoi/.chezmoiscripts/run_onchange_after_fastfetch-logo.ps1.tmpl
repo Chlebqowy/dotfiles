@@ -1,3 +1,5 @@
 # svg: {{ include "dot_config/fastfetch/Logo.svg.tmpl" | sha256sum }}
+{{- /*tojson because string is needed*/ -}}
+# theme: {{ index .themes .theme | toJson | sha256sum }}
 $ffdir = Join-Path $HOME '.config\fastfetch'
 magick -background none -density 512 (Join-Path $ffdir 'Logo.svg') -resize 512x512 (Join-Path $ffdir 'Logo.png')

@@ -1,12 +1,17 @@
 theme = "blue"
 [themes.blue]
-primary_l = [0x2b, 0x28, 0xed]
-primary1 = "#2b28ed"
-primary_r = [0x44, 0xff, 0xbb]
+primary_l = [0xbb, 0x98, 0xed]
+primary1 = "#bb98ed"
+#primary1 = "#2b28ed"
+primary_r = [0xff, 0x44, 0xbb]
 #primary_r = [0x28, 0x87, 0xed]
-primary2 = "#44ffbb"
+primary2 = "#ff44bb"
 
-secondary = "#36bdd8"
+# primary1 and primary_l and primary2 and primary_r have to be the same but primaryx is depricated
+# and in the future only primary_x will be used and converted in files
+
+secondary = "#bd36d8"
+#secondary = "#36bdd8"
 # secondary needs to be close to prim 2
 
 white_text = "#E2E9FF"
@@ -20,8 +25,8 @@ thick_left = "❰"
 bg = "#1F2023"
 fg = "#E2E9FF"
 
-primbg = "#24236a"
-
+# primbg = "#24236a"
+primbg = "$552233"
 # done with oklch and hue shifting (hue is not precise and some colors have lesser
 # chroma to reduce contrast or because they support less)
 # manual because generators just made a whole palette with one hue
