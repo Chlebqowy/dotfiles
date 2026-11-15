@@ -1,0 +1,227 @@
+{{- $t := index .themes .theme }}
+{{- $s := $t.seperator }}
+{{- $st := $t.thick }}
+{{- $stl := $t.thick_left }}
+{{- $r1 := index $t.primary_l 0 }}
+{{- $g1 := index $t.primary_l 1 }}
+{{- $b1 := index $t.primary_l 2 }}
+{{- $r2 := index $t.primary_r 0 }}
+{{- $g2 := index $t.primary_r 1 }}
+{{- $b2 := index $t.primary_r 2 }}
+{{- $rd := subf $r2 $r1 }}
+{{- $gd := subf $g2 $g1 }}
+{{- $bd := subf $b2 $b1 }}
+{{- $rdp := divf $rd 100 }}
+{{- $gdp := divf $gd 100 }}
+{{- $bdp := divf $bd 100 }}
+{{- $primary := dict }}
+{{- $primarykey := dict }}
+{{- range $p := list 0 17 33 50 67 83 100 }}
+{{- /* double # because ff is weird and #n already does something */}}
+{{- $_ := set $primary (toString $p) (printf "##%02x%02x%02x" (round (addf $r1 (mulf $rdp $p)) 0 | int) (round (addf $g1 (mulf $gdp $p)) 0 | int) (round (addf $b1 (mulf $bdp $p)) 0 | int)) }}
+{{- end }}
+{{- range $p := list 0 20 25 33 40 50 60 67 75 80 83 100 }}
+{{- /* single # because key color is different */}}
+{{- $_ := set $primarykey (toString $p) (printf "#%02x%02x%02x" (round (addf $r1 (mulf $rdp $p)) 0 | int) (round (addf $g1 (mulf $gdp $p)) 0 | int) (round (addf $b1 (mulf $bdp $p)) 0 | int)) }}
+{{- end }}
+{{- /* \x1b is broken in json */}}
+{{- $primary1_ansi := (printf "\\u001b[38;2;%d;%d;%dm" $r1 $g1 $b1) }}
+{{- $primary2_ansi := (printf "\\u001b[38;2;%d;%d;%dm" $r2 $g2 $b2) }}
+{{- $reset_ansi := "\\u001b[0m" -}}
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "display": {
+  	"separator": " {{$st}} ",
+  	"color": {
+  		"separator": "{{$t.secondary}}"
+  	}
+  },
+  "logo": {
+  	"type": "sixel",
+	"source": "~/.config/fastfetch/logo.png",
+	"position": "right",
+	"width": 40,
+	"height": 20,
+	"padding": {
+		"top": 5,
+		"left": 2
+	}
+  },
+  "modules": [
+    {
+   		"type": "title",
+   		"format": "{user-name-colored} {# {{- index $primarykey "80" -}} }{user-id} {# {{- index $primarykey "100" -}} }{home-dir} {host-name-colored}",
+    	"color": {
+			"user": "{{index $primarykey "60"}}",
+			"host": "{{$t.secondary}}"
+		}
+    },
+    {
+    	"type": "separator",
+    	"outputColor": "{{$t.secondary}}",
+    	"string": "{{$st}}",
+    },
+    { "type": "custom", "format": "{ {{- index $primary "0" -}} }{{$st}}{ {{- index $primary "17" -}} }{{$st}}{ {{- index $primary "33" -}} }{{$st}} { {{- index $primary "50" -}} }Userspace { {{- index $primary "67" -}} }{{$st}}{ {{- index $primary "83" -}} }{{$st}}{ {{- index $primary "100" -}} }{{$st}}{# {{- $t.secondary -}} }{{$st}}"},
+    {
+    	"keyColor": "{{index $primarykey "0"}}",
+   		"type": "os",
+    },
+    {
+    	"keyColor": "{{index $primarykey "20"}}",
+    	"type": "locale"
+    },
+    {
+    	"keyColor": "{{index $primarykey "40"}}",
+    	"type": "users"	
+    },
+	{
+		"keyColor": "{{index $primarykey "60"}}",
+		"type": "lm"
+	},
+  	{ "type": "shell", "format": "lua:shell = ..." },
+   	{ "type": "terminal", "keyColor": "{{index $primarykey "80"}}", "format": "lua:return shell.prettyName .. ' {{$primary2_ansi}}{{$s}}{{$reset_ansi}} ' .. (...).prettyName" }, 	   	
+	{ "type": "wm", "key": "WM", "keyColor": "{{index $primarykey "100"}}" },
+    { "type": "custom", "format": "{ {{- index $primary "0" -}} }{{$st}}{ {{- index $primary "17" -}} }{{$st}}{ {{- index $primary "33" -}} }{{$st}} { {{- index $primary "50" -}} }Themes { {{- index $primary "67" -}} }{{$st}}{ {{- index $primary "83" -}} }{{$st}}{ {{- index $primary "100" -}} }{{$st}}{# {{- $t.secondary -}} }{{$st}}"},
+   	{ "type": "theme", "format": "lua:theme = ..." },
+   	{ "type": "wmtheme", "key": "Theme", "keyColor": "{{index $primarykey "0"}}", "format": "lua:return theme.theme1 .. ' {{$primary2_ansi}}{{$s}}{{$reset_ansi}} ' .. (...).result" },
+	{ "type": "icons", "format": "lua:icons = ..." },
+	{ "type": "cursor", "key": "Icon/Cursor", "keyColor": "{{index $primarykey "25"}}", "format": "lua:return icons.icons2 .. ' {{$primary2_ansi}}{{$s}}{{$reset_ansi}} ' .. (...).theme .. ' ' .. (...).size" },
+	{ 
+		"keyColor": "{{index $primarykey "50"}}",
+		"type": "font"
+	},  
+	{ 
+		"keyColor": "{{index $primarykey "75"}}",
+		"type": "terminalfont"
+	},
+	{ 
+		"keyColor": "{{index $primarykey "100"}}",
+		"type": "terminaltheme"
+	},
+    { "type": "custom", "format": "{ {{- index $primary "0" -}} }{{$st}}{ {{- index $primary "17" -}} }{{$st}}{ {{- index $primary "33" -}} }{{$st}} { {{- index $primary "50" -}} }Low-Level { {{- index $primary "67" -}} }{{$st}}{ {{- index $primary "83" -}} }{{$st}}{ {{- index $primary "100" -}} }{{$st}}{# {{- $t.secondary -}} }{{$st}}"},
+    {
+    	"keyColor": "{{index $primarykey "0"}}",
+    	"type": "bios"
+    },
+    {
+    	"keyColor": "{{index $primarykey "25"}}",
+    	"type": "kernel"
+    },
+    {{- /* TODO collapse maybe show only version */}}
+  	{ "type": "vulkan", "format": "lua:vulkan = ..." },    
+  	{ "type": "opengl", "format": "lua:opengl = ..." },
+    { "type": "opencl", "format": "lua:opencl = ..." },
+    { 
+    	"type": "custom",
+    	"key": "Graphics",
+    	"keyColor": "{{index $primarykey "50"}}",
+    	"format": "lua:return 'Vulkan API ' .. vulkan.apiVersion .. ' Conformance ' .. vulkan.conformanceVersion .. ' Instance ' .. vulkan.instanceVersion"
+    },
+    { 
+		"type": "custom",
+		"key": "Graphics",
+		"keyColor": "{{index $primarykey "75"}}",
+		"format": "lua:return 'OpenGL ' .. opengl.version .. ' OpenCL ' .. opencl.version "
+	},
+	{
+    	"type": "initsystem",
+    	"keyColor": "{{index $primarykey "100"}}",
+    },
+    { "type": "custom", "format": "{ {{- index $primary "0" -}} }{{$st}}{ {{- index $primary "17" -}} }{{$st}}{ {{- index $primary "33" -}} }{{$st}} { {{- index $primary "50" -}} }Hardware { {{- index $primary "67" -}} }{{$st}}{ {{- index $primary "83" -}} }{{$st}}{ {{- index $primary "100" -}} }{{$st}}{# {{- $t.secondary -}} }{{$st}}"},
+	{ 
+		"keyColor": "{{index $primarykey "0"}}",
+		"type": "board"
+	}, 
+	{ 
+		"keyColor": "{{index $primarykey "25"}}",
+		"type": "cpu"
+	}, 
+    { 
+    	"type": "cpucache",
+		{{- /* x and y or z is the ternary in lua */}}    	
+    	"format": "lua:cpucache=(cpucache and cpucache .. ' {{$primary2_ansi}}{{$s}}{{$reset_ansi}} ' or '') .. (...).level .. ' ' .. (...).result"
+    },
+    { 
+    	"type": "custom",
+    	"keyColor": "{{index $primarykey "50"}}",
+    	"key": "Cache",
+    	"format": "lua:return cpucache"
+    },
+	{ 
+		"keyColor": "{{index $primarykey "75"}}",
+		"type": "gpu"
+	}, 
+    { "type": "memory", "format": "lua:memory = ..." },
+    { "type": "swap", "keyColor": "{{index $primarykey "100"}}", "key": "Memory", "format": "lua:return memory.used .. '/' .. memory.total .. ' {{$primary2_ansi}}{{$s}}{{$reset_ansi}} ' .. (...).used .. '/' .. (...).total" },
+    { "type": "custom", "format": "{ {{- index $primary "0" -}} }{{$st}}{ {{- index $primary "17" -}} }{{$st}}{ {{- index $primary "33" -}} }{{$st}} { {{- index $primary "50" -}} }Storage { {{- index $primary "67" -}} }{{$st}}{ {{- index $primary "83" -}} }{{$st}}{ {{- index $primary "100" -}} }{{$st}}{# {{- $t.secondary -}} }{{$st}}"},
+    { 
+    	"type": "disk", 
+   		"format": "lua:disk=(disk and disk .. ' {{$primary2_ansi}}{{$s}}{{$reset_ansi}} ' or '') .. (...).mountpoint .. ' ' .. (...).sizeTotal .. ' ' .. (...).sizePercentage .. ' ' .. (...).filesystem"
+    },
+	{ 
+		"type": "custom",
+		"key": "Disk",
+		"keyColor": "{{index $primarykey "0"}}",
+		"format": "lua:return disk"
+	},
+	{
+		"type": "physicaldisk",
+{{- /* only 50% to avoid too much prim 2 */ -}}
+		"keyColor": "{{index $primarykey "50"}}",
+		"key": "{name}",
+	},
+    { "type": "custom", "format": "{ {{- index $primary "0" -}} }{{$st}}{ {{- index $primary "17" -}} }{{$st}}{ {{- index $primary "33" -}} }{{$st}} { {{- index $primary "50" -}} }Networking { {{- index $primary "67" -}} }{{$st}}{ {{- index $primary "83" -}} }{{$st}}{ {{- index $primary "100" -}} }{{$st}}{# {{- $t.secondary -}} }{{$st}}"},
+	{ 
+		"keyColor": "{{index $primarykey "0"}}",
+		"type": "localip"
+	}, 
+	{ 
+		"keyColor": "{{index $primarykey "33"}}",
+		"type": "bluetooth"	
+	}, 
+	{ 
+	   	"keyColor": "{{index $primarykey "67"}}",
+	    "type": "wifi"
+	}, 
+	{ 
+		"keyColor": "{{index $primarykey "100"}}",
+		"type": "dns"	
+	},
+    { "type": "custom", "format": "{ {{- index $primary "0" -}} }{{$st}}{ {{- index $primary "17" -}} }{{$st}}{ {{- index $primary "33" -}} }{{$st}} { {{- index $primary "50" -}} }Input/Output { {{- index $primary "67" -}} }{{$st}}{ {{- index $primary "83" -}} }{{$st}}{ {{- index $primary "100" -}} }{{$st}}{# {{- $t.secondary -}} }{{$st}}"},
+	{ 
+		"keyColor": "{{index $primarykey "0"}}",
+		"type": "sound",
+		"format": "{name} {identifier} {volume-percentage}"	
+	}, 
+	{ 
+			"keyColor": "{{index $primarykey "25"}}",
+					"type": "gamepad"	
+						}, 
+    { 
+        "type": "mouse", 
+		"format": "lua:mouse=(mouse and mouse .. ' {{$primary2_ansi}}{{$s}}{{$reset_ansi}} ' or '') .. (...).name"
+	},
+	{ 
+		"keyColor": "{{index $primarykey "50"}}",
+		"type": "custom",
+		"key": "Mice",
+		"format": "lua:return mouse"
+	},    
+    { 
+    	"type": "keyboard", 
+    	"format": "lua:kb=(kb and kb .. ' {{$primary2_ansi}}{{$s}}{{$reset_ansi}} ' or '') .. (...).name"
+    },
+	{ 
+		"keyColor": "{{index $primarykey "75"}}",
+		"type": "custom",
+		"key": "Keyboards",
+		"format": "lua:return kb"
+	},    
+	{ 
+		"keyColor": "{{index $primarykey "100"}}",
+		"type": "display"	
+	},
+    "break",
+    "colors"
+  ]
+}

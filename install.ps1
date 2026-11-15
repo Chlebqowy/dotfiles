@@ -3,6 +3,7 @@ Start-Sleep -Seconds 1
 winget install chezmoi
 winget install --id Starship.Starship
 winget install --id zyedidia.micro
+winget install --id ImageMagick.ImageMagick
 Write-Output ">> Copying chezmoi config"
 Start-Sleep -Seconds 1
 cp -r -Force chezmoi ~/.local/share
