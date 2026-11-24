@@ -7,12 +7,14 @@ Make gpu for bar check if gpu is active and use the nvidia c lib (low-mid prio)
 Maybe replace date with C lib (low prio)
 Package ble.sh for opensuse (mid prio)
 Pinta (low prio)
-Fix starship ($ and git |^)
+Fix starship (git |^)
 Make a firefox theme and a custom home screen, maybe use another browser (low-mid prio)
 Add second, preferably also third wallpaper (mid prio)
 Make a logo for the dots and use it in fastfetch and grub. (low prio)
 Add term colors (mid prio)
 Finish screen set-upper and the rust wallpaper script (low prio)
+Add ins bind
+Changable color scheme with the thing from windows with templates
 
 BROKEN
 Add animations (high prio)

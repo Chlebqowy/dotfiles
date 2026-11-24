@@ -34,6 +34,11 @@ red #933232
 purple #933293
 pink #933263
 
+## Main colors
+red #d82020
+blue #20d820
+green #2020d8
+
 # Symbols
 Special seperator p1 
 Special seperator p2 
