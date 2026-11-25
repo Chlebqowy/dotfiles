@@ -41,3 +41,9 @@ color-link type.extended "default"
 
 color-link divider "#3f8f62,#75ff98"
 color-link message "#b25435"
+
+color-link not-der "#2020d8"
+color-link not-die "#d82020"
+color-link not-das "#20d820"
+color-link not-hl1 "bold #ef8528"
+color-link not-hl2 "bold #2892ef"

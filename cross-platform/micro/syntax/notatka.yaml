@@ -1,7 +1,6 @@
 filetype: notatka
 detect:
     filename: "\\.n$"
-
 rules:
     - symbol.operator: "([.:;,+*\\%=!<>/\\-&])"
     - type: "\\|"
@@ -9,8 +8,14 @@ rules:
     - constant.number: "\\b[0123456789/]+(\\.[0123456789/]+)?([Ee][+-]?[0-9]+)?\\b"
     - special: "^#{1,6}.*"
     - identifier: "<.*>"
+    - not-der: "\\b[Dd]er\\b"
+    - not-die: "\\b[Dd]ie\\b"
+    - not-das: "\\b[Dd]as\\b"
     - comment:
         start: "<--"
         end: "-->"
         rules:
             - todo: "(ZDOM):?"
+    - not-hl1: "!.*!"
+    - not-hl2: "\\|.*\\|"
+

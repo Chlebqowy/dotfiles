@@ -10,6 +10,7 @@ format = """\
 [$python](bg:gray fg:white_text)\
 [$cpp](bg:gray fg:white_text)\
 [$c](bg:gray fg:white_text)\
+[ ](bg:gray)\
 [](fg:accent bg:gray)[](fg:accent)
 [   ]()\
 [ ](fg:secondary)[](fg:secondary bg:gray)\
@@ -46,7 +47,7 @@ style = "bg:gray fg:white_text"
 format = "[ $time ]($style)"
 
 [battery]
-format = "[ $percentage ]($style)"
+format = "[\\\\](fg:primary bg:gray) [$percentage]($style)"
 
 [[battery.display]]
 style = "bg:gray fg:white_text"
@@ -59,7 +60,7 @@ style_root = "fg:red_text"
 format = "[ $user ]($style)"
 
 [status]
-disabled = false
+disabled=false
 style = "bg:gray fg:accent"
 failure_style = "bg:gray fg:failure"
 symbol = "\\$"
@@ -97,7 +98,7 @@ worktree_added = " D${count}"
 
 [sudo]
 disabled = false
-format = "[\\\\](fg:primary bg:gray) [sudo]($style)"
+format = " [sudo]($style) [\\\\](fg:primary bg:gray)"
 style = "bg:gray fg:wbite_text"
 
 [rust]
@@ -112,7 +113,7 @@ style = "bg:gray fg:wbite_text"
 
 [cpp]
 disabled = false
-format = "[\\\\](fg:primary bg:gray) [C++ $version]($style)"
+format = " [\\\\](fg:primary bg:gray) [C++ $version]($style)"
 style = "bg:gray fg:wbite_text"
 
 [c]
